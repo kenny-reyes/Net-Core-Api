@@ -1,7 +1,7 @@
 ﻿using frontend.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace frontend
+namespace frontend.Contexts
 {
     public class MyAppDbContext : DbContext
     {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using frontend.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -32,8 +33,6 @@ namespace frontend
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             
-            var sss = Configuration.GetConnectionString("MyAppDbContext");
-
             services.AddDbContext<MyAppDbContext>(o =>
                 o.UseSqlServer(Configuration.GetConnectionString("MyAppDbContext")));
 

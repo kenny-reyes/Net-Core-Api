@@ -1,12 +1,11 @@
 FROM microsoft/dotnet:sdk
 
+ENV DOTNET_USE_POLLING_FILE_WATCHER 1
+
 RUN mkdir app
 WORKDIR /app
 
 COPY . .
-
-RUN pwd
-RUN ls -a
 
 RUN dotnet restore
 
