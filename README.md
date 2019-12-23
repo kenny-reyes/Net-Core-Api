@@ -49,3 +49,9 @@ Delete all containers
 ```bash
 docker rm $(docker ps -a -q)
 ```
+
+Connect with running frontend container
+
+```bash
+docker exec -it frontend bash
+```
