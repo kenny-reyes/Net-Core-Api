@@ -1,0 +1,12 @@
+﻿@model IEnumerable<frontend.Models.Customer>; 
+<table class="table">
+    <tr>
+        <th>Id</th> <th>Name</th> <th>VAT</th> <th>Enabled</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td> <td>@item.Name</td> <td>@item.Vat</td> <td>@item.Enabled</td>
+        </tr>
+    }
+</table>

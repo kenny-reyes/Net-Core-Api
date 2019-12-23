@@ -36,6 +36,14 @@ docker run -p:5000:5000 -p:5001:5001 --mount type=bind,source="$(pwd)",target=/a
 
 **NOTE:** Be careful you are sharing the unit with docker for create the volume, this is used for enable watching in DotNet Core.
 
+#### Running from docker-compose
+
+From the root type in the bash
+
+```bash
+docker-compose up
+```
+
 ### 3. Some useful commands
 
 Stop all containers
