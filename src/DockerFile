@@ -8,5 +8,6 @@ WORKDIR /app
 COPY . .
 
 RUN dotnet restore
+RUN chmod +x startup.sh
 
-CMD dotnet watch run --urls "http://0.0.0.0:5000;https://0.0.0.0:5001"
+ENTRYPOINT ./startup.sh
