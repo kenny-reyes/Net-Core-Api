@@ -1,8 +1,9 @@
-version: '3'
+version: "3"
 
 services:
   frontend:
     build: ./src
+    container_name: frontend
     ports:
       - 5000:5000
       - 5001:5001
@@ -13,8 +14,9 @@ services:
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server
+    container_name: sqlserver
     ports:
-      - 1433:1433
+      - 1444:1433
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: "Password_123"

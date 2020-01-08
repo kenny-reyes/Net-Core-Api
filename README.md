@@ -44,6 +44,12 @@ From the root type in the bash
 docker-compose up
 ```
 
+#### App docker url
+
+In any cases the app will be running in https://localhost:5000 or http://localhost:5001 with docker and if we prefer to run it locally (start button) it will be on https://localhost:3000 or https://localhost:3001 as you can see in the **launchSettings.json** file.
+
+**NOTE:** Take care of don't have the docker and the local running at the same time because docker uses the same folder and it won't copy the files.
+
 ### 3. Some useful commands
 
 Stop all containers
