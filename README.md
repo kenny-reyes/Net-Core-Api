@@ -1,6 +1,7 @@
 # Introduction
 
-A simple dockerized ASP.NET Core App also with Kubernetes
+A simple Api to show how to pattern CQRS.  
+I started from [my previous repository](https://github.com/kenny-reyes/AspNetCoreDockerExample) for take advantage of the Docker configuration.
 
 ## Getting Started
 
