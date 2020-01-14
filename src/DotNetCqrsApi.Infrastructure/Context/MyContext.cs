@@ -7,17 +7,19 @@ namespace DotNetCqrsApi.Infrastructure.Context
 {
     public class MyContext : DbContext, IUnitOfWork
     {
-        public DbSet<Person> Roles { get; set; }
-    
+        public DbSet<Person> People { get; set; }
+        public DbSet<Gender> Genders { get; set; }
+
         public MyContext(DbContextOptions options)
             : base(options)
-        { }
+        {
+        }
 
         public static MyContext Create(string connectionString)
         {
             var options = new DbContextOptionsBuilder().UseSqlServer(
-                connectionString,
-                o => o.UseNetTopologySuite())
+                    connectionString,
+                    o => o.UseNetTopologySuite())
                 .Options;
             return new MyContext(options);
         }

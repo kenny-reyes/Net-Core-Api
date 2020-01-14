@@ -12,16 +12,16 @@ namespace DotNetCqrsApi.Application.Person
     
     public class GetUsersDataQueryHandler : IRequestHandler<GetUsersDataQueryRequest, PaginatedResponse<PersonListItemModel>>
     {                                                                         
-        private readonly IGetUsers getUsersQueries;
+        private readonly IGetUsers _getUsersQueries;
 
         public GetUsersDataQueryHandler(IGetUsers getUsersQueries)
         {
-            this.getUsersQueries = getUsersQueries;
+            this._getUsersQueries = getUsersQueries;
         }
         
         public async Task<PaginatedResponse<PersonListItemModel>> Handle(GetUsersDataQueryRequest request, CancellationToken cancellationToken)
         {
-            return await getUsersQueries.Query(request, cancellationToken);
+            return await _getUsersQueries.Query(request, cancellationToken);
         }
     }
 }

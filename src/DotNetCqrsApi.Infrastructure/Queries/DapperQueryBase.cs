@@ -8,19 +8,19 @@ namespace DotNetCqrsApi.Infrastructure.Queries
 {
     public class DapperQueryBase
     {
-        private readonly SqlConnection sqlConnection;
+        private readonly SqlConnection _sqlConnection;
 
         public DapperQueryBase(SqlConnection sqlConnection)
         {
-            this.sqlConnection = sqlConnection;
+            this._sqlConnection = sqlConnection;
         }
 
         protected async Task<T> WithConnection<T>(Func<IDbConnection, Task<T>> getData, CancellationToken cancellationToken)
         {
             try
             {
-                await sqlConnection.OpenAsync(cancellationToken);
-                return await getData(sqlConnection);
+                await _sqlConnection.OpenAsync(cancellationToken);
+                return await getData(_sqlConnection);
             }
             catch (TimeoutException exception)
             {
@@ -32,9 +32,9 @@ namespace DotNetCqrsApi.Infrastructure.Queries
             }
             finally
             {
-                if (sqlConnection.State == ConnectionState.Open)
+                if (_sqlConnection.State == ConnectionState.Open)
                 {
-                    sqlConnection.Close();
+                    _sqlConnection.Close();
                 }
             }
         }

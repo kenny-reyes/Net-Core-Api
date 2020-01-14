@@ -20,7 +20,7 @@ namespace DotNetCqrsApi.Host
             Environment = environment;
         }
 
-        readonly string AllowedOrigins = "_AllowedOrigins";
+        readonly string _allowedOrigins = "_AllowedOrigins";
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -43,7 +43,7 @@ namespace DotNetCqrsApi.Host
             var origins = new string[] { "http://localhost:4200", "https://localhost:4200" };
             services.AddCors(options =>
             {
-                options.AddPolicy(AllowedOrigins,
+                options.AddPolicy(_allowedOrigins,
                 builder =>
                 {
                     builder.WithOrigins(origins)
@@ -58,7 +58,7 @@ namespace DotNetCqrsApi.Host
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseCors(AllowedOrigins)
+            app.UseCors(_allowedOrigins)
                 .UseUnitOfWork();
 
             ApiConfiguration.Configure(app, host =>

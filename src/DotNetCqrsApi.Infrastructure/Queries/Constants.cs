@@ -12,7 +12,7 @@ namespace DotNetCqrsApi.Infrastructure.Queries
 
         public static class Sort
         {
-            public static Dictionary<string, string> Directions = new Dictionary<string, string>
+            public static readonly Dictionary<string, string> Directions = new Dictionary<string, string>
             {
                 {SortOptions.Ascendant, "ASC" },
                 {SortOptions.Descendant, "DESC" }

@@ -3,6 +3,9 @@ using System.Data.SqlClient;
 using System.Threading;
 using System.Threading.Tasks;
 using Dapper;
+using DotNetCqrsApi.Application.Person;
+using DotNetCqrsApi.Application.Person.Queries;
+using DotNetCqrsApi.Application.Shared;
 using DotNetCqrsApi.Infrastructure.Context;
 using DotNetCqrsApi.Infrastructure.Extensions;
 using DotNetCqrsApi.Infrastructure.Queries.Shared;
@@ -12,12 +15,12 @@ namespace DotNetCqrsApi.Infrastructure.Queries.Users
 {
     public class GetUsers : DapperQueryBase, IQuery, IGetUsers
     {
-        private static readonly string selectCountUserCountries = $@"
+        private static readonly string SelectCountUserCountries = $@"
         (SELECT COUNT(UC.[{nameof(UserCountry.UserId)}])
         FROM [{nameof(MyContext.UserCountries)}] UC
         WHERE UC.[{nameof(UserCountry.UserId)}] = U.[{nameof(User.Id)}])";
 
-        private static readonly string selectCountUserSections = $@"
+        private static readonly string SelectCountUserSections = $@"
         (SELECT COUNT(US.[{nameof(UserSection.UserId)}])
         FROM [{nameof(MyContext.UserSections)}] US
         WHERE US.[{nameof(UserSection.UserId)}] = U.[{nameof(User.Id)}])";
@@ -34,8 +37,8 @@ namespace DotNetCqrsApi.Infrastructure.Queries.Users
             { "roleId", $"U.[{nameof(User.RoleId)}]" },
             { "roleName", $"R.[{nameof(Role.Name)}]" },
             { "isEnabled", $"U.[{nameof(User.IsEnabled)}]" },
-            { "countries", selectCountUserCountries },
-            { "sections", selectCountUserSections }
+            { "countries", SelectCountUserCountries },
+            { "sections", SelectCountUserSections }
         };
 
         public async Task<PaginatedResponse<UserListItemModel>> Query(GetUsersDataQueryRequest request, CancellationToken cancellationToken)
@@ -55,8 +58,8 @@ namespace DotNetCqrsApi.Infrastructure.Queries.Users
             U.[{nameof(User.RoleId)}] AS [{nameof(UserListItemModel.RoleId)}],
             R.[{nameof(Role.Name)}] AS [{nameof(UserListItemModel.RoleName)}],
             U.[{nameof(User.IsEnabled)}] AS [{nameof(UserListItemModel.IsEnabled)}],
-            {selectCountUserCountries} AS [{nameof(UserListItemModel.Countries)}],
-            {selectCountUserSections} AS [{nameof(UserListItemModel.Sections)}]
+            {SelectCountUserCountries} AS [{nameof(UserListItemModel.Countries)}],
+            {SelectCountUserSections} AS [{nameof(UserListItemModel.Sections)}]
             FROM [{nameof(MyContext.Users)}] U
             {rolesLeftjoin}
             {where.Sql} {orderBy} {pagination.Sql}";

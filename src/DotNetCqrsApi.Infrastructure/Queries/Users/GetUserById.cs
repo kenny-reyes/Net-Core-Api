@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Dapper;
+using DotNetCqrsApi.Application.Person.Queries;
 using DotNetCqrsApi.Infrastructure.Context;
 using DotNetCqrsApi.Infrastructure.Queries.Shared;
 
@@ -43,11 +46,11 @@ namespace DotNetCqrsApi.Infrastructure.Queries.Users
 
             var selectSections = $@"
             SELECT
-            C.[{nameof(Section.Id)}] AS [{nameof(SectionModel.Id)}],
-            C.[{nameof(Section.Name)}] AS [{nameof(SectionModel.Name)}]
+            C.[{nameof(BitVector32.Section.Id)}] AS [{nameof(SectionModel.Id)}],
+            C.[{nameof(BitVector32.Section.Name)}] AS [{nameof(SectionModel.Name)}]
             FROM [{nameof(MyContext.Sections)}] C
             LEFT JOIN [{nameof(MyContext.UserSections)}] US
-            ON US.[{nameof(UserSection.SectionId)}] = C.[{nameof(Section.Id)}]
+            ON US.[{nameof(UserSection.SectionId)}] = C.[{nameof(BitVector32.Section.Id)}]
             WHERE US.[{nameof(UserSection.UserId)}] = @{nameof(id)}";
 
             var selectModules = $@"
