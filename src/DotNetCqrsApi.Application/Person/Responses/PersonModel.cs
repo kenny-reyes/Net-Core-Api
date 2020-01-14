@@ -1,4 +1,6 @@
-﻿namespace DotNetCqrsApi.Application.Person.Responses
+﻿using DotNetCqrsApi.Domain.People;
+
+namespace DotNetCqrsApi.Application.Person.Responses
 {
     public class PersonModel
     {
@@ -6,8 +8,7 @@
         public string Email { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public int RoleId { get; set; }
-        public string RoleName { get; set; }
-        public bool IsEnabled { get; set; }
+        public int GenderId { get; set; }
+        public Gender Gender { get; set; }
     }
 }

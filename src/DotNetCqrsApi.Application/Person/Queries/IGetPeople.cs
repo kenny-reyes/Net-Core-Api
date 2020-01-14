@@ -5,8 +5,8 @@ using DotNetCqrsApi.Application.Shared;
 
 namespace DotNetCqrsApi.Application.Person.Queries
 {
-    public interface IGetUsers
+    public interface IGetPeople
     {
-        Task<PaginatedResponse<PersonListItemModel>> Query(GetUsersDataQueryRequest getUsersDataQuery, CancellationToken cancellationToken);
+        Task<PaginatedResponse<PersonListItemModel>> Query(GetPeopleDataQueryRequest getPeopleDataQuery, CancellationToken cancellationToken);
     }
 }

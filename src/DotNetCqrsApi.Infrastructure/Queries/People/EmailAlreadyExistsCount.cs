@@ -7,7 +7,7 @@ using DotNetCqrsApi.Domain.People;
 using DotNetCqrsApi.Infrastructure.Context;
 using DotNetCqrsApi.Infrastructure.Queries.Shared;
 
-namespace DotNetCqrsApi.Infrastructure.Queries.Users
+namespace DotNetCqrsApi.Infrastructure.Queries.People
 {
     public class EmailAlreadyExistsCount : DapperQueryBase, IQuery, IEmailAlreadyExistsCount
     {
@@ -19,8 +19,8 @@ namespace DotNetCqrsApi.Infrastructure.Queries.Users
             var select = $@"
             SELECT COUNT(U.[{nameof(Person.Id)}])
             FROM [{nameof(MyContext.People)}] U
-            WHERE U.[{nameof(User.Email)}] = @{nameof(email)}";
-            select += id > 0 ? $" AND U.[{nameof(User.Id)}] <> @{nameof(id)}" : string.Empty;
+            WHERE U.[{nameof(Person.Email)}] = @{nameof(email)}";
+            select += id > 0 ? $" AND U.[{nameof(Person.Id)}] <> @{nameof(id)}" : string.Empty;
 
             var result = await WithConnection(async connection =>
             {

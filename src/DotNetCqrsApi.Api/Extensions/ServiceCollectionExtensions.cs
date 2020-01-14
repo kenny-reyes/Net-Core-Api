@@ -1,4 +1,5 @@
 using System;
+using DotNetCqrsApi.Domain.Exceptions;
 using FluentValidation.AspNetCore;
 using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Http;
@@ -6,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace DotNetCqrsApi.Api.Infrastructure.Extensions
+namespace DotNetCqrsApi.Api.Extensions
 {
     public static class ServiceCollectionExtensions
     {

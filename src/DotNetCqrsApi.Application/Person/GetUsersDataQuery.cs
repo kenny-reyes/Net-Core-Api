@@ -7,21 +7,21 @@ using MediatR;
 
 namespace DotNetCqrsApi.Application.Person
 {
-    public class GetUsersDataQueryRequest : PaginatedRequest, IRequest<PaginatedResponse<PersonListItemModel>>
+    public class GetPeopleDataQueryRequest : PaginatedRequest, IRequest<PaginatedResponse<PersonListItemModel>>
     { }
     
-    public class GetUsersDataQueryHandler : IRequestHandler<GetUsersDataQueryRequest, PaginatedResponse<PersonListItemModel>>
+    public class GetUsersDataQueryHandler : IRequestHandler<GetPeopleDataQueryRequest, PaginatedResponse<PersonListItemModel>>
     {                                                                         
-        private readonly IGetUsers _getUsersQueries;
+        private readonly IGetPeople _getPeopleQueries;
 
-        public GetUsersDataQueryHandler(IGetUsers getUsersQueries)
+        public GetUsersDataQueryHandler(IGetPeople getPeopleQueries)
         {
-            this._getUsersQueries = getUsersQueries;
+            this._getPeopleQueries = getPeopleQueries;
         }
         
-        public async Task<PaginatedResponse<PersonListItemModel>> Handle(GetUsersDataQueryRequest request, CancellationToken cancellationToken)
+        public async Task<PaginatedResponse<PersonListItemModel>> Handle(GetPeopleDataQueryRequest request, CancellationToken cancellationToken)
         {
-            return await _getUsersQueries.Query(request, cancellationToken);
+            return await _getPeopleQueries.Query(request, cancellationToken);
         }
     }
 }

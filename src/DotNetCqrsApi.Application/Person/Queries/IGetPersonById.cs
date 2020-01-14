@@ -4,7 +4,7 @@ using DotNetCqrsApi.Application.Person.Responses;
 
 namespace DotNetCqrsApi.Application.Person.Queries
 {
-    public interface IGetUserById
+    public interface IGetPersonById
     {
         Task<PersonModel> Query(int id, CancellationToken cancellationToken);
     }

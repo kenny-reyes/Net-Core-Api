@@ -1,6 +1,6 @@
 using System;
 using DotNetCqrsApi.Api.Configuration;
-using DotNetCqrsApi.Api.Infrastructure.Extensions;
+using DotNetCqrsApi.Api.Extensions;
 using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;

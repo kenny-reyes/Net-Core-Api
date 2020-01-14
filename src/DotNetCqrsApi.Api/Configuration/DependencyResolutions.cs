@@ -1,4 +1,11 @@
 ﻿using System.Data;
+using System.Data.SqlClient;
+using DotNetCqrsApi.Api.Configuration.Extensions;
+using DotNetCqrsApi.Application.Person;
+using DotNetCqrsApi.Domain.Interfaces;
+using DotNetCqrsApi.Infrastructure.ConnectionString;
+using DotNetCqrsApi.Infrastructure.Context;
+using DotNetCqrsApi.Infrastructure.Queries.Shared;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,7 +16,7 @@ namespace DotNetCqrsApi.Api.Configuration
     {
         public static void AddTo(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddMediatR(typeof(GetCountriesRequest).Assembly);
+            services.AddMediatR(typeof(GetPeDataQueryRequest).Assembly);
 
             var connectionStrings = configuration.GetSection<ConnectionStrings>();
             services.AddScoped<IDbConnection>(x =>
@@ -23,7 +30,7 @@ namespace DotNetCqrsApi.Api.Configuration
                     .AsImplementedInterfaces().WithScopedLifetime());
 
             services.Scan(scan =>
-                scan.FromAssemblyOf<AppContext>().AddClasses(classes => classes.AssignableTo(typeof(IRepository<>)))
+                scan.FromAssemblyOf<MyContext>().AddClasses(classes => classes.AssignableTo(typeof(IRepository<>)))
                     .AsImplementedInterfaces().WithScopedLifetime());
         }
     }
