@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using DotNetCqrsApi.Application.Person.Responses;
+using DotNetCqrsApi.Application.People.Responses;
 
-namespace DotNetCqrsApi.Application.Person.Queries
+namespace DotNetCqrsApi.Application.People.Queries
 {
     public interface IGetPersonById
     {

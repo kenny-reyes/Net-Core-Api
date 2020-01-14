@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using DotNetCqrsApi.Api.Configuration.Extensions;
-using DotNetCqrsApi.Application.Person;
+using DotNetCqrsApi.Application.People;
 using DotNetCqrsApi.Domain.Interfaces;
 using DotNetCqrsApi.Infrastructure.ConnectionString;
 using DotNetCqrsApi.Infrastructure.Context;
@@ -16,7 +16,7 @@ namespace DotNetCqrsApi.Api.Configuration
     {
         public static void AddTo(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddMediatR(typeof(GetPeDataQueryRequest).Assembly);
+            services.AddMediatR(typeof(GetPeopleDataQueryRequest).Assembly);
 
             var connectionStrings = configuration.GetSection<ConnectionStrings>();
             services.AddScoped<IDbConnection>(x =>

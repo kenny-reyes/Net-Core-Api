@@ -1,6 +1,5 @@
 ﻿using DotNetCqrsApi.Api;
 using DotNetCqrsApi.Host.Extensions;
-using DotNetCqrsApi.Host.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;

@@ -9,7 +9,7 @@ namespace DotNetCqrsApi.Domain.People
     public class Person : IEntity
     {
         public const int NameMaxLength = 20;
-        public const int UserNameMinLength = 2;
+        public const int NameMinLength = 2;
         public const int SurnameMaxLength = 30;
         public const int SurnameMinLength = 2;
         public const int EmailMaxLenght = 64;
@@ -77,7 +77,7 @@ namespace DotNetCqrsApi.Domain.People
         {
             DomainPreconditions.NotEmpty(name, nameof(name));
             DomainPreconditions.LongerThan(name, NameMaxLength, nameof(Name));
-            DomainPreconditions.ShorterThan(name, UserNameMinLength, nameof(Name));
+            DomainPreconditions.ShorterThan(name, NameMinLength, nameof(Name));
         }
 
         private static void ValidateSurname(string surname)

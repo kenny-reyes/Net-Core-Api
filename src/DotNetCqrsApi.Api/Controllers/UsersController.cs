@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using DotNetCqrsApi.Application.Person;
-using DotNetCqrsApi.Application.Person.Responses;
+using DotNetCqrsApi.Application.People;
+using DotNetCqrsApi.Application.People.Responses;
 using DotNetCqrsApi.Application.Shared;
 using MediatR;
 using Microsoft.AspNetCore.Http;

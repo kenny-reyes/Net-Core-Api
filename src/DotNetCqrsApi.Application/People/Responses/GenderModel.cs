@@ -1,4 +1,4 @@
-﻿namespace DotNetCqrsApi.Application.Person.Responses
+﻿namespace DotNetCqrsApi.Application.People.Responses
 {
     public class GenderModel
     {

@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Dapper;
-using DotNetCqrsApi.Application.Person.Queries;
+using DotNetCqrsApi.Application.People.Queries;
 using DotNetCqrsApi.Domain.People;
 using DotNetCqrsApi.Infrastructure.Context;
 using DotNetCqrsApi.Infrastructure.Queries.Shared;

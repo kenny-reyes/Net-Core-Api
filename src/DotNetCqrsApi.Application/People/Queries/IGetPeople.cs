@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using DotNetCqrsApi.Application.Person.Responses;
+using DotNetCqrsApi.Application.People.Responses;
 using DotNetCqrsApi.Application.Shared;
 
-namespace DotNetCqrsApi.Application.Person.Queries
+namespace DotNetCqrsApi.Application.People.Queries
 {
     public interface IGetPeople
     {

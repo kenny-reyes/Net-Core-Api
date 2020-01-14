@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace DotNetCqrsApi.Application.Person.Queries
+namespace DotNetCqrsApi.Application.People.Queries
 {
     public interface IEmailAlreadyExistsCount
     {

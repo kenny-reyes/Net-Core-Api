@@ -1,4 +1,5 @@
 using System;
+using DotNetCqrsApi.Application.People;
 using DotNetCqrsApi.Domain.Exceptions;
 using FluentValidation.AspNetCore;
 using Hellang.Middleware.ProblemDetails;
@@ -12,7 +13,7 @@ namespace DotNetCqrsApi.Api.Extensions
     public static class ServiceCollectionExtensions
     {
         public static IMvcCoreBuilder AddFluentValidations(this IMvcCoreBuilder builder) =>
-            builder.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateCurrencyValidator>());
+            builder.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreatePersonValidator>());
 
         public static IServiceCollection AddCustomApiVersioning(this IServiceCollection services)
         {

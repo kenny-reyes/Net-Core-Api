@@ -1,9 +1,11 @@
 using System.Net.Http;
+using DotNetCqrsApi.Domain.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DotNetCqrsApi.Host.Infrastructure.Extensions
+namespace DotNetCqrsApi.Host.Extensions
 {
     public static class ApplicationBuilderExtensions
     {

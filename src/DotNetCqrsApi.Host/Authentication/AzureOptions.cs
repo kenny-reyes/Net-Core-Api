@@ -1,4 +1,4 @@
-namespace DotNetCqrsApi.Host.Infrastructure.Authentication
+namespace DotNetCqrsApi.Host.Authentication
 {
     public class AzureOptions
     {

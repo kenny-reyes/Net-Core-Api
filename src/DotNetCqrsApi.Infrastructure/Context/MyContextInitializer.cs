@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DotNetCqrsApi.Infrastructure.Context
 {
-    public static class AppContextInitializer
+    public static class MyContextInitializer
     {
         public static void Initialize(MyContext context)
         {

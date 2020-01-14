@@ -1,6 +1,10 @@
 using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace DotNetCqrsApi.Host.Infrastructure.OpenApi
+namespace DotNetCqrsApi.Host.OpenApi
 {
     public class ApiVersionOperationFilter: IOperationFilter
     {

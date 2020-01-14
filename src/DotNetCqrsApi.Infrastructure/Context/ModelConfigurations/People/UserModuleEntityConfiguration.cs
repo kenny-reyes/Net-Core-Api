@@ -1,4 +1,5 @@
-﻿using DotNetCqrsApi.Domain.People;
+﻿using System.Collections.Generic;
+using DotNetCqrsApi.Domain.People;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -34,6 +35,8 @@ namespace DotNetCqrsApi.Infrastructure.Context.ModelConfigurations.People
                 .HasForeignKey(u => u.GenderId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired();
+
+            builder.HasData(new List<Person>{Person.Create("keniakos@hotmail.com","Kenny", "Reyes", Gender.Male.Id)});
         }
     }
 }

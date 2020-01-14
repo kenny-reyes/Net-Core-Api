@@ -11,7 +11,7 @@ namespace DotNetCqrsApi.Host
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().MigrateDbContext(AppContextInitializer.Initialize).Run();
+            CreateWebHostBuilder(args).Build().MigrateDbContext(MyContextInitializer.Initialize).Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
