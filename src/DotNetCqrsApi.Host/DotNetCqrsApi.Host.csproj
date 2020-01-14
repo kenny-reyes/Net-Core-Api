@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <RootNamespace>DotNetCqrsApi.Host</RootNamespace>
+    <UserSecretsId>DotNetCqrsApi</UserSecretsId>
+    <AssemblyName>Host</AssemblyName>
+  </PropertyGroup>  
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Serilog" Version="2.8.0" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.1.3" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.4" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.1.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+  </ItemGroup>  
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetCqrsApi.Api\DotNetCqrsApi.Api.csproj" />
+    <ProjectReference Include="..\DotNetCqrsApi.Infrastructure\DotNetCqrsApi.Infrastructure.csproj" />
+  </ItemGroup>  
+
+  <ItemGroup>
+    <Folder Include="ApplicationLogs\" />
+  </ItemGroup>
+
+</Project>
