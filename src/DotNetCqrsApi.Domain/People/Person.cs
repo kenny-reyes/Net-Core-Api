@@ -16,7 +16,7 @@ namespace DotNetCqrsApi.Domain.People
 
         public static Regex EmailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,})+)$", RegexOptions.Compiled);
 
-        public int Id { get; private set; }
+        public int Id { get; set; }
         public string Email { get; private set; }
         public string Name { get; private set; }
         public string Surname { get; private set; }

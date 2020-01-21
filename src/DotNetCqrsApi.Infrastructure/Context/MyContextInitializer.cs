@@ -7,11 +7,6 @@ namespace DotNetCqrsApi.Infrastructure.Context
     {
         public static void Initialize(MyContext context)
         {
-            RunMigrations(context);
-        }
-
-        private static void RunMigrations(DbContext context)
-        {
             if (context.Database.GetPendingMigrations().Any())
             {
                 context.Database.Migrate();

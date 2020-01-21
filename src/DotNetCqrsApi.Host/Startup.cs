@@ -19,7 +19,7 @@ namespace DotNetCqrsApi.Host
             Environment = environment;
         }
 
-        readonly string _allowedOrigins = "_AllowedOrigins";
+        private readonly string _allowedOrigins = "_AllowedOrigins";
 
         public void ConfigureServices(IServiceCollection services)
         {

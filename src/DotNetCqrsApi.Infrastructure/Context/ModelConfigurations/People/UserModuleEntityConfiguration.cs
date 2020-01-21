@@ -36,7 +36,9 @@ namespace DotNetCqrsApi.Infrastructure.Context.ModelConfigurations.People
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired();
 
-            builder.HasData(new List<Person>{Person.Create("keniakos@hotmail.com","Kenny", "Reyes", Gender.Male.Id)});
+            var person = Person.Create("keniakos@hotmail.com", "Kenny", "Reyes", Gender.Male.Id);
+            person.Id = 1;
+            builder.HasData(new List<Person>{person});
         }
     }
 }
