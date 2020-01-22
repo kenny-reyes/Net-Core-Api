@@ -26,7 +26,6 @@ namespace DotNetCqrsApi.Infrastructure.Repositories.People
                              .SingleOrDefaultAsync(u => u.Id == id, cancellationToken);
         }
 
-
         public async Task<Person> FindByIdWithIncludes(int id, CancellationToken cancellationToken)
         {
             return await Context.Set<Person>()

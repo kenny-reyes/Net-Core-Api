@@ -10,11 +10,11 @@ namespace DotNetCqrsApi.Application.People
     public class GetPeopleDataQueryRequest : PaginatedRequest, IRequest<PaginatedResponse<PersonListItemModel>>
     { }
     
-    public class GetUsersDataQueryHandler : IRequestHandler<GetPeopleDataQueryRequest, PaginatedResponse<PersonListItemModel>>
+    public class GetPeopleDataQueryHandler : IRequestHandler<GetPeopleDataQueryRequest, PaginatedResponse<PersonListItemModel>>
     {                                                                         
         private readonly IGetPeople _getPeopleQueries;
 
-        public GetUsersDataQueryHandler(IGetPeople getPeopleQueries)
+        public GetPeopleDataQueryHandler(IGetPeople getPeopleQueries)
         {
             this._getPeopleQueries = getPeopleQueries;
         }

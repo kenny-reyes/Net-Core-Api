@@ -28,17 +28,6 @@ namespace DotNetCqrsApi.Api.Controllers
             return Ok(result);
         }
 
-/*        [HttpGet]
-        [ProducesResponseType(typeof(PersonModel), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status502BadGateway)]
-        public async Task<ActionResult<PersonModel>> GetPerson([FromQuery]GetPersonByIdRequest request)
-        {
-            var result = await _mediator.Send(request);
-            return Ok(result);
-        }
-
         [HttpPost]
         [ProducesResponseType(typeof(PersonModel), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
@@ -49,27 +38,5 @@ namespace DotNetCqrsApi.Api.Controllers
             var person = await _mediator.Send(request);
             return Ok(person);
         }
-
-        [HttpPut]
-        [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status502BadGateway)]
-        public async Task<ActionResult> UpdatePerson([FromBody]UpdatePersonRequest request)
-        {
-            await _mediator.Send(request);
-            return Ok();
-        }
-
-        [HttpGet(ApiConstants.EmailAlreadyExists)]
-        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status502BadGateway)]
-        public async Task<ActionResult<bool>> EmailAlreadyExists([FromQuery]EmailAlreadyExistsRequest request)
-        {
-            var result = await _mediator.Send(request);
-            return Ok(result);
-        }*/
     }
 }
