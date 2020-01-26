@@ -11,8 +11,9 @@ using MediatR;
 
 namespace ApiExercise.Application.Users
 {
-    // NOTE: yes, looks ugly to have 3 classes in the same file, but seems it is like the people do it,
-    // well, there is a discussion about this, I don't care to divide it, I don't have an opinion
+    /* NOTE: yes, looks ugly to have 3 classes in the same file, but seems it is like the people do it,
+     * well, there is a discussion about this, I don't care to divide it, I don't have an opinion
+     */
     public sealed class CreateUserRequest : IRequest<UserModel>
     {
         public string Email { get; set; }

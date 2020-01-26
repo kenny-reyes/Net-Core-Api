@@ -3,7 +3,6 @@ using ApiExercise.Api.Extensions;
 using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,8 +20,8 @@ namespace ApiExercise.Api
                 .AddFluentValidations()
                 .AddApiExplorer()
                 .Services
-                //.AddVersionedApiExplorer()
-                .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
+                //.AddVersionedApiExplorer() //TODO: Remove this
+                //.AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
                 .AddCustomProblemDetails(environment);
 
             DependencyResolutions.AddTo(services, configuration);

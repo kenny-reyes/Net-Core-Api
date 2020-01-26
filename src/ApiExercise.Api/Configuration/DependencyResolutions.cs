@@ -16,7 +16,7 @@ namespace ApiExercise.Api.Configuration
     {
         public static void AddTo(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddMediatR(typeof(GetUsersDataQueryRequest).Assembly);
+            services.AddMediatR(typeof(GetUsersRequest).Assembly);
 
             var connectionStrings = configuration.GetSection<ConnectionStrings>();
             services.AddScoped<IDbConnection>(x =>

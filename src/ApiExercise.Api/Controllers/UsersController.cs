@@ -22,7 +22,7 @@ namespace ApiExercise.Api.Controllers
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status502BadGateway)]
-        public async Task<ActionResult<PaginatedResponse<UserListItemModel>>> GetUsers([FromBody]GetUsersDataQueryRequest request)
+        public async Task<ActionResult<PaginatedResponse<UserListItemModel>>> GetUsers([FromBody]GetUsersRequest request)
         {
             var result = await _mediator.Send(request);
             return Ok(result);

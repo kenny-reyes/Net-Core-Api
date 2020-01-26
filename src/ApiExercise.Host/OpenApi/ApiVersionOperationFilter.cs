@@ -1,5 +1,6 @@
 namespace ApiExercise.Host.OpenApi
 {
+    // TODO: Remove this o complete
 /*    public class ApiVersionOperationFilter : IOperationFilter
     {
         public void Apply(OpenApiOperation operation, OperationFilterContext context)

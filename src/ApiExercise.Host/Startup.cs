@@ -28,7 +28,7 @@ namespace ApiExercise.Host
         {
             ApiConfiguration.ConfigureServices(services, Configuration, Environment)
                 .AddDistributedMemoryCache()
-                //.AddOpenApi()
+                //.AddOpenApi() TODO: Remove
                 .AddEntityFrameworkCore(Configuration)
                 .AddCors(options =>
                 {

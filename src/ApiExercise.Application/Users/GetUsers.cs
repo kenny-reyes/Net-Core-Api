@@ -7,19 +7,19 @@ using MediatR;
 
 namespace ApiExercise.Application.Users
 {
-    public class GetUsersDataQueryRequest : PaginatedRequest, IRequest<PaginatedResponse<UserListItemModel>>
+    public class GetUsersRequest : PaginatedRequest, IRequest<PaginatedResponse<UserListItemModel>>
     { }
     
-    public class GetUsersDataQueryHandler : IRequestHandler<GetUsersDataQueryRequest, PaginatedResponse<UserListItemModel>>
+    public class GetUsersHandler : IRequestHandler<GetUsersRequest, PaginatedResponse<UserListItemModel>>
     {                                                                         
         private readonly IGetUsers _getUsersQueries;
 
-        public GetUsersDataQueryHandler(IGetUsers getUsersQueries)
+        public GetUsersHandler(IGetUsers getUsersQueries)
         {
             _getUsersQueries = getUsersQueries;
         }
         
-        public async Task<PaginatedResponse<UserListItemModel>> Handle(GetUsersDataQueryRequest request, CancellationToken cancellationToken)
+        public async Task<PaginatedResponse<UserListItemModel>> Handle(GetUsersRequest request, CancellationToken cancellationToken)
         {
             return await _getUsersQueries.Query(request, cancellationToken);
         }

@@ -30,12 +30,12 @@ namespace ApiExercise.Infrastructure.Queries.Users
             { "genderName", $"G.[{nameof(Gender.Name)}]" }
         };
 
-        public async Task<PaginatedResponse<UserListItemModel>> Query(GetUsersDataQueryRequest request, CancellationToken cancellationToken)
+        public async Task<PaginatedResponse<UserListItemModel>> Query(GetUsersRequest request, CancellationToken cancellationToken)
         {
             var parameters = new Dictionary<string, object>();
             var orderBy = new SqlOrderByBuilder($"U.[{nameof(User.Name)}] ASC", _columns, request).Build();
             var pagination = new SqlPaginationBuilder(request).Build();
-            var gendersLeftJoin = $"LEFT JOIN [{nameof(ExerciseContext.Genders)}] R ON G.[{nameof(Gender.Id)}] = U.[{nameof(User.GenderId)}]";
+            var gendersLeftJoin = $"LEFT JOIN [{nameof(ExerciseContext.Genders)}] G ON G.[{nameof(Gender.Id)}] = U.[{nameof(User.GenderId)}]";
 
             var select = $@"
             SELECT

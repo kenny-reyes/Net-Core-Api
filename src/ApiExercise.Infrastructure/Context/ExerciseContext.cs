@@ -36,6 +36,7 @@ namespace ApiExercise.Infrastructure.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
+                // TODO: 
 //                IConfigurationRoot configuration = new ConfigurationBuilder()
 //                    .SetBasePath(Directory.GetCurrentDirectory())
 //                    .AddJsonFile(AppsettingsJson)

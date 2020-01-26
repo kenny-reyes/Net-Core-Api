@@ -6,7 +6,7 @@ using ApiExercise.Infrastructure.Context;
 using ApiExercise.Infrastructure.Shared;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiExercise.Infrastructure.Repositories.People
+namespace ApiExercise.Infrastructure.Repositories.Users
 {
     public class UserRepository : Repository<User>, IUserRepository
     {
