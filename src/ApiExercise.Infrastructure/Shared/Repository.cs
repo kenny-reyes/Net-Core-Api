@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
+using ApiExercise.Application.Interfaces;
 using ApiExercise.Domain.Interfaces;
 using ApiExercise.Infrastructure.Context;
 using ApiExercise.Infrastructure.Extensions;

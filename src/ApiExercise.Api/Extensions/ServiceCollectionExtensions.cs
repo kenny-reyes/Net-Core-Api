@@ -1,8 +1,8 @@
 using System;
 using ApiExercise.Api.Configuration.Extensions;
-using ApiExercise.Application.People;
+using ApiExercise.Application.Interfaces;
+using ApiExercise.Application.Users;
 using ApiExercise.Domain.Exceptions;
-using ApiExercise.Domain.Interfaces;
 using ApiExercise.Infrastructure.ConnectionString;
 using ApiExercise.Infrastructure.Context;
 using FluentValidation.AspNetCore;
@@ -45,7 +45,7 @@ namespace ApiExercise.Api.Extensions
         }
 
         public static IMvcCoreBuilder AddFluentValidations(this IMvcCoreBuilder builder) =>
-            builder.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreatePersonValidator>());
+            builder.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateUserValidator>());
 
         public static IServiceCollection AddCustomApiVersioning(this IServiceCollection services)
         {

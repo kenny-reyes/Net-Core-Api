@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using ApiExercise.Api.Configuration.Extensions;
-using ApiExercise.Application.People;
-using ApiExercise.Domain.Interfaces;
+using ApiExercise.Application.Interfaces;
+using ApiExercise.Application.Users;
 using ApiExercise.Infrastructure.ConnectionString;
 using ApiExercise.Infrastructure.Context;
 using ApiExercise.Infrastructure.Queries.Shared;
@@ -16,7 +16,7 @@ namespace ApiExercise.Api.Configuration
     {
         public static void AddTo(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddMediatR(typeof(GetPeopleDataQueryRequest).Assembly);
+            services.AddMediatR(typeof(GetUsersDataQueryRequest).Assembly);
 
             var connectionStrings = configuration.GetSection<ConnectionStrings>();
             services.AddScoped<IDbConnection>(x =>

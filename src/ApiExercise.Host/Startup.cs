@@ -1,6 +1,5 @@
 ﻿using System;
 using ApiExercise.Api;
-using ApiExercise.Host.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +12,7 @@ namespace ApiExercise.Host
 {
     public class Startup
     {
-        private readonly string _allowedOrigins = "_AllowedOrigins";
+        private const string AllowedOrigins = "AllowedOrigins";
 
         public IConfiguration Configuration { get; }
         private IWebHostEnvironment Environment { get; }
@@ -31,8 +30,7 @@ namespace ApiExercise.Host
                 //.AddOpenApi()
                 .AddCors(options =>
                 {
-                    // better in appsettings
-                    options.AddPolicy("AllowAllHeaders",
+                    options.AddPolicy(AllowedOrigins,
                         corsbuilder =>
                         {
                             corsbuilder.AllowAnyOrigin()
@@ -49,10 +47,10 @@ namespace ApiExercise.Host
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            if (env.IsProduction())
             {
-                app.UseDeveloperExceptionPage();
-                app.UseCors("AllowAllHeaders");
+                app.UseDeveloperExceptionPage()
+                    .UseCors(AllowedOrigins);
             }
             else
             {

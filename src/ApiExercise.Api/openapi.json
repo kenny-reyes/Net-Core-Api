@@ -12,19 +12,19 @@
     "application/json"
   ],
   "paths": {
-    "/api/people/all": {
+    "/api/Users/all": {
       "post": {
         "tags": [
-          "Persons"
+          "Users"
         ],
-        "operationId": "Persons_GetPersons",
+        "operationId": "Users_GetUsers",
         "parameters": [
           {
             "name": "request",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/GetPeopleDataQueryRequest"
+              "$ref": "#/definitions/GetUsersDataQueryRequest"
             },
             "x-nullable": true
           }
@@ -34,7 +34,7 @@
             "x-nullable": false,
             "description": "",
             "schema": {
-              "$ref": "#/definitions/PaginatedResponseOfPersonListItemModel"
+              "$ref": "#/definitions/PaginatedResponseOfUserListItemModel"
             }
           },
           "400": {
@@ -61,19 +61,19 @@
         }
       }
     },
-    "/api/people": {
+    "/api/Users": {
       "post": {
         "tags": [
-          "Persons"
+          "Users"
         ],
-        "operationId": "Persons_CreatePerson",
+        "operationId": "Users_CreateUser",
         "parameters": [
           {
             "name": "request",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/CreatePersonRequest"
+              "$ref": "#/definitions/CreateUserRequest"
             },
             "x-nullable": true
           }
@@ -83,7 +83,7 @@
             "x-nullable": false,
             "description": "",
             "schema": {
-              "$ref": "#/definitions/PersonModel"
+              "$ref": "#/definitions/UserModel"
             }
           },
           "400": {
@@ -112,7 +112,7 @@
     }
   },
   "definitions": {
-    "PaginatedResponseOfPersonListItemModel": {
+    "PaginatedResponseOfUserListItemModel": {
       "type": "object",
       "required": [
         "total"
@@ -121,7 +121,7 @@
         "data": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/PersonListItemModel"
+            "$ref": "#/definitions/UserListItemModel"
           }
         },
         "total": {
@@ -130,7 +130,7 @@
         }
       }
     },
-    "PersonListItemModel": {
+    "UserListItemModel": {
       "type": "object",
       "required": [
         "id",
@@ -203,7 +203,7 @@
         }
       }
     },
-    "GetPeopleDataQueryRequest": {
+    "GetUsersDataQueryRequest": {
       "allOf": [
         {
           "$ref": "#/definitions/PaginatedRequest"
@@ -271,7 +271,7 @@
         }
       }
     },
-    "PersonModel": {
+    "UserModel": {
       "type": "object",
       "required": [
         "id",
@@ -315,7 +315,7 @@
         }
       }
     },
-    "CreatePersonRequest": {
+    "CreateUserRequest": {
       "type": "object",
       "required": [
         "genderId"

@@ -1,5 +1,5 @@
 using System.Net.Http;
-using ApiExercise.Domain.Interfaces;
+using ApiExercise.Application.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;

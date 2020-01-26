@@ -1,0 +1,66 @@
+[BIXACON BIXACON\Kenny 2020-01-26 00:01:57.174 +01:00 WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data, this mode should only be enabled during development.
+[BIXACON BIXACON\Kenny 2020-01-26 00:01:57.307 +01:00 INF] Entity Framework Core 3.1.1 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: SensitiveDataLoggingEnabled MigrationsAssembly=ApiExercise.Infrastructure 
+[BIXACON BIXACON\Kenny 2020-01-26 00:01:57.653 +01:00 INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[BIXACON BIXACON\Kenny 2020-01-26 00:01:57.687 +01:00 INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[BIXACON BIXACON\Kenny 2020-01-26 00:01:57.702 +01:00 INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:01.060 +01:00 INF] Request starting HTTP/2 GET https://localhost:5001/  
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:01.157 +01:00 INF] Executing ObjectResult, writing value of type 'Hellang.Middleware.ProblemDetails.StatusCodeProblemDetails'.
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:01.188 +01:00 INF] Request finished in 133.2875ms 404 application/problem+json; charset=utf-8
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:05.375 +01:00 INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:05.420 +01:00 INF] Request finished in 45.0663ms 200 text/html;charset=utf-8
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:05.491 +01:00 INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-standalone-preset.js  
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:05.491 +01:00 INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-bundle.js  
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:05.491 +01:00 INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui.css  
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:05.505 +01:00 INF] The file /swagger-ui.css was not modified
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:05.505 +01:00 INF] The file /swagger-ui-standalone-preset.js was not modified
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:05.505 +01:00 INF] The file /swagger-ui-bundle.js was not modified
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:05.510 +01:00 INF] Request finished in 18.8033ms 304 text/css
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:05.511 +01:00 INF] Request finished in 19.7855ms 304 application/javascript
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:05.514 +01:00 INF] Request finished in 23.0854ms 304 application/javascript
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:06.174 +01:00 INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:06.289 +01:00 INF] Request finished in 116.0959ms 200 application/json;charset=utf-8
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:23.099 +01:00 INF] Request starting HTTP/2 POST https://localhost:5001/api/people/all application/json 20
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:23.104 +01:00 INF] CORS policy execution successful.
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:23.117 +01:00 INF] Executing endpoint 'ApiExercise.Api.Controllers.PersonsController.GetPersons (ApiExercise.Api)'
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:23.155 +01:00 INF] Route matched with {action = "GetPersons", controller = "Persons"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ApiExercise.Application.Shared.PaginatedResponse`1[ApiExercise.Application.People.Responses.PersonListItemModel]]] GetPersons(ApiExercise.Application.People.GetPeopleDataQueryRequest) on controller ApiExercise.Api.Controllers.PersonsController (ApiExercise.Api).
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:23.451 +01:00 INF] Executing ObjectResult, writing value of type 'ApiExercise.Application.Shared.PaginatedResponse`1[[ApiExercise.Application.People.Responses.PersonListItemModel, ApiExercise.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:23.471 +01:00 INF] Executed action ApiExercise.Api.Controllers.PersonsController.GetPersons (ApiExercise.Api) in 304.5946ms
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:23.477 +01:00 INF] Executed endpoint 'ApiExercise.Api.Controllers.PersonsController.GetPersons (ApiExercise.Api)'
+[BIXACON BIXACON\Kenny 2020-01-26 00:02:23.483 +01:00 INF] Request finished in 384.7728ms 200 application/json; charset=utf-8
+[BIXACON BIXACON\Kenny 2020-01-26 00:04:59.016 +01:00 WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data, this mode should only be enabled during development.
+[BIXACON BIXACON\Kenny 2020-01-26 00:04:59.139 +01:00 INF] Entity Framework Core 3.1.1 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: SensitiveDataLoggingEnabled MigrationsAssembly=ApiExercise.Infrastructure 
+[BIXACON BIXACON\Kenny 2020-01-26 00:04:59.869 +01:00 INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[BIXACON BIXACON\Kenny 2020-01-26 00:05:00.145 +01:00 INF] Executed DbCommand (260ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[BIXACON BIXACON\Kenny 2020-01-26 00:05:00.184 +01:00 INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[BIXACON BIXACON\Kenny 2020-01-26 00:05:04.299 +01:00 INF] Request starting HTTP/2 GET https://localhost:5001/  
+[BIXACON BIXACON\Kenny 2020-01-26 00:05:04.372 +01:00 INF] Executing ObjectResult, writing value of type 'Hellang.Middleware.ProblemDetails.StatusCodeProblemDetails'.
+[BIXACON BIXACON\Kenny 2020-01-26 00:05:04.389 +01:00 INF] Request finished in 93.2562ms 404 application/problem+json; charset=utf-8
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:07.852 +01:00 INF] Request starting HTTP/2 POST https://localhost:5001/api/people application/json 78
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:07.855 +01:00 INF] CORS policy execution successful.
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:07.870 +01:00 INF] Executing endpoint 'ApiExercise.Api.Controllers.PersonsController.CreatePerson (ApiExercise.Api)'
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:07.900 +01:00 INF] Route matched with {action = "CreatePerson", controller = "Persons"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ApiExercise.Application.People.Responses.PersonModel]] CreatePerson(ApiExercise.Application.People.CreatePersonRequest) on controller ApiExercise.Api.Controllers.PersonsController (ApiExercise.Api).
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:08.179 +01:00 INF] Entity Framework Core 3.1.1 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: SensitiveDataLoggingEnabled MigrationsAssembly=ApiExercise.Infrastructure 
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:08.216 +01:00 INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT NEXT VALUE FOR [Person_hilo]
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:08.265 +01:00 INF] Executing ObjectResult, writing value of type 'ApiExercise.Application.People.Responses.PersonModel'.
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:08.280 +01:00 INF] Executed action ApiExercise.Api.Controllers.PersonsController.CreatePerson (ApiExercise.Api) in 369.8166ms
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:08.282 +01:00 INF] Executed endpoint 'ApiExercise.Api.Controllers.PersonsController.CreatePerson (ApiExercise.Api)'
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:08.285 +01:00 INF] Request finished in 433.3373ms 200 application/json; charset=utf-8
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:39.786 +01:00 INF] Request starting HTTP/2 POST https://localhost:5001/api/people/all application/json 20
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:39.789 +01:00 INF] CORS policy execution successful.
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:39.793 +01:00 INF] Executing endpoint 'ApiExercise.Api.Controllers.PersonsController.GetPersons (ApiExercise.Api)'
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:39.805 +01:00 INF] Route matched with {action = "GetPersons", controller = "Persons"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ApiExercise.Application.Shared.PaginatedResponse`1[ApiExercise.Application.People.Responses.PersonListItemModel]]] GetPersons(ApiExercise.Application.People.GetPeopleDataQueryRequest) on controller ApiExercise.Api.Controllers.PersonsController (ApiExercise.Api).
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:39.946 +01:00 INF] Executing ObjectResult, writing value of type 'ApiExercise.Application.Shared.PaginatedResponse`1[[ApiExercise.Application.People.Responses.PersonListItemModel, ApiExercise.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:39.958 +01:00 INF] Executed action ApiExercise.Api.Controllers.PersonsController.GetPersons (ApiExercise.Api) in 137.7169ms
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:39.962 +01:00 INF] Executed endpoint 'ApiExercise.Api.Controllers.PersonsController.GetPersons (ApiExercise.Api)'
+[BIXACON BIXACON\Kenny 2020-01-26 00:06:39.971 +01:00 INF] Request finished in 184.9952ms 200 application/json; charset=utf-8

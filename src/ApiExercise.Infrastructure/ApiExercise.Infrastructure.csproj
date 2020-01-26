@@ -17,4 +17,8 @@
     <ProjectReference Include="..\ApiExercise.Domain\ApiExercise.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations" />
+  </ItemGroup>
+
 </Project>

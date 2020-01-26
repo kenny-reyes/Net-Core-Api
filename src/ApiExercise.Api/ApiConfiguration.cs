@@ -1,4 +1,3 @@
-using System;
 using ApiExercise.Api.Configuration;
 using ApiExercise.Api.Extensions;
 using Hellang.Middleware.ProblemDetails;

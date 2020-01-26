@@ -1,8 +1,3 @@
-using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.OpenApi.Models;
-
 namespace ApiExercise.Host.OpenApi
 {
 /*    public class ApiVersionOperationFilter : IOperationFilter
