@@ -355,4 +355,6 @@ MigrationBackup/
 
 # Visual studio Code
 .vscode/
+
+# Logs of the application
 ApplicationLogs
