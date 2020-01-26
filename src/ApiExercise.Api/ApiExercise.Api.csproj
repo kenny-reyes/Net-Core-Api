@@ -9,7 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ApiExercise.Application\ApiExercise.Application.csproj" />
     <ProjectReference Include="..\ApiExercise.Infrastructure\ApiExercise.Infrastructure.csproj" />
-  </ItemGroup>  
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.1" />

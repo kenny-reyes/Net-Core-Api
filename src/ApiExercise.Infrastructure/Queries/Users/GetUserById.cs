@@ -30,18 +30,18 @@ namespace ApiExercise.Infrastructure.Queries.Users
             ON R.[{nameof(Gender.Id)}] = U.[{nameof(User.GenderId)}]
             WHERE  U.[{nameof(User.Id)}] = @{nameof(id)}";
 
-            var UserResult = await WithConnection(async connection =>
+            var userResult = await WithConnection(async connection =>
             {
                 var queryResult = await connection.QueryMultipleAsync(
                     $"{select}",
                     new { id });
 
-                var User = queryResult.ReadFirst<UserModel>();
+                var user = queryResult.ReadFirst<UserModel>();
 
-                return User;
+                return user;
             }, cancellationToken);
 
-            return UserResult;
+            return userResult;
         }
     }
 }

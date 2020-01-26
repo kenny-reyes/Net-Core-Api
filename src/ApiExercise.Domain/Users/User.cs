@@ -39,7 +39,7 @@ namespace ApiExercise.Domain.Users
             ValidateBirthdate(birthdate);
             ValidateGender(gender);
 
-            var User = new User
+            var user = new User
             {
                 Email = email,
                 Name = name,
@@ -47,7 +47,7 @@ namespace ApiExercise.Domain.Users
                 GenderId = gender
             };
 
-            return User;
+            return user;
         }
 
         public void Update(
