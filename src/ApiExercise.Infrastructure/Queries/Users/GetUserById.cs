@@ -25,8 +25,8 @@ namespace ApiExercise.Infrastructure.Queries.Users
             U.[{nameof(User.Birthdate)}] AS [{nameof(UserModel.Birthdate)}],
             U.[{nameof(User.GenderId)}] AS [{nameof(UserModel.GenderId)}],
             R.[{nameof(Gender.Name)}] AS [{nameof(UserModel.Gender)}]
-            FROM [{nameof(MyContext.Users)}] U
-            LEFT JOIN [{nameof(MyContext.Genders)}] R
+            FROM [{nameof(ExerciseContext.Users)}] U
+            LEFT JOIN [{nameof(ExerciseContext.Genders)}] R
             ON R.[{nameof(Gender.Id)}] = U.[{nameof(User.GenderId)}]
             WHERE  U.[{nameof(User.Id)}] = @{nameof(id)}";
 

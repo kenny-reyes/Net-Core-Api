@@ -10,7 +10,7 @@ namespace ApiExercise.Infrastructure.Repositories.People
 {
     public class UserRepository : Repository<User>, IUserRepository
     {
-        public UserRepository(MyContext context)
+        public UserRepository(ExerciseContext context)
            : base(context)
         { }
 

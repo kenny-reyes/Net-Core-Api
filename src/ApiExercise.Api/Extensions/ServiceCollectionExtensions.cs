@@ -21,7 +21,7 @@ namespace ApiExercise.Api.Extensions
     public static class ServiceCollectionExtensions
     {
         public static IServiceCollection AddCustomDbContext(this IServiceCollection services, IConfiguration configuration) =>
-            services.AddDbContext<MyContext>(o =>
+            services.AddDbContext<ExerciseContext>(o =>
                 {
                     o.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"], 
                         sqlServerOptions =>
@@ -30,12 +30,12 @@ namespace ApiExercise.Api.Extensions
                         });
                     o.ConfigureWarnings(warnings => warnings.Throw(RelationalEventId.QueryPossibleExceptionWithAggregateOperatorWarning));
                 })
-                .AddScoped<IUnitOfWork>(provider => provider.GetService<MyContext>());
+                .AddScoped<IUnitOfWork>(provider => provider.GetService<ExerciseContext>());
 
         public static IServiceCollection AddEntityFrameworkCore(this IServiceCollection services,
             IConfiguration configuration)
         {
-            return services.AddDbContext<MyContext>(options =>
+            return services.AddDbContext<ExerciseContext>(options =>
             {
                 options.EnableSensitiveDataLogging();
                 var connectionStrings = configuration.GetSection<ConnectionStrings>();

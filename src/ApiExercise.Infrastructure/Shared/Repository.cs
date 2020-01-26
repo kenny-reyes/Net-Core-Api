@@ -14,9 +14,9 @@ namespace ApiExercise.Infrastructure.Shared
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
-        protected readonly MyContext Context;
+        protected readonly ExerciseContext Context;
 
-        public Repository(MyContext context)
+        public Repository(ExerciseContext context)
         {
             Context = context;
         }

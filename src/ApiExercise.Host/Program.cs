@@ -13,7 +13,7 @@ namespace ApiExercise.Host
         {
             CreateWebHostBuilder(args)
                 .Build()
-                .MigrateDbContext(MyContextInitializer.Initialize)
+                .MigrateDbContext(ExerciseContextInitializer.Initialize)
                 .Run();
         }
 

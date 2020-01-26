@@ -30,7 +30,7 @@ namespace ApiExercise.Api.Configuration
                     .AsImplementedInterfaces().WithScopedLifetime());
 
             services.Scan(scan =>
-                scan.FromAssemblyOf<MyContext>().AddClasses(classes => classes.AssignableTo(typeof(IRepository<>)))
+                scan.FromAssemblyOf<ExerciseContext>().AddClasses(classes => classes.AssignableTo(typeof(IRepository<>)))
                     .AsImplementedInterfaces().WithScopedLifetime());
         }
     }

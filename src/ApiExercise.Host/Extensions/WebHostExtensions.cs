@@ -8,11 +8,11 @@ namespace ApiExercise.Host.Extensions
 {
     public static class WebHostExtensions
     {
-        public static IWebHost MigrateDbContext(this IWebHost webHost, Action<MyContext> initializer)
+        public static IWebHost MigrateDbContext(this IWebHost webHost, Action<ExerciseContext> initializer)
         {
             using (var scope = webHost.Services.CreateScope())
             {
-                var context = scope.ServiceProvider.GetRequiredService<MyContext>();
+                var context = scope.ServiceProvider.GetRequiredService<ExerciseContext>();
 
                 try
                 {
@@ -20,7 +20,7 @@ namespace ApiExercise.Host.Extensions
                 }
                 catch (Exception ex)
                 {
-                    var logger = scope.ServiceProvider.GetRequiredService<ILogger<MyContext>>();
+                    var logger = scope.ServiceProvider.GetRequiredService<ILogger<ExerciseContext>>();
                     logger.LogError(ex, "An error occurred while migrating the database.");
                 }
             }

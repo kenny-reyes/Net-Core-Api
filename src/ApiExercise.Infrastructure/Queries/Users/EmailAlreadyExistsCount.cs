@@ -18,7 +18,7 @@ namespace ApiExercise.Infrastructure.Queries.Users
         {
             var select = $@"
             SELECT COUNT(U.[{nameof(User.Id)}])
-            FROM [{nameof(MyContext.Users)}] U
+            FROM [{nameof(ExerciseContext.Users)}] U
             WHERE U.[{nameof(User.Email)}] = @{nameof(email)}";
             select += id > 0 ? $" AND U.[{nameof(User.Id)}] <> @{nameof(id)}" : string.Empty;
 

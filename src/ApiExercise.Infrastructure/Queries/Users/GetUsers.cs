@@ -27,36 +27,33 @@ namespace ApiExercise.Infrastructure.Queries.Users
             { "name", $"U.[{nameof(User.Name)}]" },
             { "birthdate", $"U.[{nameof(User.Birthdate)}]" },
             { "genderId", $"U.[{nameof(User.GenderId)}]" },
-            { "genderName", $"R.[{nameof(Gender.Name)}]" }
+            { "genderName", $"G.[{nameof(Gender.Name)}]" }
         };
 
         public async Task<PaginatedResponse<UserListItemModel>> Query(GetUsersDataQueryRequest request, CancellationToken cancellationToken)
         {
             var parameters = new Dictionary<string, object>();
-            var where = new SqlWhereBuilder(request, _columns).Build();
             var orderBy = new SqlOrderByBuilder($"U.[{nameof(User.Name)}] ASC", _columns, request).Build();
             var pagination = new SqlPaginationBuilder(request).Build();
-            var gendersLeftJoin = $"LEFT JOIN [{nameof(MyContext.Genders)}] R ON R.[{nameof(Gender.Id)}] = U.[{nameof(User.GenderId)}]";
+            var gendersLeftJoin = $"LEFT JOIN [{nameof(ExerciseContext.Genders)}] R ON G.[{nameof(Gender.Id)}] = U.[{nameof(User.GenderId)}]";
 
             var select = $@"
             SELECT
             U.[{nameof(User.Id)}] AS [{nameof(UserListItemModel.Id)}],
             U.[{nameof(User.Email)}] AS [{nameof(UserListItemModel.Email)}],
             U.[{nameof(User.Name)}] AS [{nameof(UserListItemModel.Name)}],
-            U.[{nameof(User.Birthdate)}] AS [{nameof(UserListItemModel.Surname)}],
+            U.[{nameof(User.Birthdate)}] AS [{nameof(UserListItemModel.Birthdate)}],
             U.[{nameof(User.GenderId)}] AS [{nameof(UserListItemModel.GenderId)}],
-            R.[{nameof(Gender.Name)}] AS [{nameof(UserListItemModel.GenderName)}]
-            FROM [{nameof(MyContext.Users)}] U
+            G.[{nameof(Gender.Name)}] AS [{nameof(UserListItemModel.GenderName)}]
+            FROM [{nameof(ExerciseContext.Users)}] U
             {gendersLeftJoin}
-            {where.Sql} {orderBy} {pagination.Sql}";
+            {orderBy} {pagination.Sql}";
 
             var count = $@"
             SELECT COUNT(U.[{nameof(User.Id)}])
-            FROM [{nameof(MyContext.Users)}] U
-            {gendersLeftJoin}
-            {where.Sql}";
+            FROM [{nameof(ExerciseContext.Users)}] U
+            {gendersLeftJoin}";
 
-            parameters.AddRange(where.Parameters);
             parameters.AddRange(pagination.Parameters);
 
             var result = await WithConnection(async connection =>
