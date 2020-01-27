@@ -50,7 +50,7 @@ namespace ApiExercise.Api.Controllers
             return Ok(user);
         }
         
-/*        [HttpPut]
+        [HttpPut]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -66,10 +66,10 @@ namespace ApiExercise.Api.Controllers
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status502BadGateway)]
-        public async Task<ActionResult> DeleteUser([FromBody]UpdateUserRequest request)
+        public async Task<ActionResult> DeleteUser([FromBody]DeleteUserByIdRequest request)
         {
             await _mediator.Send(request);
             return Ok();
-        }*/
+        }
     }
 }
