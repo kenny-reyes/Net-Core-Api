@@ -1,6 +1,5 @@
 ﻿using System;
 using ApiExercise.Api;
-using ApiExercise.Api.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -28,7 +27,6 @@ namespace ApiExercise.Host
         {
             ApiConfiguration.ConfigureServices(services, Configuration, Environment)
                 .AddDistributedMemoryCache()
-                //.AddOpenApi() TODO: Remove
                 .AddCors(options =>
                 {
                     options.AddPolicy(AllowedOrigins,

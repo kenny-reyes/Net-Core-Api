@@ -3,7 +3,6 @@ using ApiExercise.Application.Interfaces;
 using ApiExercise.Infrastructure.ConnectionString;
 using ApiExercise.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -31,10 +30,8 @@ namespace FunctionalTests.Configuration
             IConfiguration configuration) =>
             services.AddDbContext<ExerciseContext>(o =>
                 {
-                    // TODO: Remove deprecated type
                     o.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"],
                         sqlServerOptions => sqlServerOptions.MigrationsAssembly(MigrationAssemblyName));
-                    o.ConfigureWarnings(warnings => warnings.Throw(RelationalEventId.QueryClientEvaluationWarning));
                 })
                 .AddScoped<IUnitOfWork>(provider => provider.GetService<ExerciseContext>());
     }

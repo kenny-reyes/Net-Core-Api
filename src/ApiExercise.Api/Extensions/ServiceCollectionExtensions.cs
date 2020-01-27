@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,9 +31,6 @@ namespace ApiExercise.Api.Extensions
                     var connectionStrings = configuration.GetSection<ConnectionStrings>();
                     options.UseSqlServer(connectionStrings.DefaultConnection,
                         sqlServerOptions => { sqlServerOptions.MigrationsAssembly(MigrationsAssemblyName); });
-
-                    options.ConfigureWarnings(warnings =>
-                        warnings.Throw(RelationalEventId.QueryPossibleExceptionWithAggregateOperatorWarning));
                 })
                 .AddScoped<IUnitOfWork>(provider => provider.GetService<ExerciseContext>());
         }

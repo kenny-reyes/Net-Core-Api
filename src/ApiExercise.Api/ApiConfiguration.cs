@@ -21,7 +21,6 @@ namespace ApiExercise.Api
                 .AddFluentValidations()
                 .AddApiExplorer()
                 .Services
-                //.AddVersionedApiExplorer() //TODO: Remove this
                 .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
                 .AddCustomProblemDetails(environment)
                 .AddCustomDbContext(configuration);

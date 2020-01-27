@@ -8,8 +8,6 @@ namespace ApiExercise.Infrastructure.Context
 {
     public class ExerciseContext : DbContext, IUnitOfWork
     {
-        const string AppsettingsJson = "appsettings.json";
-
         public DbSet<User> Users { get; set; }
         public DbSet<Gender> Genders { get; set; }
         
@@ -29,20 +27,6 @@ namespace ApiExercise.Infrastructure.Context
             if (ChangeTracker.HasChanges())
             {
                 await SaveChangesAsync();
-            }
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                // TODO: 
-//                IConfigurationRoot configuration = new ConfigurationBuilder()
-//                    .SetBasePath(Directory.GetCurrentDirectory())
-//                    .AddJsonFile(AppsettingsJson)
-//                    .Build();
-//                var connectionString = configuration.GetConnectionString("DbCoreConnectionString");
-//                optionsBuilder.UseSqlServer(connectionString);
             }
         }
 
