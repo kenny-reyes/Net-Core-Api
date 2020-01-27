@@ -24,24 +24,16 @@ namespace ApiExercise.Infrastructure.Queries.Users
             U.[{nameof(User.Name)}] AS [{nameof(UserResponseModel.Name)}], 
             U.[{nameof(User.Birthdate)}] AS [{nameof(UserResponseModel.Birthdate)}],
             U.[{nameof(User.GenderId)}] AS [{nameof(UserResponseModel.GenderId)}],
-            R.[{nameof(Gender.Name)}] AS [{nameof(UserResponseModel.Gender)}]
+            G.[{nameof(Gender.Name)}] AS [{nameof(UserResponseModel.Gender)}]
             FROM [{nameof(ExerciseContext.Users)}] U
-            LEFT JOIN [{nameof(ExerciseContext.Genders)}] R
-            ON R.[{nameof(Gender.Id)}] = U.[{nameof(User.GenderId)}]
+            LEFT JOIN [{nameof(ExerciseContext.Genders)}] G
+            ON G.[{nameof(Gender.Id)}] = U.[{nameof(User.GenderId)}]
             WHERE  U.[{nameof(User.Id)}] = @{nameof(id)}";
 
-            var userResult = await WithConnection(async connection =>
-            {
-                var queryResult = await connection.QueryMultipleAsync(
-                    $"{select}",
-                    new { id });
+            var result = await WithConnection(async connection =>
+                await connection.QueryFirstOrDefaultAsync<UserResponseModel>(select, new { id }), cancellationToken);
 
-                var user = queryResult.ReadFirst<UserResponseModel>();
-
-                return user;
-            }, cancellationToken);
-
-            return userResult;
+            return result;
         }
     }
 }

@@ -10,6 +10,6 @@ namespace ApiExercise.Application.Users.ResponseModels
         public string Name { get; set; }
         public DateTime Birthdate { get; set; }
         public int GenderId { get; set; }
-        public Gender Gender { get; set; }
+        public string Gender { get; set; }
     }
 }

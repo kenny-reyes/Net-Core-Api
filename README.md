@@ -1,6 +1,6 @@
 # Introduction
 
-A simple Api to show how to pattern CQRS.  
+A complete API but with a simple Domain in order to complete an exrecise.  
 I started from [my previous repository](https://github.com/kenny-reyes/AspNetCoreDockerExample) for take advantage of the Docker configuration.
 
 ## Getting Started
@@ -8,8 +8,7 @@ I started from [my previous repository](https://github.com/kenny-reyes/AspNetCor
 ### 1. Installation process
 
 1. [Install Docker](https://www.docker.com/products/docker-desktop)
-2. Enable Kubernetes in Docker Destop
-3. [Install Net Core](https://dotnet.microsoft.com/download/dotnet-core/2.2)
+2. [Install DotNet Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 
 ### 2. Run
 

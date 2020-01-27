@@ -28,6 +28,17 @@ namespace ApiExercise.Api.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        [ProducesResponseType(typeof(UserResponseModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status502BadGateway)]
+        public async Task<ActionResult<UserResponseModel>> GetUserById([FromQuery]GetUserByIdRequest request)
+        {
+            var User = await _mediator.Send(request);
+            return Ok(User);
+        } 
+        
         [HttpPost]
         [ProducesResponseType(typeof(UserResponseModel), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
@@ -38,5 +49,27 @@ namespace ApiExercise.Api.Controllers
             var user = await _mediator.Send(request);
             return Ok(user);
         }
+        
+/*        [HttpPut]
+        [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status502BadGateway)]
+        public async Task<ActionResult> UpdateUser([FromBody]UpdateUserRequest request)
+        {
+            await _mediator.Send(request);
+            return Ok();
+        }
+
+        [HttpDelete]
+        [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status502BadGateway)]
+        public async Task<ActionResult> DeleteUser([FromBody]UpdateUserRequest request)
+        {
+            await _mediator.Send(request);
+            return Ok();
+        }*/
     }
 }
