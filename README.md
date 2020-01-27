@@ -1,9 +1,20 @@
 # Introduction
 
-A complete API but with a simple Domain in order to complete an exrecise.  
-I started from [my previous repository](https://github.com/kenny-reyes/AspNetCoreDockerExample) for take advantage of the Docker configuration.
+Hi there, I am doing a complete API but with a simple Domain in order to finish an exrecise.  
+I forked (technically I got the commits) from [my previous repository](https://github.com/kenny-reyes/DotNetCqrsApi) which was not finished yet.
 
-## Getting Started
+## :ballot_box_with_check: &nbsp;ToDo
+
+- [ ] Finish writting README
+- [ ] Swagger customization
+- [ ] Contenize API with Docker
+- [ ] Add more unit tests and use mocks
+- [ ] Finish integration tests
+- [ ] Develop a SPA, not choosen the framework yet (React or [Svelte](https://svelte.dev/))
+- [ ] Fix all bugs
+- [ ] Add Authentication and Authorization
+
+## :rocket: &nbsp;Getting Started
 
 ### 1. Installation process
 
@@ -25,13 +36,13 @@ docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Password_123' -e 'MSSQL_PID=Expres
 Build container
 
 ```bash
-docker build -t frontend .
+docker build -t apiexrcise .
 ```
 
 Start Application
 
 ```bash
-docker run -p:5000:5000 -p:5001:5001 --mount type=bind,source="$(pwd)",target=/app -t --link sqlserver --name frontend frontend
+docker run -p:5000:5000 -p:5001:5001 --mount type=bind,source="$(pwd)",target=/app -t --link sqlserver --name apiexrcise apiexrcise
 ```
 
 **NOTE:** Be careful you are sharing the unit with docker for create the volume, this is used for enable watching in DotNet Core.
@@ -64,8 +75,8 @@ Delete all containers
 docker rm $(docker ps -a -q)
 ```
 
-Connect with running frontend container
+Connect with running apiexrcise container
 
 ```bash
-docker exec -it frontend bash
+docker exec -it apiexrcise bash
 ```
