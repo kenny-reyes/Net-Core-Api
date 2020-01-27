@@ -3,7 +3,7 @@ using ApiExercise.Domain.Users;
 
 namespace ApiExercise.Application.Users.ResponseModels
 {
-    public class UserModel
+    public class UserResponseModel
     {
         public int Id { get; set; }
         public string Email { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace ApiExercise.Application.Users.ResponseModels
 {
-    public class UserListItemModel
+    public class UserListItemResponseModel
     {
         public int Id { get; set; }
         public string Email { get; set; }

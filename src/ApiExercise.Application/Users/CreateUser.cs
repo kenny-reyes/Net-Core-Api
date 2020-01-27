@@ -14,7 +14,7 @@ namespace ApiExercise.Application.Users
     /* NOTE: yes, looks ugly to have 3 classes in the same file, but seems it is like the people do it,
      * well, there is a discussion about this, I don't care to divide it, I don't have an opinion
      */
-    public sealed class CreateUserRequest : IRequest<UserModel>
+    public sealed class CreateUserRequest : IRequest<UserResponseModel>
     {
         public string Email { get; set; }
         public string Name { get; set; }
@@ -73,13 +73,13 @@ namespace ApiExercise.Application.Users
         }
     }
 
-    public sealed class CreateUserHandler : IRequestHandler<CreateUserRequest, UserModel>
+    public sealed class CreateUserHandler : IRequestHandler<CreateUserRequest, UserResponseModel>
     {
         private readonly IUserRepository _userRepository;
 
         public CreateUserHandler(IUserRepository userRepository) => _userRepository = userRepository;
 
-        public async Task<UserModel> Handle(CreateUserRequest request, CancellationToken cancellationToken)
+        public async Task<UserResponseModel> Handle(CreateUserRequest request, CancellationToken cancellationToken)
         {
             var user = User.Create(
                 request.Email,
@@ -88,7 +88,7 @@ namespace ApiExercise.Application.Users
                 request.GenderId);
 
             await _userRepository.Add(user, cancellationToken);
-            return new UserModel
+            return new UserResponseModel
             {
                 Id = user.Id,
                 Email = user.Email,

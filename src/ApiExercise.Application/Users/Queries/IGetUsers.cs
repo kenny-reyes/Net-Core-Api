@@ -7,6 +7,6 @@ namespace ApiExercise.Application.Users.Queries
 {
     public interface IGetUsers
     {
-        Task<PaginatedResponse<UserListItemModel>> Query(GetUsersRequest getUsers, CancellationToken cancellationToken);
+        Task<PaginatedResponse<UserListItemResponseModel>> Query(GetUsersRequest getUsers, CancellationToken cancellationToken);
     }
 }

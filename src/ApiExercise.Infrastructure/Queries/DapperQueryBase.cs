@@ -28,7 +28,7 @@ namespace ApiExercise.Infrastructure.Queries
             }
             catch (SqlException exception)
             {
-                throw new Exception($"{GetType().FullName}.WithConnection() experienced a SQL exception (not a timeout)", exception);
+                throw new Exception($"{GetType().FullName}.WithConnection() experienced a SQL exception (not a timeout): {exception.Message}", exception);
             }
             finally
             {

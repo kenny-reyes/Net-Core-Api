@@ -18,22 +18,22 @@ namespace ApiExercise.Api.Controllers
         public UsersController(IMediator mediator) => _mediator = mediator;
 
         [HttpPost(ApiConstants.AllUsers)]
-        [ProducesResponseType(typeof(PaginatedResponse<UserListItemModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(PaginatedResponse<UserListItemResponseModel>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status502BadGateway)]
-        public async Task<ActionResult<PaginatedResponse<UserListItemModel>>> GetUsers([FromBody]GetUsersRequest request)
+        public async Task<ActionResult<PaginatedResponse<UserListItemResponseModel>>> GetUsers([FromBody]GetUsersRequest request)
         {
             var result = await _mediator.Send(request);
             return Ok(result);
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(UserModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(UserResponseModel), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status502BadGateway)]
-        public async Task<ActionResult<UserModel>> CreateUser([FromBody]CreateUserRequest request)
+        public async Task<ActionResult<UserResponseModel>> CreateUser([FromBody]CreateUserRequest request)
         {
             var user = await _mediator.Send(request);
             return Ok(user);

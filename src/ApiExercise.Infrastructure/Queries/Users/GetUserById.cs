@@ -15,16 +15,16 @@ namespace ApiExercise.Infrastructure.Queries.Users
         public GetUserById(SqlConnection sqlConnection) : base(sqlConnection)
         { }
 
-        public async Task<UserModel> Query(int id, CancellationToken cancellationToken)
+        public async Task<UserResponseModel> Query(int id, CancellationToken cancellationToken)
         {
             var select = $@"
             SELECT
-            U.[{nameof(User.Id)}] AS [{nameof(UserModel.Id)}],
-            U.[{nameof(User.Email)}] AS [{nameof(UserModel.Email)}],
-            U.[{nameof(User.Name)}] AS [{nameof(UserModel.Name)}], 
-            U.[{nameof(User.Birthdate)}] AS [{nameof(UserModel.Birthdate)}],
-            U.[{nameof(User.GenderId)}] AS [{nameof(UserModel.GenderId)}],
-            R.[{nameof(Gender.Name)}] AS [{nameof(UserModel.Gender)}]
+            U.[{nameof(User.Id)}] AS [{nameof(UserResponseModel.Id)}],
+            U.[{nameof(User.Email)}] AS [{nameof(UserResponseModel.Email)}],
+            U.[{nameof(User.Name)}] AS [{nameof(UserResponseModel.Name)}], 
+            U.[{nameof(User.Birthdate)}] AS [{nameof(UserResponseModel.Birthdate)}],
+            U.[{nameof(User.GenderId)}] AS [{nameof(UserResponseModel.GenderId)}],
+            R.[{nameof(Gender.Name)}] AS [{nameof(UserResponseModel.Gender)}]
             FROM [{nameof(ExerciseContext.Users)}] U
             LEFT JOIN [{nameof(ExerciseContext.Genders)}] R
             ON R.[{nameof(Gender.Id)}] = U.[{nameof(User.GenderId)}]
@@ -36,7 +36,7 @@ namespace ApiExercise.Infrastructure.Queries.Users
                     $"{select}",
                     new { id });
 
-                var user = queryResult.ReadFirst<UserModel>();
+                var user = queryResult.ReadFirst<UserResponseModel>();
 
                 return user;
             }, cancellationToken);

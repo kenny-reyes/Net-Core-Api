@@ -20,28 +20,23 @@ namespace ApiExercise.Api.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddCustomDbContext(this IServiceCollection services, IConfiguration configuration) =>
-            services.AddDbContext<ExerciseContext>(o =>
-                {
-                    o.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"], 
-                        sqlServerOptions =>
-                        {
-                            sqlServerOptions.MigrationsAssembly("ApiExercise.Infrastructure");
-                        });
-                    o.ConfigureWarnings(warnings => warnings.Throw(RelationalEventId.QueryPossibleExceptionWithAggregateOperatorWarning));
-                })
-                .AddScoped<IUnitOfWork>(provider => provider.GetService<ExerciseContext>());
+        private const string MigrationsAssemblyName = "ApiExercise.Infrastructure";
 
-        public static IServiceCollection AddEntityFrameworkCore(this IServiceCollection services,
+        public static IServiceCollection AddCustomDbContext(this IServiceCollection services,
             IConfiguration configuration)
         {
             return services.AddDbContext<ExerciseContext>(options =>
-            {
-                options.EnableSensitiveDataLogging();
-                var connectionStrings = configuration.GetSection<ConnectionStrings>();
-                options.UseSqlServer(connectionStrings.DefaultConnection,
-                    builder => { builder.MigrationsAssembly("ApiExercise.Infrastructure"); });
-            });
+                {
+                    options.EnableSensitiveDataLogging(); // Be careful with this
+
+                    var connectionStrings = configuration.GetSection<ConnectionStrings>();
+                    options.UseSqlServer(connectionStrings.DefaultConnection,
+                        sqlServerOptions => { sqlServerOptions.MigrationsAssembly(MigrationsAssemblyName); });
+
+                    options.ConfigureWarnings(warnings =>
+                        warnings.Throw(RelationalEventId.QueryPossibleExceptionWithAggregateOperatorWarning));
+                })
+                .AddScoped<IUnitOfWork>(provider => provider.GetService<ExerciseContext>());
         }
 
         public static IMvcCoreBuilder AddFluentValidations(this IMvcCoreBuilder builder) =>
@@ -69,8 +64,9 @@ namespace ApiExercise.Api.Extensions
                     var problemDetails = new ValidationProblemDetails(context.ModelState)
                     {
                         Instance = context.HttpContext.Request.Path,
+                        Type = "https://httpstatuses.com/400",
                         Status = StatusCodes.Status400BadRequest,
-                        Title = "https://httpstatuses.com/400",
+                        Title = "Bad Request",
                         Detail = ApiConstants.ModelStateValidation
                     };
 
@@ -96,7 +92,7 @@ namespace ApiExercise.Api.Extensions
                     {
                         Title = ex.Message,
                         Status = StatusCodes.Status500InternalServerError,
-                        Detail = $"{ex.Message} {stackTrace}"
+                        Detail = $"{stackTrace}"                        
                     };
                 });
 
