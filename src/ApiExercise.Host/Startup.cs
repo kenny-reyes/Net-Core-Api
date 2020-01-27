@@ -12,6 +12,7 @@ namespace ApiExercise.Host
 {
     public class Startup
     {
+        // TODO: Take it from the config file
         private const string AllowedOrigins = "AllowedOrigins";
 
         public IConfiguration Configuration { get; }
@@ -41,6 +42,7 @@ namespace ApiExercise.Host
                 .AddControllers()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
                 
+                // TODO: Harcoded swaggerconfig waiting a refactor
                 services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "My API", Version = "v1"}); });
         }
 
@@ -68,7 +70,8 @@ namespace ApiExercise.Host
                     endpoints.MapControllers();
                 });
             
-            app.UseSwagger();
+            // TODO: Harcoded swaggerconfig waiting a refactor
+            // app.UseSwagger();
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
         }
     }

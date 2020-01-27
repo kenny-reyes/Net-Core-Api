@@ -5,7 +5,7 @@ I forked (technically I got the commits) from [my previous repository](https://g
 
 ## :ballot_box_with_check: &nbsp;ToDo
 
-- [ ] Finish writting README
+- [x] Finish writting README
 - [ ] Swagger customization
 - [ ] Contenize API with Docker
 - [ ] Add more unit tests and use mocks
