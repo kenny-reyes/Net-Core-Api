@@ -2,8 +2,8 @@
 
 ## Code anotations
 
-I left some **"NOTE:"** comments in the code. Of something that I could be be weird. Look for the string **"NOTE:"** to find them.  
-If you look for **"TODO:"** you'll find a lot of temporary shit I did in the faster way and I have to finish/refactor/delete.
+I left some **"NOTE:"** comments in the code. Of something you might think is weird. Look for the string **"NOTE:"** to find them.  
+If you look for **"TODO:"** you'll find a lot of temporary shit which I did in the faster way and I have to finish/refactor/delete.
 
 ## Convention
 
