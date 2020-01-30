@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using ApiExercise.Api.Extensions;
-using ApiExercise.Infrastructure.ConnectionString;
+using ApiExercise.Infrastructure.Configuration;
 using ApiExercise.Infrastructure.Context;
 using FunctionalTests.Configuration;
 using Microsoft.AspNetCore.TestHost;

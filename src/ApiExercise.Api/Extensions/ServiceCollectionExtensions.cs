@@ -2,7 +2,7 @@ using System;
 using ApiExercise.Application.Interfaces;
 using ApiExercise.Application.Users.CreateUser;
 using ApiExercise.Domain.Exceptions;
-using ApiExercise.Infrastructure.ConnectionString;
+using ApiExercise.Infrastructure.Configuration;
 using ApiExercise.Infrastructure.Context;
 using FluentValidation.AspNetCore;
 using Hellang.Middleware.ProblemDetails;

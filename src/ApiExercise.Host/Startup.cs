@@ -1,5 +1,7 @@
 ﻿using System;
 using ApiExercise.Api;
+using ApiExercise.Host.Extensions.Microsoft.AspNetCore.Builder;
+using ApiExercise.Infrastructure.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -7,13 +9,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using ApiExercise.Api.Extensions;
 
 namespace ApiExercise.Host
 {
     public class Startup
     {
-        // TODO: Take it from the config file
-        private const string AllowedOrigins = "AllowedOrigins";
+        private const string AllowedOriginsPolicy = "AllowedOriginsPolicy";
 
         public IConfiguration Configuration { get; }
         private IWebHostEnvironment Environment { get; }
@@ -30,20 +32,30 @@ namespace ApiExercise.Host
                 .AddDistributedMemoryCache()
                 .AddCors(options =>
                 {
-                    options.AddPolicy(AllowedOrigins,
+                    options.AddPolicy(AllowedOriginsPolicy,
                         corsbuilder =>
                         {
+                            var allowedOrigins =
+                                Configuration.GetSection<CorsConfiguration>().AllowedOrigins.Split(";") ??
+                                throw new ArgumentNullException(AllowedOriginsPolicy);
                             corsbuilder.AllowAnyOrigin()
                                 .AllowAnyHeader()
                                 .AllowAnyMethod()
-                                .WithOrigins("http://localhost:3000");
+                                .WithOrigins(allowedOrigins);
                         });
                 })
                 .AddControllers()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
                 
-                // TODO: Harcoded swaggerconfig waiting a refactor
-                services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "My API", Version = "v1"}); });
+                services.AddSwaggerGen(c =>
+                {
+                    c.SwaggerDoc(ApiConstants.ApiVersionV1,
+                        new OpenApiInfo
+                        {
+                            Title = ApiConstants.ApiTitleV1,
+                            Version = ApiConstants.ApiVersionV1
+                        });
+                });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -51,7 +63,7 @@ namespace ApiExercise.Host
             if (env.IsProduction())
             {
                 app.UseDeveloperExceptionPage()
-                    .UseCors(AllowedOrigins);
+                    .UseCors(AllowedOriginsPolicy);
             }
             else
             {
@@ -65,14 +77,11 @@ namespace ApiExercise.Host
                 .UseHttpsRedirection()
                 .UseRouting()
                 .UseAuthorization()
+                .UseOpenApi()
                 .UseEndpoints(endpoints =>
                 {
                     endpoints.MapControllers();
                 });
-            
-            // TODO: Harcoded swaggerconfig waiting a refactor
-            app.UseSwagger();
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
         }
     }
 }

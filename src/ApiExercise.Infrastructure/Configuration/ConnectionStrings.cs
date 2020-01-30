@@ -1,4 +1,4 @@
-﻿namespace ApiExercise.Infrastructure.ConnectionString
+﻿namespace ApiExercise.Infrastructure.Configuration
 {
     public class ConnectionStrings
     {

@@ -2,7 +2,7 @@
 using ApiExercise.Api.Extensions;
 using ApiExercise.Application.Interfaces;
 using ApiExercise.Application.Users.GetUsers;
-using ApiExercise.Infrastructure.ConnectionString;
+using ApiExercise.Infrastructure.Configuration;
 using ApiExercise.Infrastructure.Context;
 using ApiExercise.Infrastructure.Queries.Shared;
 using MediatR;
@@ -22,7 +22,7 @@ namespace ApiExercise.Api.Configuration
             services.AddScoped<IDbConnection>(x =>
                 new SqlConnection(connectionStrings.DefaultConnection));
 
-            services.AddScoped<SqlConnection>(x =>
+            services.AddScoped(x =>
                new SqlConnection(connectionStrings.DefaultConnection));
 
             services.Scan(scan =>

@@ -13,7 +13,6 @@ namespace ApiExercise.Api
         public static IServiceCollection ConfigureServices(IServiceCollection services, IConfiguration configuration,
             IWebHostEnvironment environment)
         {
-            // TODO: remove services
             services
                 .AddCustomApiVersioning()
                 .AddVersionedApiExplorer()
@@ -22,7 +21,6 @@ namespace ApiExercise.Api
                 .AddFluentValidations()
                 .AddApiExplorer()
                 .Services
-                //.AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
                 .AddCustomProblemDetails(environment)
                 .AddCustomDbContext(configuration);
 

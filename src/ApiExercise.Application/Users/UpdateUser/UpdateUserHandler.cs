@@ -15,9 +15,6 @@ namespace ApiExercise.Application.Users.UpdateUser
         {
             var user = await _userRepository.FindByIdWithIncludes(request.Id, cancellationToken);
 
-            // TODO: Add validation to checking existing indices (This line is not at all definitive, only for test purposes)
-            if (user == null) throw new System.Exception($"The requested identifier {request.Id} to Update doesn't exists");
-
             user.Update(
                 request.Id,
                 request.Email,

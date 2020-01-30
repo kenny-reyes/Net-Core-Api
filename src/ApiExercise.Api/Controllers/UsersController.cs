@@ -22,10 +22,12 @@ namespace ApiExercise.Api.Controllers
         public UsersController(IMediator mediator) => _mediator = mediator;
 
         /*
-         * NOTE: Why I used Post for GETALL? I did because you can use the body with limitation, and this is very useful when
-         * you have a lot of parameters. I this case we only have order and the parameters, but we can add very complex
+         * NOTE: Why I used Post for GETALL? I did because as url have a maximum of 2048 characteres, you can use the body
+         * without limitation, and this is very useful when you have a lot of parameters. I this case we only have order
+         * and the parameters, but we can add very complex.
          * filters for example.
          * If you don't like only change to [HttpGet(ApiConstants.AllUsers)] and GetUsers([FromQuery]GetUsersRequest request)
+         * and you will have the classical GET
          */
         [HttpPost(ApiConstants.AllUsers)]
         [ProducesResponseType(typeof(PaginatedResponse<UserListItemResponseModel>), StatusCodes.Status200OK)]
