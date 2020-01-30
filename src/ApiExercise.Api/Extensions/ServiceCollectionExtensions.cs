@@ -1,5 +1,4 @@
 using System;
-using ApiExercise.Api.Configuration.Extensions;
 using ApiExercise.Application.Interfaces;
 using ApiExercise.Application.Users;
 using ApiExercise.Application.Users.CreateUser;
@@ -100,7 +99,7 @@ namespace ApiExercise.Api.Extensions
                     {
                         Title = ex.Message,
                         Status = StatusCodes.Status404NotFound,
-                        Detail = $"{ex.Message} {stackTrace}"
+                        Detail = $"{stackTrace}"
                     };
                 });
             });

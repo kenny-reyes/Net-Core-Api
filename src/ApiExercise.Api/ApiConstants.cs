@@ -6,7 +6,6 @@ namespace ApiExercise.Api
         public const string ApiVersionV1 = "1.0";
         public const string BaseApiRoute = "api";
         public const string AllUsers = "all";
-        public const string EmailAlreadyExists = "email-already-exists";
     }
 }
  

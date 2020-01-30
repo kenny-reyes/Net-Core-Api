@@ -1,5 +1,5 @@
 ﻿using System.Data;
-using ApiExercise.Api.Configuration.Extensions;
+using ApiExercise.Api.Extensions;
 using ApiExercise.Application.Interfaces;
 using ApiExercise.Application.Users;
 using ApiExercise.Application.Users.GetUsers;

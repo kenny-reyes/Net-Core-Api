@@ -8,11 +8,10 @@ I forked (technically I got the commits) from [my previous repository](https://g
 - [x] Finish writting README
 - [ ] Swagger customization
 - [ ] Contenize API with Docker
-- [ ] Add more unit tests and use mocks
+- [x] Add more unit tests and use mocks
 - [ ] Finish integration tests
 - [ ] Develop a SPA, not choosen the framework yet (React or [Svelte](https://svelte.dev/))
 - [ ] Fix all bugs
-- [ ] Add Authentication and Authorization
 
 ## :rocket: &nbsp;Getting Started
 

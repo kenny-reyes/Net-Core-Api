@@ -1,4 +1,4 @@
-﻿using ApiExercise.Api.Configuration.Extensions;
+﻿using ApiExercise.Api.Extensions;
 using ApiExercise.Application.Interfaces;
 using ApiExercise.Infrastructure.ConnectionString;
 using ApiExercise.Infrastructure.Context;

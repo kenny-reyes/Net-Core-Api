@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace ApiExercise.Api.Configuration.Extensions
+namespace ApiExercise.Api.Extensions
 {
     public static class ConfigurationExtensions
     {

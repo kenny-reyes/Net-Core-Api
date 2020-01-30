@@ -1,5 +1,5 @@
 ﻿using System;
-using ApiExercise.Api.Configuration.Extensions;
+using ApiExercise.Api.Extensions;
 using ApiExercise.Infrastructure.ConnectionString;
 using ApiExercise.Infrastructure.Context;
 using FunctionalTests.Configuration;

@@ -11,10 +11,17 @@ namespace ApiExercise.Application.Users.UpdateUser
     public sealed class UpdateUserValidator : AbstractValidator<UpdateUserRequest>
     {
         private readonly IEmailAlreadyExistsCount _emailAlreadyExistsCount;
+        private readonly IIdExists _idExists;
 
-        public UpdateUserValidator(IEmailAlreadyExistsCount emailAlreadyExistsCount)
+        public UpdateUserValidator(IEmailAlreadyExistsCount emailAlreadyExistsCount, IIdExists idExists)
         {
             _emailAlreadyExistsCount = emailAlreadyExistsCount;
+            _idExists = idExists;
+
+            RuleFor(u => u.Id)
+                .NotEmpty()
+                .MustAsync(IdAlreadyExists)
+                .WithMessage(ValidationMessages.GetItDoesntExists(nameof(UpdateUserRequest.Id)));
 
             RuleFor(u => u.Email)
                 .NotEmpty()
@@ -37,8 +44,14 @@ namespace ApiExercise.Application.Users.UpdateUser
             RuleFor(u => u.Birthdate)
                 .Must(BeAValidDate)
                 .WithMessage(ValidationMessages.GetOutOfRange(nameof(UpdateUserRequest.Birthdate)));
+            
             RuleFor(u => u.GenderId)
                 .NotEmpty();
+        }
+        
+        private async Task<bool> IdAlreadyExists(int id, CancellationToken cancellationToken)
+        {
+            return await _idExists.Query(id, cancellationToken);
         }
 
         private async Task<bool> EmailNotAlreadyExists(UpdateUserRequest updateUser, string email, CancellationToken cancellationToken)
