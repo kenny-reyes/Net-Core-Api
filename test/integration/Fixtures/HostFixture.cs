@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using ApiExercise.Api.Extensions;
 using ApiExercise.Infrastructure.ConnectionString;
 using ApiExercise.Infrastructure.Context;
@@ -27,10 +28,11 @@ namespace FunctionalTests.Fixtures
             Server.Host.ExecuteDbContext<ExerciseContext>(dbContext =>
             {
                 dbContext.Database.EnsureDeleted();
-                dbContext.Database.Migrate();
+                if (dbContext.Database.GetPendingMigrations().Any())
+                {
+                    dbContext.Database.Migrate();
+                }
             });
-
-            SeedDatabase();
 
             Checkpoint.TablesToIgnore = new[] {
                 "__EFMigrationsHistory",
@@ -42,8 +44,6 @@ namespace FunctionalTests.Fixtures
             Server = TestServerBuilder.Create().WithStartup<Startup>().Build();
         }
 
-        public void SeedDatabase() => Server.Host.ExecuteDbContext<ExerciseContext>(ExerciseContextInitializer.Initialize);
-        
         public static void ResetCheckpoint() => Checkpoint.Reset(_connectionString.DefaultConnection).Wait();
 
         public void Dispose()

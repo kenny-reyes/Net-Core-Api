@@ -16,8 +16,9 @@ namespace ApiExercise.Api
             // TODO: remove services
             services
                 .AddCustomApiVersioning()
+                .AddVersionedApiExplorer()
                 .AddMvcCore()
-                //.AddAuthorization()
+                .AddAuthorization()
                 .AddFluentValidations()
                 .AddApiExplorer()
                 .Services

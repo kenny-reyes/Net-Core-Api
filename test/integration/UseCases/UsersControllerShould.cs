@@ -24,7 +24,7 @@ namespace FunctionalTests.UseCases
             Given = new GivenFixture(host);
         }
 
-        [Fact(Skip = "Not working yet")]
+        [Fact]
         [ResetDatabase]
         public async Task When_an_authenticated_user_is_getting_all_users_should_return_Ok()
         {
