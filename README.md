@@ -6,12 +6,12 @@ I forked (technically I got the commits) from [my previous repository](https://g
 ## :ballot_box_with_check: &nbsp;ToDo
 
 - [x] Finish writting README
-- [ ] Swagger customization
+- [x] Swagger customization
 - [ ] Contenize API with Docker
 - [x] Add more unit tests and use mocks
-- [ ] Finish integration tests
+- [x] Finish integration tests
 - [ ] Develop a SPA, not choosen the framework yet (React or [Svelte](https://svelte.dev/))
-- [ ] Fix all bugs
+- [x] Fix all bugs
 
 ## :rocket: &nbsp;Getting Started
 

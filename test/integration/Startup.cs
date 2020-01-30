@@ -3,7 +3,6 @@ using Acheve.AspNetCore.TestHost.Security;
 using Acheve.TestHost;
 using ApiExercise.Api;
 using ApiExercise.Api.Extensions;
-using FunctionalTests.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

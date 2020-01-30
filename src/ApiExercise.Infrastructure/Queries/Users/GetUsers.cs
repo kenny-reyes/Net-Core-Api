@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using ApiExercise.Application.Common;
 using ApiExercise.Application.Common.Queries;
 using ApiExercise.Application.Common.ResponseModels;
-using ApiExercise.Application.Users;
 using ApiExercise.Application.Users.GetUsers;
 using ApiExercise.Domain.Users;
 using ApiExercise.Infrastructure.Common.Queries;
