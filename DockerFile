@@ -1,24 +1,15 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1
-
-ENV DOTNET_USE_POLLING_FILE_WATCHER 1
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
 WORKDIR /app
 
-RUN pwd
-RUN ls -a
+COPY . .
 
-COPY *.sln ./
-RUN ls -a
+RUN dotnet publish -c Release -o '/app/output'
 
-COPY src/ src/
-COPY test/ test/
-COPY build/startup.sh ./startup.sh
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+WORKDIR /app
 
-RUN pwd
-RUN ls -a
-RUN ls src
-RUN ls test
+COPY --from=build-env /app/output ./
 
-RUN dotnet restore
-RUN chmod +x ./startup.sh
+EXPOSE 8085
 
-ENTRYPOINT ./startup.sh
+ENTRYPOINT ["dotnet", "Host.dll"]

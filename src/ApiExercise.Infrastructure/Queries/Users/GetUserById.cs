@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using ApiExercise.Application.Users.Queries;
-using ApiExercise.Application.Users.ResponseModels;
+using ApiExercise.Application.Common.Queries;
+using ApiExercise.Application.Common.ResponseModels;
 using ApiExercise.Domain.Users;
 using ApiExercise.Infrastructure.Context;
 using ApiExercise.Infrastructure.Queries.Shared;

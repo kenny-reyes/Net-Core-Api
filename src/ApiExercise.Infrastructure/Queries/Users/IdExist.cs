@@ -9,26 +9,25 @@ using Microsoft.Data.SqlClient;
 
 namespace ApiExercise.Infrastructure.Queries.Users
 {
-    public class EmailAlreadyExistsCount : DapperQueryBase, IQuery, IEmailAlreadyExistsCount
+    public class IdExists : DapperQueryBase, IQuery, IIdExists
     {
-        public EmailAlreadyExistsCount(SqlConnection sqlConnection) : base(sqlConnection)
+        public IdExists(SqlConnection sqlConnection) : base(sqlConnection)
         { }
-
-        public async Task<int> Query(string email, int id, CancellationToken cancellationToken)
+        
+        public async Task<bool> Query(int id, CancellationToken cancellationToken)
         {
             var select = $@"
             SELECT COUNT(U.[{nameof(User.Id)}])
             FROM [{nameof(ExerciseContext.Users)}] U
-            WHERE U.[{nameof(User.Email)}] = @{nameof(email)}";
-            select += id > 0 ? $" AND U.[{nameof(User.Id)}] <> @{nameof(id)}" : string.Empty;
+            WHERE U.[{nameof(User.Id)}] = @{nameof(id)}";
 
             var result = await WithConnection(async connection =>
             {
-                var existsCount = await connection.QueryFirstAsync<int>(select, new { email, id });
+                var existsCount = await connection.QueryFirstAsync<int>(select, new { id });
                 return existsCount;
             }, cancellationToken);
 
-            return result;
+            return result != 0;
         }
     }
 }

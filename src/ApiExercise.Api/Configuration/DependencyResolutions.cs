@@ -2,6 +2,7 @@
 using ApiExercise.Api.Configuration.Extensions;
 using ApiExercise.Application.Interfaces;
 using ApiExercise.Application.Users;
+using ApiExercise.Application.Users.GetUsers;
 using ApiExercise.Infrastructure.ConnectionString;
 using ApiExercise.Infrastructure.Context;
 using ApiExercise.Infrastructure.Queries.Shared;

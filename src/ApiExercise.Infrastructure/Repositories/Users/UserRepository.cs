@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using ApiExercise.Application.Repositories.Users;
 using ApiExercise.Domain.Users;
+using ApiExercise.Infrastructure.Common;
 using ApiExercise.Infrastructure.Context;
-using ApiExercise.Infrastructure.Shared;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiExercise.Infrastructure.Repositories.Users

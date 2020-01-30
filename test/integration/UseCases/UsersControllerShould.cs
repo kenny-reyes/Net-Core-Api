@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using ApiExercise.Api.Controllers;
 using ApiExercise.Application.Users;
+using ApiExercise.Application.Users.GetUsers;
 using FluentAssertions;
 using FunctionalTests.Attributes;
 using FunctionalTests.Fixtures;

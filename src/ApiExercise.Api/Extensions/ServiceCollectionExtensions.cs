@@ -2,6 +2,7 @@ using System;
 using ApiExercise.Api.Configuration.Extensions;
 using ApiExercise.Application.Interfaces;
 using ApiExercise.Application.Users;
+using ApiExercise.Application.Users.CreateUser;
 using ApiExercise.Domain.Exceptions;
 using ApiExercise.Infrastructure.ConnectionString;
 using ApiExercise.Infrastructure.Context;

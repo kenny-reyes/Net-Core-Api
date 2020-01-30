@@ -71,7 +71,7 @@ namespace ApiExercise.Host
                 });
             
             // TODO: Harcoded swaggerconfig waiting a refactor
-            // app.UseSwagger();
+            app.UseSwagger();
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
         }
     }

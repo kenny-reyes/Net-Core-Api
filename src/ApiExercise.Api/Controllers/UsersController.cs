@@ -1,7 +1,12 @@
 ﻿using System.Threading.Tasks;
+using ApiExercise.Application.Common;
+using ApiExercise.Application.Common.ResponseModels;
 using ApiExercise.Application.Users;
-using ApiExercise.Application.Shared;
-using ApiExercise.Application.Users.ResponseModels;
+using ApiExercise.Application.Users.CreateUser;
+using ApiExercise.Application.Users.DeleteUserById;
+using ApiExercise.Application.Users.GetUserById;
+using ApiExercise.Application.Users.GetUsers;
+using ApiExercise.Application.Users.UpdateUser;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

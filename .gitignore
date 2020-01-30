@@ -358,3 +358,6 @@ MigrationBackup/
 
 # Logs of the application
 ApplicationLogs
+
+# Publish directory
+app/

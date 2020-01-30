@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using ApiExercise.Application.Shared;
+using ApiExercise.Application.Common;
+using ApiExercise.Application.Common.Queries;
+using ApiExercise.Application.Common.ResponseModels;
 using ApiExercise.Application.Users;
-using ApiExercise.Application.Users.Queries;
-using ApiExercise.Application.Users.ResponseModels;
+using ApiExercise.Application.Users.GetUsers;
 using ApiExercise.Domain.Users;
+using ApiExercise.Infrastructure.Common.Queries;
 using ApiExercise.Infrastructure.Context;
 using ApiExercise.Infrastructure.Extensions;
 using ApiExercise.Infrastructure.Queries.Shared;
-using ApiExercise.Infrastructure.Shared.Queries;
 using Dapper;
 using Microsoft.Data.SqlClient;
 
