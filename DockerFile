@@ -14,4 +14,8 @@ COPY ./build/startup.sh .
 RUN dotnet restore
 RUN chmod +x startup.sh
 
+RUN pwd
+RUN ls
+RUN cat startup.sh
+
 ENTRYPOINT ./startup.sh
