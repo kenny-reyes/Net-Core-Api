@@ -2,9 +2,7 @@ version: "3"
 
 services:
   apiexercise:
-    build:
-      context: .
-      dockerfile: .
+    build: ./
     container_name: apiexercise
     ports:
       - 5000:5000
@@ -18,7 +16,7 @@ services:
     image: mcr.microsoft.com/mssql/server
     container_name: sqlserver
     ports:
-      - 1444:1433
+      - 1433:1433
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: "Password_123"
