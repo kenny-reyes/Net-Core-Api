@@ -12,10 +12,7 @@ COPY ./test/ ./test/
 COPY ./build/startup.sh .
 
 RUN dotnet restore
-RUN chmod +x startup.sh
+RUN chmod +x ./startup.sh
 
-RUN pwd
-RUN ls
-RUN cat startup.sh
-
-ENTRYPOINT ./startup.sh
+# CMD tail -f /dev/null
+CMD dotnet watch -p "src/ApiExercise.Host/" run --urls "http://0.0.0.0:5000;https://0.0.0.0:5001"

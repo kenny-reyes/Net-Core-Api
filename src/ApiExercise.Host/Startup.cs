@@ -63,7 +63,8 @@ namespace ApiExercise.Host
             if (env.IsProduction())
             {
                 app.UseDeveloperExceptionPage()
-                    .UseCors(AllowedOriginsPolicy);
+                    .UseCors(AllowedOriginsPolicy)
+                    .UseHttpsRedirection();
             }
             else
             {
@@ -74,7 +75,6 @@ namespace ApiExercise.Host
             }
 
             ApiConfiguration.Configure(app, env)
-                .UseHttpsRedirection()
                 .UseRouting()
                 .UseAuthorization()
                 .UseOpenApi()
