@@ -1,6 +1,7 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 
 
 ENV DOTNET_USE_POLLING_FILE_WATCHER 1
+ENV ASPNETCORE_ENVIRONMENT=Docker
 
 RUN mkdir app
 WORKDIR /app
@@ -15,4 +16,4 @@ RUN dotnet restore
 RUN chmod +x ./startup.sh
 
 # CMD tail -f /dev/null
-CMD dotnet watch -p "src/ApiExercise.Host/" run --urls "http://0.0.0.0:5000;https://0.0.0.0:5001"
+CMD dotnet watch -p "src/ApiExercise.Host/" run --urls "http://0.0.0.0:5000;https://0.0.0.0:5001" --launch-profile Docker

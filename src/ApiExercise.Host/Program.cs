@@ -2,6 +2,7 @@
 using ApiExercise.Infrastructure.Context;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Serilog;
 
@@ -21,6 +22,11 @@ namespace ApiExercise.Host
             WebHost.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration((context, configuration) =>
                 {
+                    configuration
+                        .SetBasePath(context.HostingEnvironment.ContentRootPath)
+                        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                        .AddJsonFile($"appsettings.{context.HostingEnvironment.EnvironmentName}.json", optional: true, true)
+                        .AddEnvironmentVariables();
                     Log.Logger = new LoggerConfiguration()
                         .ReadFrom.Configuration(configuration.Build())
                         .CreateLogger();

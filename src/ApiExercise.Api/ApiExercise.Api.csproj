@@ -21,9 +21,5 @@
     <PackageReference Include="Scrutor" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="4.1.1" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  
+ 
 </Project>

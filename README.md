@@ -35,13 +35,13 @@ docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Password_123' -e 'MSSQL_PID=Expres
 Build container
 
 ```bash
-docker build -t apiexercise .
+docker build -t apiexercise -f Dockerfile-watching .
 ```
 
 Start Application
 
 ```bash
-docker run -p:5000:5000 -p:5001:5001 --mount type=bind,source="$(pwd)",target=/app -t --link sqlserver --name apiexercise apiexercise
+docker run -p:5000:5000 -p:5001:5001 --mount type=bind,source="$(pwd)",target=/app -t --link sqlserver --env ASPNETCORE_ENVIRONMENT=Docker --name apiexercise apiexercise
 ```
 
 **NOTE:** Be careful you are sharing the unit with docker for create the volume, this is used for enable watching in DotNet Core.

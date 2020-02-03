@@ -27,9 +27,12 @@
       "applicationUrl": "http://localhost:25363"
     },
     "Docker": {
-      "commandName": "Docker",
+      "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/index.html"
+      "launchUrl": "index.html",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Docker"
+      }
     }
   }
 }

@@ -29,7 +29,7 @@ namespace ApiExercise.Host
         public void ConfigureServices(IServiceCollection services)
         {
             ApiConfiguration.ConfigureServices(services, Configuration, Environment)
-                .AddDistributedMemoryCache()
+                .AddDistributedMemoryCache()                
                 .AddCors(options =>
                 {
                     options.AddPolicy(AllowedOriginsPolicy,
