@@ -7,7 +7,7 @@ If you look for **"TODO:"** you'll find a lot of temporary shit which I did in t
 
 ## Convention
 
-I use this [Style Guide](https://github.com/kenny-reyes/Guides/blob/master/Documents/CSharpStyleGuide.md). And powered by resharper.
+I use this [Style Guide](https://github.com/kenny-reyes/Guides/blob/master/Documents/CSharpStyleGuide.md). And powered by Jetbrains Rider.
 
 ## Tools
 

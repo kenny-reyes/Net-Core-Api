@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-watching
-    container_name: exercise
+    container_name: apiexercise
     ports:
       - 5000:5000
       - 5001:5001

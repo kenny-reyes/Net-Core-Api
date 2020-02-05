@@ -7,7 +7,7 @@ I forked (technically I got the commits) from [my previous repository](https://g
 
 - [x] Finish writting README
 - [x] Swagger customization
-- [ ] Contenize API with Docker
+- [x] Contenize API with Docker watcher (docker-compose not working)
 - [x] Add more unit tests and use mocks
 - [x] Finish integration tests
 - [ ] Develop a SPA, not choosen the framework yet (React or [Svelte](https://svelte.dev/))
@@ -51,7 +51,7 @@ docker run -p:5000:5000 -p:5001:5001 --mount type=bind,source="$(pwd)",target=/a
 From the root type in the bash
 
 ```bash
-docker-compose up
+docker-compose.exe -f docker-compose-watching.yaml up
 ```
 
 #### App docker url

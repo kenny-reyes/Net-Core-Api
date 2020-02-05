@@ -15,21 +15,21 @@ The Domain is very tiny but the API have and will have many fully features.
 
 - **Domain validation:** this throw exceptions which are managed and served by _Problems details_ as 500's errors
 - **Request validations:** with _fluent validations_, this validations served also by _problems details_ as 400's errors.
-- **BD validations:** Via IEntityTypeConfiguration.
   ![](images/ValidationError.PNG)
+- **BD validations:** Via IEntityTypeConfiguration.
 
 ## Tests
 
 - Added some examples **unit tests and structure** for adding more.
-- Added **integration tests** and structure (Not working yet).
-- **Seed** database (No coded yet).
+- Added **integration tests** and structure.
+- 🚧**Seed** database (No coded yet).
 
-## 🚧Containers
+## Containers
 
-- I will **contenize the application** for working in local and hosted.
-- I will run the tests inside the container.
-- I will activate the .net core **watching** inside the container via sharing volumes.
-- I will add **enviroment variables** for the containers.
+- **Contenized the application** for working in local and hosted.
+- 🚧I will run the tests inside the container.
+- Activated the .net core **watching** inside the container via sharing volumes.
+- 🚧Add **enviroment variables** for the containers (setup enviroments).
 
 ## 🚧SPA
 
