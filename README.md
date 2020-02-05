@@ -7,7 +7,7 @@ I forked (technically I got the commits) from [my previous repository](https://g
 
 - [x] Finish writting README
 - [x] Swagger customization
-- [x] Contenize API with Docker watcher (docker-compose not working)
+- [x] Contenize API with Docker watcher
 - [x] Add more unit tests and use mocks
 - [x] Finish integration tests
 - [ ] Develop a SPA, not choosen the framework yet (React or [Svelte](https://svelte.dev/))
@@ -20,7 +20,9 @@ I forked (technically I got the commits) from [my previous repository](https://g
 1. [Install Docker](https://www.docker.com/products/docker-desktop)
 2. [Install DotNet Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 
-### 2. Run
+### 2. Run and use watching
+
+The project is ready to develop in the watching mode, the dotnet watching process will detect every change in source code and rebuild and run the application automatically.
 
 #### Running from docker command line
 
@@ -41,7 +43,7 @@ docker build -t apiexercise -f Dockerfile-watching .
 Start Application
 
 ```bash
-docker run -p:5000:5000 -p:5001:5001 --mount type=bind,source="$(pwd)",target=/app -t --link sqlserver --env ASPNETCORE_ENVIRONMENT=Docker --name apiexercise apiexercise
+docker run -p:5000:5000 -p:5001:5001 --mount type=bind,source="$(pwd)",target=/app -t --link sqlserver --name apiexercise apiexercise
 ```
 
 **NOTE:** Be careful you are sharing the unit with docker for create the volume, this is used for enable watching in DotNet Core.

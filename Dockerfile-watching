@@ -10,10 +10,10 @@ COPY ./*.sln .
 COPY ./*.props .
 COPY ./src/ ./src/
 COPY ./test/ ./test/
-COPY ./build/startup.sh .
 
 RUN dotnet restore
-RUN chmod +x ./startup.sh
 
-# CMD tail -f /dev/null
-CMD dotnet watch -p "src/ApiExercise.Host/" run --urls "http://0.0.0.0:5000;https://0.0.0.0:5001" --launch-profile Docker
+#CMD tail -f /dev/null
+CMD dotnet watch -p "src/ApiExercise.Host/ApiExercise.Host.csproj" \
+run --urls "http://0.0.0.0:5000;https://0.0.0.0:5001" \ 
+--launch-profile ${ASPNETCORE_ENVIRONMENT} 

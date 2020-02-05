@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
   apiexercise:
@@ -10,7 +10,14 @@ services:
       - 5000:5000
       - 5001:5001
     volumes:
-      - ./src:/app
+      - type: volume
+        source: mydata
+        target: /src
+        volume:
+          nocopy: true
+      - type: bind
+        source: ./src
+        target: /app/src
     depends_on:
       - sqlserver
 
@@ -23,3 +30,6 @@ services:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: "Password_123"
       MSSQL_PID: "Express"
+
+volumes:
+  mydata:
