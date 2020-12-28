@@ -361,3 +361,4 @@ ApplicationLogs
 
 # Publish directory
 app/
+/src/ApiExercise.Host/appsettings.Local.json
