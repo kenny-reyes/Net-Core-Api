@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using ApiExercise.Api.Extensions;
-using ApiExercise.Infrastructure.Configuration;
 using ApiExercise.Infrastructure.Context;
+using ApiExercise.Tools.Configuration;
+using ApiExercise.Tools.Extensions.Configuration;
 using FunctionalTests.Configuration;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
@@ -25,7 +25,7 @@ namespace FunctionalTests.Fixtures
 
             _connectionString = Server.Host.Services.GetService<IConfiguration>().GetSection<ConnectionStrings>();
 
-            Server.Host.ExecuteDbContext<ExerciseContext>(dbContext =>
+            Server.Host.ExecuteDbContext<DataBaseContext>(dbContext =>
             {
                 dbContext.Database.EnsureDeleted();
                 if (dbContext.Database.GetPendingMigrations().Any())
@@ -36,7 +36,7 @@ namespace FunctionalTests.Fixtures
 
             Checkpoint.TablesToIgnore = new[] {
                 "__EFMigrationsHistory",
-                nameof(ExerciseContext.Genders)};
+                nameof(DataBaseContext.Genders)};
         }
 
         public void Reset()

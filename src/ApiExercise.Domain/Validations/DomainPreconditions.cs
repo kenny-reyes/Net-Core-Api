@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using ApiExercise.Domain.Exceptions;
+using ApiExercise.Tools.Exceptions;
 
 namespace ApiExercise.Domain.Validations
 {

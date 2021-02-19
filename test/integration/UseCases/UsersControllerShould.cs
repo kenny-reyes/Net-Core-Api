@@ -28,11 +28,6 @@ namespace FunctionalTests.UseCases
             Given = new GivenUser(host);
         }
 
-        /*
-         * NOTE: The integration tests are incomplete and very light.
-         * It doesn't test the authentication, because I didn't make in the API, it is only how it should be, 
-         * I lost many time with the scaffolding and I only let some examples 
-         */
         [Fact]
         [ResetDatabase]
         public async Task When_an_authenticated_user_is_getting_all_users_should_return_Ok()

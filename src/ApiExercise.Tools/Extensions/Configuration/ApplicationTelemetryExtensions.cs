@@ -2,7 +2,7 @@
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Extensions.Configuration;
 
-namespace ApiExercise.Tools.Extensions
+namespace ApiExercise.Tools.Extensions.Configuration
 {
 	public static class ApplicationTelemetryExtensions
     {

@@ -1,8 +1,13 @@
-using ApiExercise.Api.Configuration;
-using ApiExercise.Api.Extensions;
+using ApiExercise.Application.Users.CreateUser;
+using ApiExercise.Infrastructure.Context;
+using ApiExercise.Tools.Configuration;
+using ApiExercise.Tools.Extensions.Configuration;
+using ApiExercise.Tools.Extensions.ServiceCollection;
+using FluentValidation.AspNetCore;
 using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,17 +19,22 @@ namespace ApiExercise.Api
             IWebHostEnvironment environment)
         {
             services
-                .AddCustomApiVersioning()
+                .AddApiVersioning(setup =>
+                {
+                    setup.DefaultApiVersion = new ApiVersion(1, 0);
+                    setup.AssumeDefaultVersionWhenUnspecified = true;
+                    setup.ReportApiVersions = true;
+                })
                 .AddVersionedApiExplorer()
+                .AddB2CAuthorization()
                 .AddMvcCore()
-                .AddAuthorization()
-                .AddFluentValidations()
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateUserValidator>())
                 .AddApiExplorer()
                 .Services
                 .AddCustomProblemDetails(environment)
-                .AddCustomDbContext(configuration);
-
-            DependencyResolutions.AddTo(services, configuration);
+                .RegisterEfDatabaseExtension<DataBaseContext>(
+                    configuration.GetSection<ConnectionStrings>().DefaultConnection, ServiceLifetime.Scoped)
+                .AddDependencies(configuration);
 
             return services;
         }
@@ -34,7 +44,10 @@ namespace ApiExercise.Api
             return app
                 .UseUnitOfWork()
                 .UseProblemDetails()
-                .UseAuthentication();
+                .UseRouting()
+                .UseAuthentication()
+                //.UseAuthorization()
+                .UseEndpoints(endpoints => endpoints.MapControllers());        
         }
     }
 }

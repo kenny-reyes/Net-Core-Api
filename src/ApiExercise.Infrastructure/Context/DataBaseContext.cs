@@ -6,20 +6,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ApiExercise.Infrastructure.Context
 {
-    public class ExerciseContext : DbContext, IUnitOfWork
+    public class DataBaseContext : DbContext, IUnitOfWork
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Gender> Genders { get; set; }
         
-        public ExerciseContext(DbContextOptions options)
+        public DataBaseContext(DbContextOptions options)
             : base(options)
         {
         }
         
-        public static ExerciseContext Create(string connectionString)
+        public static DataBaseContext Create(string connectionString)
         {
             var options = new DbContextOptionsBuilder().UseSqlServer(connectionString).Options;
-            return new ExerciseContext(options);
+            return new DataBaseContext(options);
         }
 
         public async Task Save()

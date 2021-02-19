@@ -3,7 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiExercise.Infrastructure.Extensions
+namespace ApiExercise.Tools.Extensions
 {
     public static class QueryableExtensions
     {

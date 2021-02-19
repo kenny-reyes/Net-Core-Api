@@ -5,7 +5,7 @@ namespace ApiExercise.Infrastructure.Context
 {
     public static class ExerciseContextInitializer
     {
-        public static void Initialize(ExerciseContext context)
+        public static void Initialize(DataBaseContext context)
         {
             if (context.Database.GetPendingMigrations().Any())
             {

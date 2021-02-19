@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 
-namespace ApiExercise.Tools.Extensions
+namespace ApiExercise.Tools.Extensions.ApplicationBuilder
 {
     public static class CorsExtensions
     {

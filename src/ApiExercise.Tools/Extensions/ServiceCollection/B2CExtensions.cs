@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 
-namespace ApiExercise.Tools.Extensions
+namespace ApiExercise.Tools.Extensions.ServiceCollection
 {
 	public static class B2CExtensions
     {
@@ -59,7 +59,7 @@ namespace ApiExercise.Tools.Extensions
                 .Services;
         }
 
-        public static IServiceCollection AddB2CAuthorization(this IServiceCollection services, IConfiguration configuration, ILogger logger)
+        public static IServiceCollection AddB2CAuthorization(this IServiceCollection services)
         {
             return services.AddAuthorization(options =>
                 options.AddPolicy("auth", new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build()));

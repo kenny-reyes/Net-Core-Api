@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 using ApiExercise.Application.Interfaces;
 using ApiExercise.Domain.Interfaces;
 using ApiExercise.Infrastructure.Context;
-using ApiExercise.Infrastructure.Extensions;
+using ApiExercise.Tools.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiExercise.Infrastructure.Common
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
-        protected readonly ExerciseContext Context;
+        protected readonly DataBaseContext Context;
 
-        public Repository(ExerciseContext context)
+        public Repository(DataBaseContext context)
         {
             Context = context;
         }

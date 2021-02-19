@@ -2,7 +2,6 @@
 using Acheve.AspNetCore.TestHost.Security;
 using Acheve.TestHost;
 using ApiExercise.Api;
-using ApiExercise.Api.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -24,20 +23,15 @@ namespace FunctionalTests
         public void ConfigureServices(IServiceCollection services)
         {
             ApiConfiguration.ConfigureServices(services, _configuration, _hostingEnvironment)
-                .AddAuthentication(options => { options.DefaultScheme = TestServerDefaults.AuthenticationScheme; })
-                .AddTestServer()
-                .Services
-                .AddCustomDbContext(_configuration);
+                .AddAuthentication(options => options.DefaultScheme = TestServerDefaults.AuthenticationScheme)
+                .AddTestServer();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             ApiConfiguration.Configure(app, env)
                 .UseRouting()
-                .UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllers();
-                }); 
+                .UseEndpoints(endpoints => endpoints.MapControllers()); 
         }
     }
 }

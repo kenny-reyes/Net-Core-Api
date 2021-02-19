@@ -7,14 +7,14 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace ApiExercise.Infrastructure.Migrations
 {
-    [DbContext(typeof(ExerciseContext))]
+    [DbContext(typeof(DataBaseContext))]
     partial class ExerciseContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.1")
+                .HasAnnotation("ProductVersion", "3.1.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("Relational:Sequence:.User_hilo", "'User_hilo', '', '1', '10', '', '', 'Int64', 'False'")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);

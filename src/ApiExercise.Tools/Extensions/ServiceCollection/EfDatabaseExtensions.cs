@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ApiExercise.Tools.Extensions
+namespace ApiExercise.Tools.Extensions.ServiceCollection
 {
     public static class EfDatabaseExtensions
     {

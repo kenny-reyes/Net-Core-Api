@@ -1,20 +1,20 @@
 ﻿using System.Data;
-using ApiExercise.Api.Extensions;
 using ApiExercise.Application.Interfaces;
 using ApiExercise.Application.Users.GetUsers;
-using ApiExercise.Infrastructure.Configuration;
 using ApiExercise.Infrastructure.Context;
-using ApiExercise.Infrastructure.Queries.Shared;
+using ApiExercise.Infrastructure.Queries.Contracts;
+using ApiExercise.Tools.Configuration;
+using ApiExercise.Tools.Extensions.Configuration;
 using MediatR;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ApiExercise.Api.Configuration
+namespace ApiExercise.Api
 {
     public static class DependencyResolutions
     {
-        public static void AddTo(IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddDependencies(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddMediatR(typeof(GetUsersRequest).Assembly);
 
@@ -30,8 +30,10 @@ namespace ApiExercise.Api.Configuration
                     .AsImplementedInterfaces().WithScopedLifetime());
 
             services.Scan(scan =>
-                scan.FromAssemblyOf<ExerciseContext>().AddClasses(classes => classes.AssignableTo(typeof(IRepository<>)))
+                scan.FromAssemblyOf<DataBaseContext>().AddClasses(classes => classes.AssignableTo(typeof(IRepository<>)))
                     .AsImplementedInterfaces().WithScopedLifetime());
+            
+            return services;
         }
     }
 }

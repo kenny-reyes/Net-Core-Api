@@ -1,15 +1,16 @@
 ﻿using System;
 using ApiExercise.Api;
-using ApiExercise.Host.Extensions.Microsoft.AspNetCore.Builder;
-using ApiExercise.Infrastructure.Configuration;
+using ApiExercise.Tools.Configuration;
+using ApiExercise.Tools.Extensions;
+using ApiExercise.Tools.Extensions.ApplicationBuilder;
+using ApiExercise.Tools.Extensions.Configuration;
+using ApiExercise.Tools.Extensions.ServiceCollection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
-using ApiExercise.Api.Extensions;
+using Microsoft.Extensions.Logging;
 
 namespace ApiExercise.Host
 {
@@ -17,71 +18,52 @@ namespace ApiExercise.Host
     {
         private const string AllowedOriginsPolicy = "AllowedOriginsPolicy";
 
-        public IConfiguration Configuration { get; }
-        private IWebHostEnvironment Environment { get; }
+        private readonly IConfiguration _configuration;
+        private readonly IWebHostEnvironment _hostEnvironment;
+        private readonly ILogger<Startup> _logger;
 
-        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment, ILogger<Startup> logger)
         {
-            Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
-            Environment = environment ?? throw new ArgumentNullException(nameof(environment));
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+            _hostEnvironment = environment ?? throw new ArgumentNullException(nameof(environment));
+            _logger = logger;
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            ApiConfiguration.ConfigureServices(services, Configuration, Environment)
-                .AddDistributedMemoryCache()                
-                .AddCors(options =>
-                {
-                    options.AddPolicy(AllowedOriginsPolicy,
-                        corsbuilder =>
-                        {
-                            var allowedOrigins =
-                                Configuration.GetSection<CorsConfiguration>().AllowedOrigins.Split(";") ??
-                                throw new ArgumentNullException(AllowedOriginsPolicy);
-                            corsbuilder.AllowAnyOrigin()
-                                .AllowAnyHeader()
-                                .AllowAnyMethod()
-                                .WithOrigins(allowedOrigins);
-                        });
-                })
-                .AddControllers()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-                
-                services.AddSwaggerGen(c =>
-                {
-                    c.SwaggerDoc(ApiConstants.ApiVersionV1,
-                        new OpenApiInfo
-                        {
-                            Title = ApiConstants.ApiTitleV1,
-                            Version = ApiConstants.ApiVersionV1
-                        });
-                });
+            ApiConfiguration.ConfigureServices(services, _configuration, _hostEnvironment)
+                .AddDistributedMemoryCache()
+                .RegisterSwaggerExtensions(ApiConstants.ApiTitleV1, ApiConstants.ApiVersionV1)
+                .AddCors(options => options.AddPolicy(AllowedOriginsPolicy, corsbuilder =>
+                    {
+                        var allowedOrigins =
+                            _configuration.GetSection<Cors>().AllowedOrigins?.Split(";") ??
+                            throw new ArgumentNullException(AllowedOriginsPolicy);
+                        corsbuilder.AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod()
+                            .WithOrigins(allowedOrigins);
+                    }))
+                .AddControllers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsProduction())
+            if (env.IsLocal() || env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage()
-                    .UseCors(AllowedOriginsPolicy)
-                    .UseHttpsRedirection();
+                    .AllowAllCorsExtension();
             }
             else
             {
-                app.UseCors(cors => cors
-                    .AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowAnyOrigin());
+                app.UseExceptionHandler("/Error")
+                    .UseHsts()
+                    .UseHttpsRedirection()
+                    .UseCors(AllowedOriginsPolicy);
             }
 
             ApiConfiguration.Configure(app, env)
-                .UseRouting()
-                .UseAuthorization()
-                .UseOpenApi()
-                .UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllers();
-                });
+                .UseSwaggerExtension();
         }
     }
 }

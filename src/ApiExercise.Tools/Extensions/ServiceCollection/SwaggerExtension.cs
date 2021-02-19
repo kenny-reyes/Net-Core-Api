@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace ApiExercise.Tools.Extensions
+namespace ApiExercise.Tools.Extensions.ServiceCollection
 {
     public static class SwaggerExtensions
     {
@@ -16,13 +17,15 @@ namespace ApiExercise.Tools.Extensions
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description =
-                        "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
+                        "JWT Authorization header using the Bearer scheme. \r\n\r\n " +
+                        "Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\n" +
+                        "Example: \"Bearer 12345.ExampleToken.abcdef\"",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey,
                     Scheme = "Bearer"
                 });
-                options.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     {
                         new OpenApiSecurityScheme
@@ -43,10 +46,22 @@ namespace ApiExercise.Tools.Extensions
             });
         }
 
-        public static IApplicationBuilder UseSwaggerExtension(this IApplicationBuilder app, string title, string version)
+        public static IApplicationBuilder UseSwaggerExtension(this IApplicationBuilder app)
         {
-            return app.UseSwagger()
-                .UseSwaggerUI(c => { c.SwaggerEndpoint($"/swagger/{version}/swagger.json", title); });
+            return app
+                .UseSwagger()
+                .UseSwaggerUI(options =>
+                {
+                    var apiDescriptionProvider =
+                        app.ApplicationServices.GetService<IApiVersionDescriptionProvider>();
+                    foreach (var apiVersionDescription in apiDescriptionProvider.ApiVersionDescriptions)
+                    {
+                        options.SwaggerEndpoint(
+                            $"{apiVersionDescription.GroupName}/swagger.json",
+                            $"Version {apiVersionDescription.ApiVersion}"
+                        );
+                    }
+                });
         }
     }
 }

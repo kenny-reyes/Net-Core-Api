@@ -10,11 +10,6 @@ namespace ApiExercise.Application.Tests.Users.DeleteUserById
 {
     public class DeleteUserByIdValidatorTest
     {
-        /*
-         * NOTE: I select this unit test,
-         * 1) I solved a bug in this validation so I completed the DOD (Definition of done) making a test about the bug
-         * 2) Have to use a mock, so I can show how nice the dependencyInjection works for testing
-         */
         [Fact]
         public void DeleteUserByIdValidator_ValidateAndAllIsOk_ItHAveToBeValid()
         {

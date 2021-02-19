@@ -1,18 +1,18 @@
 ﻿using System;
-using ApiExercise.Infrastructure.Context;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace ApiExercise.Host.Extensions
+namespace ApiExercise.Tools.Extensions
 {
     public static class WebHostExtensions
     {
-        public static IWebHost MigrateDbContext(this IWebHost webHost, Action<ExerciseContext> initializer)
+        public static IWebHost MigrateDbContext<T>(this IWebHost webHost, Action<T> initializer) where T : DbContext
         {
             using (var scope = webHost.Services.CreateScope())
             {
-                var context = scope.ServiceProvider.GetRequiredService<ExerciseContext>();
+                var context = scope.ServiceProvider.GetRequiredService<T>();
 
                 try
                 {
@@ -20,8 +20,8 @@ namespace ApiExercise.Host.Extensions
                 }
                 catch (Exception ex)
                 {
-                    var logger = scope.ServiceProvider.GetRequiredService<ILogger<ExerciseContext>>();
-                    logger.LogError(ex, "An error occurred while migrating the database.");
+                    var logger = scope.ServiceProvider.GetRequiredService<ILogger<T>>();
+                    logger.LogError(ex, "An error occurred while migrating the database");
                 }
             }
 

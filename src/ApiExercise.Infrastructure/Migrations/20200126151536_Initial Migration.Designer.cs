@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ApiExercise.Infrastructure.Migrations
 {
-    [DbContext(typeof(ExerciseContext))]
+    [DbContext(typeof(DataBaseContext))]
     [Migration("20200126151536_Initial Migration")]
     partial class InitialMigration
     {
@@ -17,7 +17,7 @@ namespace ApiExercise.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.1")
+                .HasAnnotation("ProductVersion", "3.1.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("Relational:Sequence:.User_hilo", "'User_hilo', '', '1', '10', '', '', 'Int64', 'False'")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);

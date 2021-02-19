@@ -1,5 +1,5 @@
-﻿using ApiExercise.Host.Extensions;
-using ApiExercise.Infrastructure.Context;
+﻿using ApiExercise.Infrastructure.Context;
+using ApiExercise.Tools.Extensions;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -14,18 +14,18 @@ namespace ApiExercise.Host
         {
             CreateWebHostBuilder(args)
                 .Build()
-                .MigrateDbContext(ExerciseContextInitializer.Initialize)
+                .MigrateDbContext<DataBaseContext>(ExerciseContextInitializer.Initialize)
                 .Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        private static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration((context, configuration) =>
                 {
                     configuration
                         .SetBasePath(context.HostingEnvironment.ContentRootPath)
-                        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                        .AddJsonFile($"appsettings.{context.HostingEnvironment.EnvironmentName}.json", optional: true, true)
+                        .AddJsonFile("appsettings.json", false, true)
+                        .AddJsonFile($"appsettings.{context.HostingEnvironment.EnvironmentName}.json", true, true)
                         .AddEnvironmentVariables();
                     Log.Logger = new LoggerConfiguration()
                         .ReadFrom.Configuration(configuration.Build())

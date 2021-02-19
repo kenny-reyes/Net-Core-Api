@@ -8,8 +8,8 @@ using ApiExercise.Application.Users.GetUsers;
 using ApiExercise.Domain.Users;
 using ApiExercise.Infrastructure.Common.Queries;
 using ApiExercise.Infrastructure.Context;
-using ApiExercise.Infrastructure.Extensions;
-using ApiExercise.Infrastructure.Queries.Shared;
+using ApiExercise.Infrastructure.Queries.Contracts;
+using ApiExercise.Tools.Extensions;
 using Dapper;
 using Microsoft.Data.SqlClient;
 
@@ -35,7 +35,7 @@ namespace ApiExercise.Infrastructure.Queries.Users
             var parameters = new Dictionary<string, object>();
             var orderBy = new SqlOrderByBuilder($"U.[{nameof(User.Name)}] ASC", _columns, request).Build();
             var pagination = new SqlPaginationBuilder(request).Build();
-            var gendersLeftJoin = $"LEFT JOIN [{nameof(ExerciseContext.Genders)}] G ON G.[{nameof(Gender.Id)}] = U.[{nameof(User.GenderId)}]";
+            var gendersLeftJoin = $"LEFT JOIN [{nameof(DataBaseContext.Genders)}] G ON G.[{nameof(Gender.Id)}] = U.[{nameof(User.GenderId)}]";
 
             var select = $@"
             SELECT
@@ -45,13 +45,13 @@ namespace ApiExercise.Infrastructure.Queries.Users
             U.[{nameof(User.Birthdate)}] AS [{nameof(UserListItemResponseModel.Birthdate)}],
             U.[{nameof(User.GenderId)}] AS [{nameof(UserListItemResponseModel.GenderId)}],
             G.[{nameof(Gender.Name)}] AS [{nameof(UserListItemResponseModel.GenderName)}]
-            FROM [{nameof(ExerciseContext.Users)}] U
+            FROM [{nameof(DataBaseContext.Users)}] U
             {gendersLeftJoin}
             {orderBy} {pagination.Sql}";
 
             var count = $@"
             SELECT COUNT(U.[{nameof(User.Id)}])
-            FROM [{nameof(ExerciseContext.Users)}] U
+            FROM [{nameof(DataBaseContext.Users)}] U
             {gendersLeftJoin}";
 
             parameters.AddRange(pagination.Parameters);

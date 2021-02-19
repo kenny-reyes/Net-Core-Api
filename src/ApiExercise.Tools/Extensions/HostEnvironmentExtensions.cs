@@ -2,9 +2,9 @@ using Microsoft.Extensions.Hosting;
 
 namespace ApiExercise.Tools.Extensions
 {
-    public static class EnvironmentExtensions
+    public static class HostEnvironmentExtensions
     {
-        private static readonly string EnvironmentLocalName = "Local";
+        private const string EnvironmentLocalName = "Local";
 
         public static bool IsLocal(this IHostEnvironment hostEnvironment)
         {

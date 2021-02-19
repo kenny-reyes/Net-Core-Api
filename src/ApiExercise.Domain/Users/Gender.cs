@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ApiExercise.Domain.Exceptions;
 using ApiExercise.Domain.Interfaces;
+using ApiExercise.Tools.Exceptions;
 
 namespace ApiExercise.Domain.Users
 {

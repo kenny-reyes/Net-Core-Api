@@ -4,7 +4,7 @@ using ApiExercise.Application.Common.Queries;
 using ApiExercise.Application.Common.ResponseModels;
 using ApiExercise.Domain.Users;
 using ApiExercise.Infrastructure.Context;
-using ApiExercise.Infrastructure.Queries.Shared;
+using ApiExercise.Infrastructure.Queries.Contracts;
 using Dapper;
 using Microsoft.Data.SqlClient;
 
@@ -25,8 +25,8 @@ namespace ApiExercise.Infrastructure.Queries.Users
             U.[{nameof(User.Birthdate)}] AS [{nameof(UserResponseModel.Birthdate)}],
             U.[{nameof(User.GenderId)}] AS [{nameof(UserResponseModel.GenderId)}],
             G.[{nameof(Gender.Name)}] AS [{nameof(UserResponseModel.Gender)}]
-            FROM [{nameof(ExerciseContext.Users)}] U
-            LEFT JOIN [{nameof(ExerciseContext.Genders)}] G
+            FROM [{nameof(DataBaseContext.Users)}] U
+            LEFT JOIN [{nameof(DataBaseContext.Genders)}] G
             ON G.[{nameof(Gender.Id)}] = U.[{nameof(User.GenderId)}]
             WHERE  U.[{nameof(User.Id)}] = @{nameof(id)}";
 

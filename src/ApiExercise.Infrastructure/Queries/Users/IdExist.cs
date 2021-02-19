@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using ApiExercise.Application.Common.Queries;
 using ApiExercise.Domain.Users;
 using ApiExercise.Infrastructure.Context;
-using ApiExercise.Infrastructure.Queries.Shared;
+using ApiExercise.Infrastructure.Queries.Contracts;
 using Dapper;
 using Microsoft.Data.SqlClient;
 
@@ -18,7 +18,7 @@ namespace ApiExercise.Infrastructure.Queries.Users
         {
             var select = $@"
             SELECT COUNT(U.[{nameof(User.Id)}])
-            FROM [{nameof(ExerciseContext.Users)}] U
+            FROM [{nameof(DataBaseContext.Users)}] U
             WHERE U.[{nameof(User.Id)}] = @{nameof(id)}";
 
             var result = await WithConnection(async connection =>

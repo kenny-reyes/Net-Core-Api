@@ -1,8 +1,8 @@
 using Microsoft.Extensions.Configuration;
 
-namespace ApiExercise.Api.Extensions
+namespace ApiExercise.Tools.Extensions.Configuration
 {
-    public static class ConfigurationExtensions
+    public static class ConfigurationSectionExtensions
     {
         public static T GetSection<T>(this IConfiguration configuration, string key = "")  where T: class, new()
         {
