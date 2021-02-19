@@ -1,0 +1,94 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreApiScaffolding.Host", "src\NetCoreApiScaffolding.Host\NetCoreApiScaffolding.Host.csproj", "{4A845D8D-26A6-4A77-994C-766FD203FDA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreApiScaffolding.Api", "src\NetCoreApiScaffolding.Api\NetCoreApiScaffolding.Api.csproj", "{CC6DEDA9-4276-4005-9934-F5C744C66305}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreApiScaffolding.Infrastructure", "src\NetCoreApiScaffolding.Infrastructure\NetCoreApiScaffolding.Infrastructure.csproj", "{31618F12-6D88-46A6-A06D-EE1B58B63D8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreApiScaffolding.Domain", "src\NetCoreApiScaffolding.Domain\NetCoreApiScaffolding.Domain.csproj", "{42883833-3BA5-4FB0-96DE-30872A811F2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreApiScaffolding.Application", "src\NetCoreApiScaffolding.Application\NetCoreApiScaffolding.Application.csproj", "{174D2CD2-DEE0-4EEF-B733-838F7325A190}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreApiScaffolding.Domain.Tests", "test\unit\NetCoreApiScaffolding.Domain.Tests\NetCoreApiScaffolding.Domain.Tests.csproj", "{8BDEEC41-0A32-4CFC-8D0B-8D5538C89764}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BEC2D1F5-23CA-480E-B07D-1A7CC5F63371}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{87602E80-D65A-4673-918C-71BA768DCC7B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit", "unit", "{D9586045-E6F4-4D80-BDA2-78281E0182A4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integration", "integration", "{A9CCB72E-2A09-4E75-BA5D-A4422A528C69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreApiScaffolding.IntegrationTests", "test\integration\NetCoreApiScaffolding.IntegrationTests.csproj", "{1B8AC1A5-85DF-467D-B7A6-04455589D9E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreApiScaffolding.Application.Tests", "test\unit\NetCoreApiScaffolding.Application.Tests\NetCoreApiScaffolding.Application.Tests.csproj", "{29C9645C-E649-4A90-B629-A81D4D16DB37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreApiScaffolding.Tools", "src\NetCoreApiScaffolding.Tools\NetCoreApiScaffolding.Tools.csproj", "{085C855E-F871-46FB-B69C-B0D6DE5EA395}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A845D8D-26A6-4A77-994C-766FD203FDA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A845D8D-26A6-4A77-994C-766FD203FDA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A845D8D-26A6-4A77-994C-766FD203FDA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A845D8D-26A6-4A77-994C-766FD203FDA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC6DEDA9-4276-4005-9934-F5C744C66305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC6DEDA9-4276-4005-9934-F5C744C66305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC6DEDA9-4276-4005-9934-F5C744C66305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC6DEDA9-4276-4005-9934-F5C744C66305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31618F12-6D88-46A6-A06D-EE1B58B63D8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31618F12-6D88-46A6-A06D-EE1B58B63D8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31618F12-6D88-46A6-A06D-EE1B58B63D8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31618F12-6D88-46A6-A06D-EE1B58B63D8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42883833-3BA5-4FB0-96DE-30872A811F2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42883833-3BA5-4FB0-96DE-30872A811F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42883833-3BA5-4FB0-96DE-30872A811F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42883833-3BA5-4FB0-96DE-30872A811F2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{174D2CD2-DEE0-4EEF-B733-838F7325A190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{174D2CD2-DEE0-4EEF-B733-838F7325A190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{174D2CD2-DEE0-4EEF-B733-838F7325A190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{174D2CD2-DEE0-4EEF-B733-838F7325A190}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BDEEC41-0A32-4CFC-8D0B-8D5538C89764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BDEEC41-0A32-4CFC-8D0B-8D5538C89764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BDEEC41-0A32-4CFC-8D0B-8D5538C89764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BDEEC41-0A32-4CFC-8D0B-8D5538C89764}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B8AC1A5-85DF-467D-B7A6-04455589D9E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B8AC1A5-85DF-467D-B7A6-04455589D9E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B8AC1A5-85DF-467D-B7A6-04455589D9E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B8AC1A5-85DF-467D-B7A6-04455589D9E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29C9645C-E649-4A90-B629-A81D4D16DB37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29C9645C-E649-4A90-B629-A81D4D16DB37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29C9645C-E649-4A90-B629-A81D4D16DB37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29C9645C-E649-4A90-B629-A81D4D16DB37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{085C855E-F871-46FB-B69C-B0D6DE5EA395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{085C855E-F871-46FB-B69C-B0D6DE5EA395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{085C855E-F871-46FB-B69C-B0D6DE5EA395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{085C855E-F871-46FB-B69C-B0D6DE5EA395}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7553430-B0FF-4C61-B513-5DB6CA8B6F7B}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CC6DEDA9-4276-4005-9934-F5C744C66305} = {BEC2D1F5-23CA-480E-B07D-1A7CC5F63371}
+		{174D2CD2-DEE0-4EEF-B733-838F7325A190} = {BEC2D1F5-23CA-480E-B07D-1A7CC5F63371}
+		{4A845D8D-26A6-4A77-994C-766FD203FDA1} = {BEC2D1F5-23CA-480E-B07D-1A7CC5F63371}
+		{42883833-3BA5-4FB0-96DE-30872A811F2F} = {BEC2D1F5-23CA-480E-B07D-1A7CC5F63371}
+		{31618F12-6D88-46A6-A06D-EE1B58B63D8C} = {BEC2D1F5-23CA-480E-B07D-1A7CC5F63371}
+		{D9586045-E6F4-4D80-BDA2-78281E0182A4} = {87602E80-D65A-4673-918C-71BA768DCC7B}
+		{8BDEEC41-0A32-4CFC-8D0B-8D5538C89764} = {D9586045-E6F4-4D80-BDA2-78281E0182A4}
+		{A9CCB72E-2A09-4E75-BA5D-A4422A528C69} = {87602E80-D65A-4673-918C-71BA768DCC7B}
+		{1B8AC1A5-85DF-467D-B7A6-04455589D9E6} = {A9CCB72E-2A09-4E75-BA5D-A4422A528C69}
+		{29C9645C-E649-4A90-B629-A81D4D16DB37} = {D9586045-E6F4-4D80-BDA2-78281E0182A4}
+		{085C855E-F871-46FB-B69C-B0D6DE5EA395} = {BEC2D1F5-23CA-480E-B07D-1A7CC5F63371}
+	EndGlobalSection
+EndGlobal

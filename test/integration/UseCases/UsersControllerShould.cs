@@ -2,11 +2,11 @@
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using ApiExercise.Api.Controllers;
-using ApiExercise.Application.Users.CreateUser;
-using ApiExercise.Application.Users.DeleteUserById;
-using ApiExercise.Application.Users.GetUsers;
-using ApiExercise.Domain.Users;
+using NetCoreApiScaffolding.Api.Controllers;
+using NetCoreApiScaffolding.Application.Users.CreateUser;
+using NetCoreApiScaffolding.Application.Users.DeleteUserById;
+using NetCoreApiScaffolding.Application.Users.GetUsers;
+using NetCoreApiScaffolding.Domain.Users;
 using FluentAssertions;
 using FunctionalTests.Attributes;
 using FunctionalTests.Fixtures;

@@ -1,5 +1,5 @@
 ﻿using System;
-using ApiExercise.Domain.Users;
+using NetCoreApiScaffolding.Domain.Users;
 using FunctionalTests.Fixtures;
 
 namespace FunctionalTests.Given

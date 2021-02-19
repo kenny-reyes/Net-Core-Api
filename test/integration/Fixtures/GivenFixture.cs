@@ -1,5 +1,5 @@
 ﻿using System;
-using ApiExercise.Infrastructure.Context;
+using NetCoreApiScaffolding.Infrastructure.Context;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FunctionalTests.Fixtures

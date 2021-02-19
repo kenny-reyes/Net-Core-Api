@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>NetCoreApiScaffolding.Domain</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NetCoreApiScaffolding.Tools\NetCoreApiScaffolding.Tools.csproj" />
+  </ItemGroup>
+
+</Project>

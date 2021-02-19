@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using ApiExercise.Infrastructure.Context;
-using ApiExercise.Tools.Configuration;
-using ApiExercise.Tools.Extensions.Configuration;
+using NetCoreApiScaffolding.Infrastructure.Context;
+using NetCoreApiScaffolding.Tools.Configuration;
+using NetCoreApiScaffolding.Tools.Extensions.Configuration;
 using FunctionalTests.Configuration;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;

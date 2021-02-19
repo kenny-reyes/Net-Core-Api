@@ -1,7 +1,7 @@
 ﻿using System;
 using Acheve.AspNetCore.TestHost.Security;
 using Acheve.TestHost;
-using ApiExercise.Api;
+using NetCoreApiScaffolding.Api;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

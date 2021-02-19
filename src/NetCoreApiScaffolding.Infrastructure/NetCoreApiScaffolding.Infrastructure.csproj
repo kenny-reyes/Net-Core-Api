@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>NetCoreApiScaffolding.Infrastructure</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NetCoreApiScaffolding.Application\NetCoreApiScaffolding.Application.csproj" />
+    <ProjectReference Include="..\NetCoreApiScaffolding.Domain\NetCoreApiScaffolding.Domain.csproj" />
+    <ProjectReference Include="..\NetCoreApiScaffolding.Tools\NetCoreApiScaffolding.Tools.csproj" />
+  </ItemGroup>
+
+</Project>
