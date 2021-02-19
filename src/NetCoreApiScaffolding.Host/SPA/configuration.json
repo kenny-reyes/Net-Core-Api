@@ -1,0 +1,61 @@
+{
+  "appTitle": "",
+  "themes": {
+    "light": {
+      "primary": "#03a9f4",
+      "secondary": "#AAAAAA",
+      "accent": "#3f51b5",
+      "error": "#e91e63",
+      "warning": "#F19E06",
+      "info": "#00bcd4",
+      "success": "#2196f3",
+      "secondary-black": "#AAAAAA",
+      "appBar": "#F5F5F5",
+      "navigationPanel": "#FFFFFF",
+      "footer": "#F5F5F5"
+    },
+    "dark": {
+      "primary": "#03a9f4",
+      "secondary": "#9F9F9F",
+      "accent": "#0078ff",
+      "error": "#e91e63",
+      "warning": "#F19E06",
+      "info": "#00bcd4",
+      "success": "#2196f3",
+      "secondary-black": "#111822",
+      "appBar": "#272727",
+      "navigationPanel": "#363636",
+      "footer": "#272727"
+    }
+  },
+  "darkTheme": false,
+  "lightLogoIcon": "./assets/logo.png",
+  "darkLogoIcon": "https://s3.amazonaws.com/eventtia/event_files/29192/original/kissclipartgenericlogopngclipartlogobrandorganization4818c12f0eb475ed15847524521584752452.png?1584752452",
+  "menuItems": [
+    {
+      "name": "Dashboard",
+      "to": "/dashboard",
+      "fontIcon": "mdi mdi-view-dashboard-outline",
+      "isDisabled": false
+    },
+    {
+      "name": "Users",
+      "to": "/users",
+      "fontIcon": "mdi mdi-account-multiple-check-outline",
+      "isDisabled": false
+    },
+    {
+      "name": "Configuration",
+      "fontIcon": "mdi mdi-cog-outline",
+      "isDisabled": false,
+      "children": [
+        {
+          "name": "Settings",
+          "fontIcon": "mdi mdi-tune-vertical-variant",
+          "to": "/settings",
+          "isDisabled": false
+        }
+      ]
+    }
+  ]
+}
