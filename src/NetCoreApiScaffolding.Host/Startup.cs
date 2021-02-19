@@ -20,6 +20,7 @@ namespace NetCoreApiScaffolding.Host
         private const string AllowedOriginsPolicy = "AllowedOriginsPolicy";
         private const string SpaSourcePath = "Spa";
         private const string SpaStaticsPath = "Spa/dist";
+        private const string LaunchOnlyApiVariable = "LAUNCH_ONLY_API";
 
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _hostEnvironment;
@@ -48,7 +49,8 @@ namespace NetCoreApiScaffolding.Host
                         .WithOrigins(allowedOrigins);
                 }))
                 .AddControllers();
-                
+
+            if (IsOnlyApi()) return;
             services.AddSpaStaticFiles(configuration => configuration.RootPath = SpaStaticsPath);
         }
 
@@ -68,14 +70,21 @@ namespace NetCoreApiScaffolding.Host
             }
 
             ApiConfiguration.Configure(app, env)
-                .UseSwaggerExtension()
-                .UseStaticFiles();
+                .UseSwaggerExtension();
+
+            if (IsOnlyApi()) return;
+            app.UseStaticFiles();
                 
-                app.UseSpa(spa =>
-                {
-                    spa.Options.SourcePath = SpaSourcePath;
-                    spa.UseVueCli();
-                });
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = SpaSourcePath;
+                spa.UseVueCli();
+            });
+        }
+
+        private static bool IsOnlyApi()
+        {
+            return bool.Parse((string) Environment.GetEnvironmentVariables()[LaunchOnlyApiVariable] ?? false.ToString());
         }
     }
 }
