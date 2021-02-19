@@ -11,12 +11,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using VueCliMiddleware;
 
 namespace ApiExercise.Host
 {
     public class Startup
     {
         private const string AllowedOriginsPolicy = "AllowedOriginsPolicy";
+        private const string SpaSourcePath = "Spa";
+        private const string SpaStaticsPath = "Spa/dist";
 
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _hostEnvironment;
@@ -35,16 +38,18 @@ namespace ApiExercise.Host
                 .AddDistributedMemoryCache()
                 .RegisterSwaggerExtensions(ApiConstants.ApiTitleV1, ApiConstants.ApiVersionV1)
                 .AddCors(options => options.AddPolicy(AllowedOriginsPolicy, corsbuilder =>
-                    {
-                        var allowedOrigins =
-                            _configuration.GetSection<Cors>().AllowedOrigins?.Split(";") ??
-                            throw new ArgumentNullException(AllowedOriginsPolicy);
-                        corsbuilder.AllowAnyOrigin()
-                            .AllowAnyHeader()
-                            .AllowAnyMethod()
-                            .WithOrigins(allowedOrigins);
-                    }))
+                {
+                    var allowedOrigins =
+                        _configuration.GetSection<Cors>().AllowedOrigins?.Split(";") ??
+                        throw new ArgumentNullException(AllowedOriginsPolicy);
+                    corsbuilder.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .WithOrigins(allowedOrigins);
+                }))
                 .AddControllers();
+                
+            services.AddSpaStaticFiles(configuration => configuration.RootPath = SpaStaticsPath);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -63,7 +68,14 @@ namespace ApiExercise.Host
             }
 
             ApiConfiguration.Configure(app, env)
-                .UseSwaggerExtension();
+                .UseSwaggerExtension()
+                .UseStaticFiles();
+                
+                app.UseSpa(spa =>
+                {
+                    spa.Options.SourcePath = SpaSourcePath;
+                    spa.UseVueCli();
+                });
         }
     }
 }

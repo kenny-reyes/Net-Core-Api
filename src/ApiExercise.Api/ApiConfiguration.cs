@@ -46,7 +46,7 @@ namespace ApiExercise.Api
                 .UseProblemDetails()
                 .UseRouting()
                 .UseAuthentication()
-                //.UseAuthorization()
+                .UseAuthorization()
                 .UseEndpoints(endpoints => endpoints.MapControllers());        
         }
     }
