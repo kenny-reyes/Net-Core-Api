@@ -74,7 +74,7 @@ namespace NetCoreApiScaffolding.Host
 
             if (IsOnlyApi()) return;
             app.UseStaticFiles();
-                
+
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = SpaSourcePath;

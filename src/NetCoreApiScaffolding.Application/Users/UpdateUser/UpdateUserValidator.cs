@@ -44,11 +44,11 @@ namespace NetCoreApiScaffolding.Application.Users.UpdateUser
             RuleFor(u => u.Birthdate)
                 .Must(BeAValidDate)
                 .WithMessage(ValidationMessages.GetOutOfRange(nameof(UpdateUserRequest.Birthdate)));
-            
+
             RuleFor(u => u.GenderId)
                 .NotEmpty();
         }
-        
+
         private async Task<bool> IdAlreadyExists(int id, CancellationToken cancellationToken)
         {
             return await _idExists.Query(id, cancellationToken);
@@ -65,7 +65,7 @@ namespace NetCoreApiScaffolding.Application.Users.UpdateUser
             var match = User.EmailRegex.Match(email);
             return await Task.FromResult(match.Success);
         }
-        
+
         private bool BeAValidDate(DateTime date)
         {
             return date < User.BirthdateMaxDate && date > User.BirthdateMinDate;

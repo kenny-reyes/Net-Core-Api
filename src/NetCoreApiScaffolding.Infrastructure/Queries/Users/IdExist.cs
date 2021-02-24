@@ -12,8 +12,9 @@ namespace NetCoreApiScaffolding.Infrastructure.Queries.Users
     public class IdExists : DapperQueryBase, IQuery, IIdExists
     {
         public IdExists(SqlConnection sqlConnection) : base(sqlConnection)
-        { }
-        
+        {
+        }
+
         public async Task<bool> Query(int id, CancellationToken cancellationToken)
         {
             var select = $@"
@@ -23,7 +24,7 @@ namespace NetCoreApiScaffolding.Infrastructure.Queries.Users
 
             var result = await WithConnection(async connection =>
             {
-                var existsCount = await connection.QueryFirstAsync<int>(select, new { id });
+                var existsCount = await connection.QueryFirstAsync<int>(select, new {id});
                 return existsCount;
             }, cancellationToken);
 

@@ -8,14 +8,14 @@ using MediatR;
 namespace NetCoreApiScaffolding.Application.Users.GetUsers
 {
     public class GetUsersHandler : IRequestHandler<GetUsersRequest, PaginatedResponse<UserListItemResponseModel>>
-    {                                                                         
+    {
         private readonly IGetUsers _getUsersQueries;
 
         public GetUsersHandler(IGetUsers getUsersQueries)
         {
             _getUsersQueries = getUsersQueries;
         }
-        
+
         public async Task<PaginatedResponse<UserListItemResponseModel>> Handle(GetUsersRequest request, CancellationToken cancellationToken)
         {
             return await _getUsersQueries.Query(request, cancellationToken);

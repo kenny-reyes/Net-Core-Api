@@ -18,10 +18,7 @@ namespace NetCoreApiScaffolding.Infrastructure.Migrations
                     Id = table.Column<int>(nullable: false),
                     Name = table.Column<string>(maxLength: 10, nullable: false)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Genders", x => x.Id);
-                });
+                constraints: table => { table.PrimaryKey("PK_Genders", x => x.Id); });
 
             migrationBuilder.CreateTable(
                 name: "Users",
@@ -46,18 +43,18 @@ namespace NetCoreApiScaffolding.Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "Genders",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 1, "Male" });
+                columns: new[] {"Id", "Name"},
+                values: new object[] {1, "Male"});
 
             migrationBuilder.InsertData(
                 table: "Genders",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 2, "Female" });
+                columns: new[] {"Id", "Name"},
+                values: new object[] {2, "Female"});
 
             migrationBuilder.InsertData(
                 table: "Genders",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 3, "Unknown" });
+                columns: new[] {"Id", "Name"},
+                values: new object[] {3, "Unknown"});
 
             migrationBuilder.CreateIndex(
                 name: "IX_Genders_Name",

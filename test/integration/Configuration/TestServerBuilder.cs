@@ -13,7 +13,8 @@ namespace FunctionalTests.Configuration
         private Type _startupType;
 
         private TestServerBuilder()
-        { }
+        {
+        }
 
         public static TestServerBuilder Create()
         {
@@ -30,10 +31,10 @@ namespace FunctionalTests.Configuration
         {
             var webHostBuilder = new WebHostBuilder()
                 .UseConfiguration(new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile(AppSettingsFileName)
-                .AddEnvironmentVariables()
-                .Build())
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile(AppSettingsFileName)
+                    .AddEnvironmentVariables()
+                    .Build())
                 .ConfigureLogging(builder => builder.AddConsole())
                 .UseStartup(_startupType);
 

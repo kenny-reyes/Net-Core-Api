@@ -52,7 +52,7 @@ namespace NetCoreApiScaffolding.Application.Users.CreateUser
             var match = User.EmailRegex.Match(email);
             return await Task.FromResult(match.Success);
         }
-        
+
         private bool BeAValidDate(DateTime date)
         {
             return date < User.BirthdateMaxDate && date > User.BirthdateMinDate;

@@ -12,7 +12,8 @@ namespace NetCoreApiScaffolding.Infrastructure.Queries.Users
     public class EmailAlreadyExistsCount : DapperQueryBase, IQuery, IEmailAlreadyExistsCount
     {
         public EmailAlreadyExistsCount(SqlConnection sqlConnection) : base(sqlConnection)
-        { }
+        {
+        }
 
         public async Task<int> Query(string email, int id, CancellationToken cancellationToken)
         {
@@ -24,7 +25,7 @@ namespace NetCoreApiScaffolding.Infrastructure.Queries.Users
 
             var result = await WithConnection(async connection =>
             {
-                var existsCount = await connection.QueryFirstAsync<int>(select, new { email, id });
+                var existsCount = await connection.QueryFirstAsync<int>(select, new {email, id});
                 return existsCount;
             }, cancellationToken);
 

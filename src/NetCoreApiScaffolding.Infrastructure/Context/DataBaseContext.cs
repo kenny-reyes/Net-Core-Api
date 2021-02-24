@@ -10,12 +10,12 @@ namespace NetCoreApiScaffolding.Infrastructure.Context
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Gender> Genders { get; set; }
-        
+
         public DataBaseContext(DbContextOptions options)
             : base(options)
         {
         }
-        
+
         public static DataBaseContext Create(string connectionString)
         {
             var options = new DbContextOptionsBuilder().UseSqlServer(connectionString).Options;

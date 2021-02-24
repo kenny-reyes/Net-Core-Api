@@ -23,7 +23,7 @@ namespace NetCoreApiScaffolding.Api
                 new SqlConnection(connectionStrings.DefaultConnection));
 
             services.AddScoped(x =>
-               new SqlConnection(connectionStrings.DefaultConnection));
+                new SqlConnection(connectionStrings.DefaultConnection));
 
             services.Scan(scan =>
                 scan.FromAssemblyOf<IQuery>().AddClasses(classes => classes.AssignableTo<IQuery>())
@@ -32,7 +32,7 @@ namespace NetCoreApiScaffolding.Api
             services.Scan(scan =>
                 scan.FromAssemblyOf<DataBaseContext>().AddClasses(classes => classes.AssignableTo(typeof(IRepository<>)))
                     .AsImplementedInterfaces().WithScopedLifetime());
-            
+
             return services;
         }
     }

@@ -8,7 +8,7 @@ namespace NetCoreApiScaffolding.Tools.Wrappers
     public class HttpClientWrapper : IHttpClientWrapper
     {
         private readonly HttpClient _httpClient = new HttpClient();
-        
+
         public Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, HttpCompletionOption completionOption,
             CancellationToken cancellationToken)
         {

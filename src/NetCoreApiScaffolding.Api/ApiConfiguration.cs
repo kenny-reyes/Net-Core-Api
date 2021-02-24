@@ -47,7 +47,7 @@ namespace NetCoreApiScaffolding.Api
                 .UseRouting()
                 .UseAuthentication()
                 .UseAuthorization()
-                .UseEndpoints(endpoints => endpoints.MapControllers());        
+                .UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
 }

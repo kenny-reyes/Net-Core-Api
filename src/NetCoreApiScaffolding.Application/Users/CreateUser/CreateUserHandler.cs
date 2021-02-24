@@ -26,8 +26,8 @@ namespace NetCoreApiScaffolding.Application.Users.CreateUser
             {
                 Id = user.Id,
                 Email = user.Email,
-                Name = user.Name,                
-                Birthdate = user.Birthdate,   
+                Name = user.Name,
+                Birthdate = user.Birthdate,
                 GenderId = user.GenderId
             };
         }

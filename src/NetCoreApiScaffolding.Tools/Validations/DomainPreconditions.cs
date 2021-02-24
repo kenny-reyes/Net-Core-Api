@@ -153,7 +153,6 @@ namespace NetCoreApiScaffolding.Tools.Validations
 
         public static void IsDouble(string value, string parameterName)
         {
-
             if (!double.TryParse(value, out double s))
             {
                 throw new DomainException(DomainPreconditionMessages.IsDoubleOf(parameterName));

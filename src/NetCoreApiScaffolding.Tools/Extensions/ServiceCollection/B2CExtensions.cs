@@ -10,7 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace NetCoreApiScaffolding.Tools.Extensions.ServiceCollection
 {
-	public static class B2CExtensions
+    public static class B2CExtensions
     {
         public static IServiceCollection AddB2CAuthentication(this IServiceCollection services, IConfiguration configuration,
             ILogger logger)

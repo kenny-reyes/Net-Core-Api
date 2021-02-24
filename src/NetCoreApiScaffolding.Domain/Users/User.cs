@@ -14,7 +14,7 @@ namespace NetCoreApiScaffolding.Domain.Users
         public static readonly int NameMaxLength = 20;
         public static readonly int NameMinLength = 2;
         public static DateTime BirthdateMaxDate => DateTime.Now;
-        public static readonly DateTime BirthdateMinDate = new DateTime(MinimumBornYear,1,1);
+        public static readonly DateTime BirthdateMinDate = new DateTime(MinimumBornYear, 1, 1);
         public static readonly int EmailMaxLength = 64;
         public static readonly Regex EmailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,})+)$", RegexOptions.Compiled);
 
@@ -26,7 +26,8 @@ namespace NetCoreApiScaffolding.Domain.Users
         public Gender Gender { get; private set; }
 
         private User()
-        { }
+        {
+        }
 
         public static User Create(
             string email,

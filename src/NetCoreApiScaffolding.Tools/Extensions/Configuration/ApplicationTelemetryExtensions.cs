@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace NetCoreApiScaffolding.Tools.Extensions.Configuration
 {
-	public static class ApplicationTelemetryExtensions
+    public static class ApplicationTelemetryExtensions
     {
         public static void ConfigureApplicationInsights(this IConfiguration configuration)
         {
@@ -14,7 +14,7 @@ namespace NetCoreApiScaffolding.Tools.Extensions.Configuration
 
             if (useApplicationInsightsTelemetries)
             {
-                TelemetryConfiguration.Active.InstrumentationKey = customConfigSection.InstrumentationKey;    
+                TelemetryConfiguration.Active.InstrumentationKey = customConfigSection.InstrumentationKey;
             }
             else
             {

@@ -13,7 +13,8 @@ namespace NetCoreApiScaffolding.Infrastructure.Queries.Users
     public class GetUserById : DapperQueryBase, IQuery, IGetUserById
     {
         public GetUserById(SqlConnection sqlConnection) : base(sqlConnection)
-        { }
+        {
+        }
 
         public async Task<UserResponseModel> Query(int id, CancellationToken cancellationToken)
         {
@@ -31,7 +32,7 @@ namespace NetCoreApiScaffolding.Infrastructure.Queries.Users
             WHERE  U.[{nameof(User.Id)}] = @{nameof(id)}";
 
             var result = await WithConnection(async connection =>
-                await connection.QueryFirstOrDefaultAsync<UserResponseModel>(select, new { id }), cancellationToken);
+                await connection.QueryFirstOrDefaultAsync<UserResponseModel>(select, new {id}), cancellationToken);
 
             return result;
         }

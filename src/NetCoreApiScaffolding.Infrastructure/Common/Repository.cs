@@ -23,7 +23,7 @@ namespace NetCoreApiScaffolding.Infrastructure.Common
 
         public virtual async Task<TEntity> Find(int id, CancellationToken cancellationToken)
         {
-            return await Context.Set<TEntity>().FindAsync(new object[] { id }, cancellationToken);
+            return await Context.Set<TEntity>().FindAsync(new object[] {id}, cancellationToken);
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter, CancellationToken cancellationToken)
@@ -31,7 +31,8 @@ namespace NetCoreApiScaffolding.Infrastructure.Common
             return await Context.Set<TEntity>().Where(filter).ToListAsync(cancellationToken);
         }
 
-        public async Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter, CancellationToken cancellationToken, params Expression<Func<TEntity, object>>[] includes)
+        public async Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter, CancellationToken cancellationToken,
+            params Expression<Func<TEntity, object>>[] includes)
         {
             return await Context.Set<TEntity>().Where(filter).IncludeMultiple(includes).ToListAsync(cancellationToken);
         }

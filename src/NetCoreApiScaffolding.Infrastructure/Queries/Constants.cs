@@ -14,8 +14,8 @@ namespace NetCoreApiScaffolding.Infrastructure.Queries
         {
             public static readonly Dictionary<string, string> Directions = new Dictionary<string, string>
             {
-                {SortOptions.Ascendant, "ASC" },
-                {SortOptions.Descendant, "DESC" }
+                {SortOptions.Ascendant, "ASC"},
+                {SortOptions.Descendant, "DESC"}
             };
         }
 
@@ -35,7 +35,6 @@ namespace NetCoreApiScaffolding.Infrastructure.Queries
             public const string DoesNotContains = "doesnotcontain";
             public const string IsEmpty = "isempty";
             public const string IsNotEmpty = "isnotempty";
-
         }
 
         public static class FilterLogicOptions
@@ -48,26 +47,26 @@ namespace NetCoreApiScaffolding.Infrastructure.Queries
         {
             public static Dictionary<string, string> Logics = new Dictionary<string, string>
             {
-                {FilterLogicOptions.And, "AND" },
-                {FilterLogicOptions.Or, "OR" }
+                {FilterLogicOptions.And, "AND"},
+                {FilterLogicOptions.Or, "OR"}
             };
 
             public static Dictionary<string, string> Operations = new Dictionary<string, string>
             {
-                {FilterOperatorOptions.Equal, "{0} = {1}" },
+                {FilterOperatorOptions.Equal, "{0} = {1}"},
                 {FilterOperatorOptions.NotEqual, "{0} != {1}"},
-                {FilterOperatorOptions.IsNull, "{0} IS NULL" },
-                {FilterOperatorOptions.IsNotNull, "{0} IS NOT NULL" },
-                {FilterOperatorOptions.LowerThan, "{0} < {1}" },
-                {FilterOperatorOptions.LowerThanOrEqual, "{0} <= {1}" },
-                {FilterOperatorOptions.GreaterThan, "{0} > {1}" },
-                {FilterOperatorOptions.GreaterThanOrEqual, "{0} >= {1}" },
-                {FilterOperatorOptions.StartsWith, "{0} LIKE {1}" },
-                {FilterOperatorOptions.EndsWith, "{0} LIKE {1}" },
-                {FilterOperatorOptions.Contains, "{0} LIKE {1}" },
-                {FilterOperatorOptions.DoesNotContains, "{0} NOT LIKE {1}" },
-                {FilterOperatorOptions.IsEmpty, "datalength({0})=0" },
-                {FilterOperatorOptions.IsNotEmpty, "datalength({0})>0" }
+                {FilterOperatorOptions.IsNull, "{0} IS NULL"},
+                {FilterOperatorOptions.IsNotNull, "{0} IS NOT NULL"},
+                {FilterOperatorOptions.LowerThan, "{0} < {1}"},
+                {FilterOperatorOptions.LowerThanOrEqual, "{0} <= {1}"},
+                {FilterOperatorOptions.GreaterThan, "{0} > {1}"},
+                {FilterOperatorOptions.GreaterThanOrEqual, "{0} >= {1}"},
+                {FilterOperatorOptions.StartsWith, "{0} LIKE {1}"},
+                {FilterOperatorOptions.EndsWith, "{0} LIKE {1}"},
+                {FilterOperatorOptions.Contains, "{0} LIKE {1}"},
+                {FilterOperatorOptions.DoesNotContains, "{0} NOT LIKE {1}"},
+                {FilterOperatorOptions.IsEmpty, "datalength({0})=0"},
+                {FilterOperatorOptions.IsNotEmpty, "datalength({0})>0"}
             };
         }
     }

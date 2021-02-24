@@ -4,7 +4,6 @@ namespace NetCoreApiScaffolding.Domain.Interfaces
 {
     public interface IEntity
     {
-        [Key]
-        int Id { get; }
+        [Key] int Id { get; }
     }
 }

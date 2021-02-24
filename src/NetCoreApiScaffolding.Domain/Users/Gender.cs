@@ -9,7 +9,7 @@ namespace NetCoreApiScaffolding.Domain.Users
     {
         public const int NameMaxLength = 10;
 
-        public int Id { get; private set; } 
+        public int Id { get; private set; }
         public string Name { get; private set; }
 
         public static readonly Gender Male = new Gender(1, nameof(Male));
@@ -23,7 +23,7 @@ namespace NetCoreApiScaffolding.Domain.Users
         }
 
         public static IReadOnlyCollection<Gender> GetGenders() =>
-            new[] { Male, Female, Unknown };
+            new[] {Male, Female, Unknown};
 
         public static Gender FindByName(string name)
         {
@@ -33,6 +33,7 @@ namespace NetCoreApiScaffolding.Domain.Users
             {
                 throw new DomainException($"Possible values for {nameof(Gender)}: {string.Join(",", GetGenders().Select(s => s.Name))}");
             }
+
             return gender;
         }
 
@@ -44,6 +45,7 @@ namespace NetCoreApiScaffolding.Domain.Users
             {
                 throw new DomainException($"Possible values for  {nameof(Gender)}: {string.Join(",", GetGenders().Select(s => s.Name))}");
             }
+
             return gender;
         }
     }

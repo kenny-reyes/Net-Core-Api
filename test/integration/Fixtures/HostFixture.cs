@@ -34,9 +34,11 @@ namespace FunctionalTests.Fixtures
                 }
             });
 
-            Checkpoint.TablesToIgnore = new[] {
+            Checkpoint.TablesToIgnore = new[]
+            {
                 "__EFMigrationsHistory",
-                nameof(DataBaseContext.Genders)};
+                nameof(DataBaseContext.Genders)
+            };
         }
 
         public void Reset()

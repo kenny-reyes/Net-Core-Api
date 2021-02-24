@@ -12,7 +12,7 @@ namespace NetCoreApiScaffolding.Tools.Extensions.ServiceCollection
     public static class ProblemDetailsExtensions
     {
         private const string ModelStateValidation = "Please refer to the errors property for additional details.";
-        
+
         public static IServiceCollection AddCustomProblemDetails(this IServiceCollection services, IWebHostEnvironment environment)
         {
             var isDevelopment = environment.IsDevelopment() || environment.IsLocal();
@@ -49,7 +49,7 @@ namespace NetCoreApiScaffolding.Tools.Extensions.ServiceCollection
                     {
                         Title = ex.Message,
                         Status = StatusCodes.Status500InternalServerError,
-                        Detail = $"{stackTrace}"                        
+                        Detail = $"{stackTrace}"
                     };
                 });
 

@@ -6,8 +6,9 @@
         public string Name { get; set; }
 
         private GenderResponseModel()
-        { }
+        {
+        }
 
-        public static GenderResponseModel Create(int id, string name) => new GenderResponseModel { Id = id, Name = name };
+        public static GenderResponseModel Create(int id, string name) => new GenderResponseModel {Id = id, Name = name};
     }
 }

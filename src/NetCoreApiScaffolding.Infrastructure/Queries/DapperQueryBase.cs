@@ -20,7 +20,7 @@ namespace NetCoreApiScaffolding.Infrastructure.Queries
             try
             {
                 await _sqlConnection.OpenAsync(cancellationToken);
-                return await getData((IDbConnection)_sqlConnection);
+                return await getData((IDbConnection) _sqlConnection);
             }
             catch (TimeoutException exception)
             {
@@ -28,7 +28,8 @@ namespace NetCoreApiScaffolding.Infrastructure.Queries
             }
             catch (SqlException exception)
             {
-                throw new Exception($"{GetType().FullName}.WithConnection() experienced a SQL exception (not a timeout): {exception.Message}", exception);
+                throw new Exception(
+                    $"{GetType().FullName}.WithConnection() experienced a SQL exception (not a timeout): {exception.Message}", exception);
             }
             finally
             {
@@ -40,4 +41,3 @@ namespace NetCoreApiScaffolding.Infrastructure.Queries
         }
     }
 }
-

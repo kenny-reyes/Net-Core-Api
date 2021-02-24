@@ -18,16 +18,17 @@ namespace NetCoreApiScaffolding.Infrastructure.Queries.Users
     public class GetUsers : DapperQueryBase, IQuery, IGetUsers
     {
         public GetUsers(SqlConnection sqlConnection) : base(sqlConnection)
-        { }
+        {
+        }
 
         private readonly Dictionary<string, string> _columns = new Dictionary<string, string>
         {
-            { "id", $"U.[{nameof(User.Id)}]" },
-            { "email", $"U.[{nameof(User.Email)}]" },
-            { "name", $"U.[{nameof(User.Name)}]" },
-            { "birthdate", $"U.[{nameof(User.Birthdate)}]" },
-            { "genderId", $"U.[{nameof(User.GenderId)}]" },
-            { "genderName", $"G.[{nameof(Gender.Name)}]" }
+            {"id", $"U.[{nameof(User.Id)}]"},
+            {"email", $"U.[{nameof(User.Email)}]"},
+            {"name", $"U.[{nameof(User.Name)}]"},
+            {"birthdate", $"U.[{nameof(User.Birthdate)}]"},
+            {"genderId", $"U.[{nameof(User.GenderId)}]"},
+            {"genderName", $"G.[{nameof(Gender.Name)}]"}
         };
 
         public async Task<PaginatedResponse<UserListItemResponseModel>> Query(GetUsersRequest request, CancellationToken cancellationToken)
@@ -35,7 +36,8 @@ namespace NetCoreApiScaffolding.Infrastructure.Queries.Users
             var parameters = new Dictionary<string, object>();
             var orderBy = new SqlOrderByBuilder($"U.[{nameof(User.Name)}] ASC", _columns, request).Build();
             var pagination = new SqlPaginationBuilder(request).Build();
-            var gendersLeftJoin = $"LEFT JOIN [{nameof(DataBaseContext.Genders)}] G ON G.[{nameof(Gender.Id)}] = U.[{nameof(User.GenderId)}]";
+            var gendersLeftJoin =
+                $"LEFT JOIN [{nameof(DataBaseContext.Genders)}] G ON G.[{nameof(Gender.Id)}] = U.[{nameof(User.GenderId)}]";
 
             var select = $@"
             SELECT
@@ -59,7 +61,8 @@ namespace NetCoreApiScaffolding.Infrastructure.Queries.Users
             var result = await WithConnection(async connection =>
             {
                 var queryResult = await connection.QueryMultipleAsync($"{select};{count}", parameters);
-                return new PaginatedResponse<UserListItemResponseModel>(queryResult.Read<UserListItemResponseModel>(), queryResult.ReadFirst<long>());
+                return new PaginatedResponse<UserListItemResponseModel>(queryResult.Read<UserListItemResponseModel>(),
+                    queryResult.ReadFirst<long>());
             }, cancellationToken);
             return result;
         }

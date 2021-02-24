@@ -31,7 +31,7 @@ namespace FunctionalTests
         {
             ApiConfiguration.Configure(app, env)
                 .UseRouting()
-                .UseEndpoints(endpoints => endpoints.MapControllers()); 
+                .UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
 }

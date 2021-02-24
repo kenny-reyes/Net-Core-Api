@@ -10,15 +10,17 @@ namespace NetCoreApiScaffolding.Tools.Exceptions
         public IList<string> ErrorMessages { get; private set; }
 
         public DomainException()
-        { }
+        {
+        }
 
         public DomainException(SerializationInfo info, StreamingContext context)
             : base(info, context)
-        { }
-        
+        {
+        }
+
         public DomainException(string errorMessage) : base(errorMessage)
         {
-            ErrorMessages = new List<string> { errorMessage };
+            ErrorMessages = new List<string> {errorMessage};
         }
 
         public DomainException(IList<string> errorMessages)
