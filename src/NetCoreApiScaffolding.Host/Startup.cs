@@ -18,8 +18,8 @@ namespace NetCoreApiScaffolding.Host
     public class Startup
     {
         private const string AllowedOriginsPolicy = "AllowedOriginsPolicy";
-        private const string SpaSourcePath = "Spa";
-        private const string SpaStaticsPath = "Spa/dist";
+        private const string SpaSourcePath = "VueClient";
+        private const string SpaStaticsPath = "VueClient/dist";
         private const string LaunchOnlyApiVariable = "LAUNCH_ONLY_API";
 
         private readonly IConfiguration _configuration;
