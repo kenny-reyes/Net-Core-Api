@@ -57,7 +57,6 @@ export default class AuthService {
         return;
       case LogLevel.Warning:
         console.warn(message);
-        return;
     }
   }
 
@@ -65,7 +64,7 @@ export default class AuthService {
     router.beforeEach((to, from, next) => {
       if (to.matched.some((record) => record.meta.requiresAuth)) {
         if (!this.isAuthenticated()) {
-          this.signIn().then((response) => {});
+          this.signIn();
         } else {
           next();
         }
@@ -88,9 +87,7 @@ export default class AuthService {
         }
         return config;
       },
-      function (err) {
-        return Promise.reject(err);
-      }
+      (err) => Promise.reject(err)
     );
   }
 

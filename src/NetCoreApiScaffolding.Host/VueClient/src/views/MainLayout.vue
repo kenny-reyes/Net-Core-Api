@@ -2,8 +2,8 @@
   <v-app>
     <v-footer color="footer" app elevation="8">
       <div class="ml-auto">
-        <span class="mr-1">Ubicua Remote Monitoring by</span>
-        <a href="https://zertia.es" target="_blank">Zertia</a>
+        <span class="mr-1">{{ applicationTitle }} by</span>
+        <a :href="applicationCompanySite" target="_blank">{{ applicationCompany }}</a>
       </div>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
@@ -15,12 +15,7 @@
         <div class="d-flex align-items-center">
           <v-row>
             <v-col class="pa-0">
-              <v-img
-                :alt="applicationTitle"
-                :src="applicationIcon"
-                transition="scale-transition"
-                height="65px"
-              />
+              <v-img :alt="applicationTitle" :src="applicationIcon" transition="scale-transition" height="64px" />
             </v-col>
             <v-col class="align-self-center pa-1">
               <v-toolbar-title>{{ applicationTitle }}</v-toolbar-title>
@@ -33,15 +28,8 @@
 
       <ProfileMenu />
     </v-app-bar>
-    <v-navigation-drawer
-      color="navigationPanel"
-      v-model="drawer"
-      app
-      :mini-variant="mini"
-      clipped
-      permanent
-    >
-      <NavigationMenu :menuItems="menuItems" :wrapperIsMinified="mini" />
+    <v-navigation-drawer v-model="drawer" color="navigationPanel" app :mini-variant="mini" clipped permanent>
+      <NavigationMenu :menu-items="menuItems" :wrapper-is-minified="mini" />
     </v-navigation-drawer>
     <v-main class="main-content">
       <transition name="fade">
@@ -52,8 +40,8 @@
 </template>
 
 <script>
-import ProfileMenu from '@/components/mainLayout/ProfileMenu';
-import NavigationMenu from '@/components/mainLayout/NavigationDrawerMenu';
+import ProfileMenu from '../components/mainLayout/ProfileMenu.vue';
+import NavigationMenu from '../components/mainLayout/NavigationDrawerMenu.vue';
 
 export default {
   name: 'MainLayout',
@@ -64,12 +52,11 @@ export default {
   data() {
     return {
       applicationTitle: this.$rmConfig.appTitle,
-      applicationIcon: this.$rmConfig.darkTheme
-        ? this.$rmConfig.darkLogoIcon
-        : this.$rmConfig.lightLogoIcon,
+      applicationIcon: this.$rmConfig.darkTheme ? this.$rmConfig.darkLogoIcon : this.$rmConfig.lightLogoIcon,
+      applicationCompany: this.$rmConfig.appCompany,
+      applicationCompanySite: this.$rmConfig.appCompanySite,
       drawer: null,
       mini: true,
-      valor: false,
       menuItems: this.$rmConfig.menuItems.concat(this.$rmConfig.embeddedSections),
     };
   },

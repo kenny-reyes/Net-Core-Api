@@ -2,8 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 const MainLayout = () => import('@/views/MainLayout');
-const Dashboard = () => import('@/views/sections/Dashboard');
-const UserManager = () => import('@/views/sections/UserManager');
+const DashboardView = () => import('@/views/sections/Dashboard');
+const UserManagerView = () => import('@/views/sections/UserManager');
 const SettingsView = () => import('@/views/sections/Settings');
 
 Vue.use(Router);
@@ -19,7 +19,7 @@ function configRoutes() {
         {
           path: 'dashboard',
           name: 'Dashboard',
-          component: Dashboard,
+          component: DashboardView,
           meta: {
             requiresAuth: true,
           },
@@ -33,9 +33,9 @@ function configRoutes() {
           },
         },
         {
-          path: '/users',
+          path: 'users',
           name: 'User Manager',
-          component: UserManager,
+          component: UserManagerView,
         },
       ],
     },

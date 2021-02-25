@@ -3,20 +3,18 @@
     v-if="menuItem.children"
     :disabled="menuItem.isDisabled"
     :prepend-icon="isRoot ? menuItem.fontIcon : undefined"
-    :class="
-      'navigation-menu-list-group ' + (wrapperIsMinified ? 'wrapper-minified' : 'wrapper-collapsed')
-    "
+    :class="'navigation-menu-list-group ' + (wrapperIsMinified ? 'wrapper-minified' : 'wrapper-collapsed')"
     :sub-group="!isRoot"
     :title="wrapperIsMinified ? menuItem.name : ''"
   >
-    <template v-slot:activator>
-      <v-list-item-title v-text="menuItem.name"></v-list-item-title>
+    <template #activator>
+      <v-list-item-title v-text="menuItem.name" />
     </template>
     <NavigationMenuItem
       v-for="(child, index) in menuItem.children"
-      v-bind:key="menuItem.name + ' - ' + child.name + ' - ' + index"
-      :menuItem="child"
-      :wrapperIsMinified="wrapperIsMinified"
+      :key="menuItem.name + ' - ' + child.name + ' - ' + index"
+      :menu-item="child"
+      :wrapper-is-minified="wrapperIsMinified"
     />
   </v-list-group>
   <v-list-item
@@ -31,7 +29,7 @@
       <v-icon>{{ menuItem.fontIcon }}</v-icon>
     </v-list-item-icon>
     <v-list-item-content>
-      <v-list-item-title v-text="menuItem.name"></v-list-item-title>
+      <v-list-item-title v-text="menuItem.name" />
     </v-list-item-content>
   </v-list-item>
 </template>
@@ -39,7 +37,7 @@
 export default {
   name: 'NavigationMenuItem',
   props: {
-    menuItem: { type: Object },
+    menuItem: { type: Object, default: null },
     isRoot: Boolean,
     wrapperIsMinified: Boolean,
   },

@@ -1,5 +1,7 @@
 {
-  "appTitle": "",
+  "appTitle": "or app name",
+  "appCompany": "Company",
+  "appCompanySite": "www.company.url",
   "themes": {
     "light": {
       "primary": "#03a9f4",
@@ -29,8 +31,8 @@
     }
   },
   "darkTheme": false,
-  "lightLogoIcon": "./assets/logo.png",
-  "darkLogoIcon": "https://s3.amazonaws.com/eventtia/event_files/29192/original/kissclipartgenericlogopngclipartlogobrandorganization4818c12f0eb475ed15847524521584752452.png?1584752452",
+  "lightLogoIcon": "https://raw.githubusercontent.com/kenny-reyes/Net-Core-Api/master/src/NetCoreApiScaffolding.Host/VueClient/src/assets/logo.png",
+  "darkLogoIcon": "https://raw.githubusercontent.com/kenny-reyes/Net-Core-Api/master/src/NetCoreApiScaffolding.Host/VueClient/src/assets/logo.png",
   "menuItems": [
     {
       "name": "Dashboard",

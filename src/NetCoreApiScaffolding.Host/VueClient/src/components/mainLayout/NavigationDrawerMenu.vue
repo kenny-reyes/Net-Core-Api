@@ -4,9 +4,9 @@
       <NavigationMenuItem
         v-for="(menuItem, index) in menuItems"
         :key="'base' + index"
-        :menuItem="menuItem"
-        :isRoot="true"
-        :wrapperIsMinified="wrapperIsMinified"
+        :menu-item="menuItem"
+        :is-root="true"
+        :wrapper-is-minified="wrapperIsMinified"
       />
     </v-list-item-group>
   </v-list>
