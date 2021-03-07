@@ -81,3 +81,18 @@ Connect with running apiexercise container
 ```bash
 docker exec -it apiexercise bash
 ```
+
+### 4. Migrations
+
+Install Entity Framework cli:
+
+```bash
+dotnet tool install --global dotnet-ef
+```
+
+For creating new megrations use the next commnad.
+
+```bash
+dotnet ef migrations add "MigrationNameCamelCase" --project "src\NetCoreApiScaffolding.Infrastructure\NetCoreApiScaffolding.Infrastructure.csproj"  --startup-project "src\NetCoreApiScaffolding.Host"
+```
+
