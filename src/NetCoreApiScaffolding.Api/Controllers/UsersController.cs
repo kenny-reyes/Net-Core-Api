@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using NetCoreApiScaffolding.Application.Common;
-using NetCoreApiScaffolding.Application.Common.ResponseModels;
 using NetCoreApiScaffolding.Application.Users.CreateUser;
 using NetCoreApiScaffolding.Application.Users.DeleteUserById;
 using NetCoreApiScaffolding.Application.Users.GetUserById;
@@ -9,6 +8,7 @@ using NetCoreApiScaffolding.Application.Users.UpdateUser;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NetCoreApiScaffolding.Application.ResponseModels;
 
 namespace NetCoreApiScaffolding.Api.Controllers
 {

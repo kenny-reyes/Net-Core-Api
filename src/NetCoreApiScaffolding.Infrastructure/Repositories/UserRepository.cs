@@ -1,10 +1,10 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using NetCoreApiScaffolding.Application.Repositories.Users;
 using NetCoreApiScaffolding.Domain.Users;
 using NetCoreApiScaffolding.Infrastructure.Common;
 using NetCoreApiScaffolding.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
+using NetCoreApiScaffolding.Application.Interfaces.Repositories;
 
 namespace NetCoreApiScaffolding.Infrastructure.Repositories.Users
 {

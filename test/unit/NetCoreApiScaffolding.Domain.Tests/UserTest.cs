@@ -1,5 +1,4 @@
 ﻿using System;
-using NetCoreApiScaffolding.Domain.Exceptions;
 using NetCoreApiScaffolding.Domain.Users;
 using NetCoreApiScaffolding.Domain.Validations;
 using NetCoreApiScaffolding.Tools.Exceptions;

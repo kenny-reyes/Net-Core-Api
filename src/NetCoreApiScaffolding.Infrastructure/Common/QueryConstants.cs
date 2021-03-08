@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace NetCoreApiScaffolding.Infrastructure.Queries
+namespace NetCoreApiScaffolding.Infrastructure.Common
 {
-    public sealed class Constants
+    public sealed class QueryConstants
     {
         public static class SortOptions
         {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace NetCoreApiScaffolding.Infrastructure.Context
 {
-    public static class ExerciseContextInitializer
+    public static class DataBaseContextInitializer
     {
         public static void Initialize(DataBaseContext context)
         {

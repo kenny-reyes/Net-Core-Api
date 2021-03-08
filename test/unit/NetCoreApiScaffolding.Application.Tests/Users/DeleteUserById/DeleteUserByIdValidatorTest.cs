@@ -1,9 +1,9 @@
 ﻿using System.Threading;
-using NetCoreApiScaffolding.Application.Common.Queries;
 using NetCoreApiScaffolding.Application.Users.DeleteUserById;
 using FluentAssertions;
 using FluentValidation;
 using Moq;
+using NetCoreApiScaffolding.Application.Interfaces.Queries;
 using Xunit;
 
 namespace NetCoreApiScaffolding.Application.Tests.Users.DeleteUserById

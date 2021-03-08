@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using NetCoreApiScaffolding.Domain.Exceptions;
 using NetCoreApiScaffolding.Tools.Exceptions;
 
 namespace NetCoreApiScaffolding.Domain.Validations

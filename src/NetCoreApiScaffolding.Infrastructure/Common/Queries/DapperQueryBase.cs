@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 
-namespace NetCoreApiScaffolding.Infrastructure.Queries
+namespace NetCoreApiScaffolding.Infrastructure.Common.Queries
 {
     public class DapperQueryBase
     {

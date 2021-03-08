@@ -2,9 +2,9 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using NetCoreApiScaffolding.Application.Common;
-using NetCoreApiScaffolding.Application.Common.Queries;
 using NetCoreApiScaffolding.Domain.Users;
 using FluentValidation;
+using NetCoreApiScaffolding.Application.Interfaces.Queries;
 
 namespace NetCoreApiScaffolding.Application.Users.UpdateUser
 {

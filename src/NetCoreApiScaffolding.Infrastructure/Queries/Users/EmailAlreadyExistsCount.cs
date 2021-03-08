@@ -1,11 +1,12 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using NetCoreApiScaffolding.Application.Common.Queries;
 using NetCoreApiScaffolding.Domain.Users;
 using NetCoreApiScaffolding.Infrastructure.Context;
-using NetCoreApiScaffolding.Infrastructure.Queries.Contracts;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using NetCoreApiScaffolding.Application.Interfaces;
+using NetCoreApiScaffolding.Application.Interfaces.Queries;
+using NetCoreApiScaffolding.Infrastructure.Common.Queries;
 
 namespace NetCoreApiScaffolding.Infrastructure.Queries.Users
 {

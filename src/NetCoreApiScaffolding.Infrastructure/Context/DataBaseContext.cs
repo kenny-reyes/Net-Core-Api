@@ -1,8 +1,9 @@
 ﻿using System.Threading.Tasks;
 using NetCoreApiScaffolding.Application.Interfaces;
 using NetCoreApiScaffolding.Domain.Users;
-using NetCoreApiScaffolding.Infrastructure.Context.ModelConfigurations.Users;
 using Microsoft.EntityFrameworkCore;
+using NetCoreApiScaffolding.Infrastructure.Context.ModelConfigurations;
+using NetCoreApiScaffolding.Tools.Contracts;
 
 namespace NetCoreApiScaffolding.Infrastructure.Context
 {

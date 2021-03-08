@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace NetCoreApiScaffolding.Application.Common.Queries
+namespace NetCoreApiScaffolding.Application.Interfaces.Queries
 {
     public interface IIdExists
     {

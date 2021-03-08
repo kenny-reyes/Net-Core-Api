@@ -1,9 +1,9 @@
 using System.Threading;
 using System.Threading.Tasks;
-using NetCoreApiScaffolding.Application.Common.ResponseModels;
-using NetCoreApiScaffolding.Application.Repositories.Users;
 using NetCoreApiScaffolding.Domain.Users;
 using MediatR;
+using NetCoreApiScaffolding.Application.Interfaces.Repositories;
+using NetCoreApiScaffolding.Application.ResponseModels;
 
 namespace NetCoreApiScaffolding.Application.Users.CreateUser
 {

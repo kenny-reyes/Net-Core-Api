@@ -1,4 +1,4 @@
-﻿namespace NetCoreApiScaffolding.Application.Common.ResponseModels
+﻿namespace NetCoreApiScaffolding.Application.ResponseModels
 {
     public class GenderResponseModel
     {

@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using NetCoreApiScaffolding.Application.Repositories.Users;
 using MediatR;
+using NetCoreApiScaffolding.Application.Interfaces.Repositories;
 
 namespace NetCoreApiScaffolding.Application.Users.DeleteUserById
 {

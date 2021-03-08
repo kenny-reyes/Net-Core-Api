@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NetCoreApiScaffolding.Application.Common.ResponseModels
+namespace NetCoreApiScaffolding.Application.ResponseModels
 {
     public class UserResponseModel
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NetCoreApiScaffolding.Domain.Exceptions
+namespace NetCoreApiScaffolding.Tools.Exceptions
 {
     public class NotFoundException : Exception
     {

@@ -1,6 +1,6 @@
 ﻿using NetCoreApiScaffolding.Application.Common;
-using NetCoreApiScaffolding.Application.Common.ResponseModels;
 using MediatR;
+using NetCoreApiScaffolding.Application.ResponseModels;
 
 namespace NetCoreApiScaffolding.Application.Users.GetUsers
 {

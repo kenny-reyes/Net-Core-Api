@@ -1,8 +1,8 @@
 using System.Threading;
 using System.Threading.Tasks;
-using NetCoreApiScaffolding.Application.Common.Queries;
-using NetCoreApiScaffolding.Application.Common.ResponseModels;
 using MediatR;
+using NetCoreApiScaffolding.Application.Interfaces.Queries;
+using NetCoreApiScaffolding.Application.ResponseModels;
 
 namespace NetCoreApiScaffolding.Application.Users.GetUserById
 {

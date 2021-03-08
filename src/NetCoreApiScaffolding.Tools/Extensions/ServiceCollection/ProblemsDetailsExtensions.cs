@@ -1,11 +1,11 @@
 ﻿using System;
-using NetCoreApiScaffolding.Domain.Exceptions;
 using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NetCoreApiScaffolding.Tools.Exceptions;
 
 namespace NetCoreApiScaffolding.Tools.Extensions.ServiceCollection
 {

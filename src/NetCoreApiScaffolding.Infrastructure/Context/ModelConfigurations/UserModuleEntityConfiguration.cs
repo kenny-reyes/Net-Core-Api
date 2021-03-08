@@ -1,8 +1,8 @@
-﻿using NetCoreApiScaffolding.Domain.Users;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using NetCoreApiScaffolding.Domain.Users;
 
-namespace NetCoreApiScaffolding.Infrastructure.Context.ModelConfigurations.Users
+namespace NetCoreApiScaffolding.Infrastructure.Context.ModelConfigurations
 {
     public class UserEntityConfiguration : IEntityTypeConfiguration<User>
     {

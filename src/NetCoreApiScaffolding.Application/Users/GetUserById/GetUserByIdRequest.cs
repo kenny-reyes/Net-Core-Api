@@ -1,5 +1,5 @@
-﻿using NetCoreApiScaffolding.Application.Common.ResponseModels;
-using MediatR;
+﻿using MediatR;
+using NetCoreApiScaffolding.Application.ResponseModels;
 
 namespace NetCoreApiScaffolding.Application.Users.GetUserById
 {

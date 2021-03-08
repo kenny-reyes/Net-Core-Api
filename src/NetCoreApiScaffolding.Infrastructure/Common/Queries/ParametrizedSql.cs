@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace NetCoreApiScaffolding.Infrastructure.Queries
+namespace NetCoreApiScaffolding.Infrastructure.Common.Queries
 {
     public class ParametrizedSql
     {

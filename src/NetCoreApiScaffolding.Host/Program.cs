@@ -14,7 +14,7 @@ namespace NetCoreApiScaffolding.Host
         {
             CreateWebHostBuilder(args)
                 .Build()
-                .MigrateDbContext<DataBaseContext>(ExerciseContextInitializer.Initialize)
+                .MigrateDbContext<DataBaseContext>(DataBaseContextInitializer.Initialize)
                 .Run();
         }
 

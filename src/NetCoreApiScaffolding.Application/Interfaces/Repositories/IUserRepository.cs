@@ -1,9 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using NetCoreApiScaffolding.Application.Interfaces;
 using NetCoreApiScaffolding.Domain.Users;
 
-namespace NetCoreApiScaffolding.Application.Repositories.Users
+namespace NetCoreApiScaffolding.Application.Interfaces.Repositories
 {
     public interface IUserRepository : IRepository<User>
     {

@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using NetCoreApiScaffolding.Application.Common.ResponseModels;
+using NetCoreApiScaffolding.Application.ResponseModels;
 
-namespace NetCoreApiScaffolding.Application.Common.Queries
+namespace NetCoreApiScaffolding.Application.Interfaces.Queries
 {
     public interface IGetUserById
     {

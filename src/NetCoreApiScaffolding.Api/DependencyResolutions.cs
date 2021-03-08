@@ -2,13 +2,14 @@
 using NetCoreApiScaffolding.Application.Interfaces;
 using NetCoreApiScaffolding.Application.Users.GetUsers;
 using NetCoreApiScaffolding.Infrastructure.Context;
-using NetCoreApiScaffolding.Infrastructure.Queries.Contracts;
 using NetCoreApiScaffolding.Tools.Configuration;
 using NetCoreApiScaffolding.Tools.Extensions.Configuration;
 using MediatR;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NetCoreApiScaffolding.Infrastructure.Common.Queries;
+using NetCoreApiScaffolding.Tools.Contracts;
 
 namespace NetCoreApiScaffolding.Api
 {
@@ -26,12 +27,14 @@ namespace NetCoreApiScaffolding.Api
                 new SqlConnection(connectionStrings.DefaultConnection));
 
             services.Scan(scan =>
-                scan.FromAssemblyOf<IQuery>().AddClasses(classes => classes.AssignableTo<IQuery>())
+                scan.FromAssemblyOf<DapperQueryBase>().AddClasses(classes => classes.AssignableTo<IQuery>())
                     .AsImplementedInterfaces().WithScopedLifetime());
 
             services.Scan(scan =>
                 scan.FromAssemblyOf<DataBaseContext>().AddClasses(classes => classes.AssignableTo(typeof(IRepository<>)))
                     .AsImplementedInterfaces().WithScopedLifetime());
+
+            services.AddScoped<IUnitOfWork>(provider => provider.GetService<DataBaseContext>());
 
             return services;
         }

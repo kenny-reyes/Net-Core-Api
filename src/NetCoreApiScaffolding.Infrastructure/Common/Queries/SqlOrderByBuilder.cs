@@ -35,7 +35,7 @@ namespace NetCoreApiScaffolding.Infrastructure.Common.Queries
                 {
                     var sort = sorts.ElementAt(i);
                     var separator = i + 1 < sorts.Count ? "," : string.Empty;
-                    sql.Append($" {_columns[sort.Field]} {Constants.Sort.Directions[sort.Dir]}{separator}");
+                    sql.Append($" {_columns[sort.Field]} {QueryConstants.Sort.Directions[sort.Dir]}{separator}");
                 }
             }
             else

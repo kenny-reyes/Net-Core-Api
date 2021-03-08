@@ -10,7 +10,7 @@ I forked (technically I got the commits) from [my previous repository](https://g
 - [x] Contenize API with Docker watcher
 - [x] Add more unit tests and use mocks
 - [x] Finish integration tests
-- [ ] Develop a SPA, not choosen the framework yet (React or [Svelte](https://svelte.dev/))
+- [ ] Develop a SPA, not choosen the framework yet (React, VUE or [Svelte](https://svelte.dev/))
 - [x] Fix all bugs
 
 ## :rocket: &nbsp;Getting Started

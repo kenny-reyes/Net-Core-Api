@@ -2,16 +2,16 @@
 using System.Threading;
 using System.Threading.Tasks;
 using NetCoreApiScaffolding.Application.Common;
-using NetCoreApiScaffolding.Application.Common.Queries;
-using NetCoreApiScaffolding.Application.Common.ResponseModels;
 using NetCoreApiScaffolding.Application.Users.GetUsers;
 using NetCoreApiScaffolding.Domain.Users;
 using NetCoreApiScaffolding.Infrastructure.Common.Queries;
 using NetCoreApiScaffolding.Infrastructure.Context;
-using NetCoreApiScaffolding.Infrastructure.Queries.Contracts;
 using NetCoreApiScaffolding.Tools.Extensions;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using NetCoreApiScaffolding.Application.Interfaces;
+using NetCoreApiScaffolding.Application.Interfaces.Queries;
+using NetCoreApiScaffolding.Application.ResponseModels;
 
 namespace NetCoreApiScaffolding.Infrastructure.Queries.Users
 {
